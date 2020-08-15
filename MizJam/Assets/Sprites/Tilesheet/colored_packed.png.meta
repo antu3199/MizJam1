@@ -2140,7 +2140,7 @@ TextureImporter:
     second: colored_packed_710
   - first:
       213: -279146466601865635
-    second: colored_packed_711
+    second: border_outline_2_711
   - first:
       213: -7516360046614840194
     second: colored_packed_712
@@ -2242,13 +2242,13 @@ TextureImporter:
     second: colored_packed_744
   - first:
       213: -397318819659935315
-    second: colored_packed_745
+    second: border_fill_1_745
   - first:
       213: -8776629811981754845
-    second: colored_packed_746
+    second: border_outline_746
   - first:
       213: 5593995844831110606
-    second: colored_packed_747
+    second: border_fill_2_747
   - first:
       213: 461658762454775714
     second: colored_packed_748
@@ -2284,7 +2284,7 @@ TextureImporter:
     second: colored_packed_758
   - first:
       213: 5049258560665330469
-    second: colored_packed_759
+    second: border_fill_759
   - first:
       213: 1705808505900590503
     second: colored_packed_760
@@ -5305,7 +5305,7 @@ TextureImporter:
     second: colored_packed_710
   - first:
       213: -9133149269456061936
-    second: colored_packed_711
+    second: border_outline_2_711
   - first:
       213: -161815955416865912
     second: colored_packed_712
@@ -5407,13 +5407,13 @@ TextureImporter:
     second: colored_packed_744
   - first:
       213: -827162504482686847
-    second: colored_packed_745
+    second: border_fill_1_745
   - first:
       213: 2219728201116991441
-    second: colored_packed_746
+    second: border_outline_746
   - first:
       213: -7673857587483521847
-    second: colored_packed_747
+    second: border_fill_2_747
   - first:
       213: -2392810129932737711
     second: colored_packed_748
@@ -5449,7 +5449,7 @@ TextureImporter:
     second: colored_packed_758
   - first:
       213: -589485060582275242
-    second: colored_packed_759
+    second: border_fill_759
   - first:
       213: 8837086330743829598
     second: colored_packed_760
@@ -21365,7 +21365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colored_packed_711
+      name: border_outline_2_711
       rect:
         serializedVersion: 2
         x: 624
@@ -22079,7 +22079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colored_packed_745
+      name: border_fill_1_745
       rect:
         serializedVersion: 2
         x: 400
@@ -22100,7 +22100,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colored_packed_746
+      name: border_outline_746
       rect:
         serializedVersion: 2
         x: 416
@@ -22121,7 +22121,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colored_packed_747
+      name: border_fill_2_747
       rect:
         serializedVersion: 2
         x: 432
@@ -22373,7 +22373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colored_packed_759
+      name: border_fill_759
       rect:
         serializedVersion: 2
         x: 624
