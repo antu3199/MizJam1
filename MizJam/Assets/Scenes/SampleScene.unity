@@ -1544,6 +1544,7 @@ GameObject:
   - component: {fileID: 741965910}
   - component: {fileID: 741965912}
   - component: {fileID: 741965911}
+  - component: {fileID: 741965913}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -8554,6 +8555,21 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &741965913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741965909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76457c7d9248fc4b84fa126b24692a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapEvents: []
+  moveMap: 1
+  moveMapSpeed: 1
 --- !u!1 &781262413
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,8 +8579,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 781262414}
+  - component: {fileID: 781262415}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Controllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8584,6 +8601,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781262415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781262413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9f1f63b30ed944eb34c980d5eb103c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMap: {fileID: 741965913}
+  mapMoveSpeed: 1
 --- !u!1 &853177608
 GameObject:
   m_ObjectHideFlags: 0
