@@ -76,7 +76,7 @@ TextureImporter:
     second: monochrome_transparent_packed_23
   - first:
       213: 8000117828308700731
-    second: monochrome_transparent_packed_24
+    second: player_base_monochrome_transparent_packed_24
   - first:
       213: 2347369921621585979
     second: monochrome_transparent_packed_25
@@ -1981,7 +1981,7 @@ TextureImporter:
     second: monochrome_transparent_packed_658
   - first:
       213: -5787184411713654936
-    second: monochrome_transparent_packed_659
+    second: exclamation_monochrome_transparent_packed_659
   - first:
       213: -4013754304039516778
     second: monochrome_transparent_packed_660
@@ -3767,7 +3767,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_24
+      name: player_base_monochrome_transparent_packed_24
       rect:
         serializedVersion: 2
         x: 400
@@ -17102,7 +17102,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_659
+      name: exclamation_monochrome_transparent_packed_659
       rect:
         serializedVersion: 2
         x: 576
