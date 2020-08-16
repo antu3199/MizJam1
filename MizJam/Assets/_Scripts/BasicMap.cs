@@ -61,7 +61,7 @@ public class BasicMap : MonoBehaviour
         }
 
         if (this.moveMap) {
-            this.MoveMap(this.moveMapSpeed);
+            this.MoveMap( GameManager.Instance.gameController.mapScroller.mapMoveSpeed );
         }
     }
     

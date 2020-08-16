@@ -2134,7 +2134,7 @@ TextureImporter:
     second: monochrome_transparent_packed_709
   - first:
       213: 238175507348260450
-    second: monochrome_transparent_packed_710
+    second: border_outlinemonochrome_transparent_packed_710
   - first:
       213: -1617881620370455910
     second: monochrome_transparent_packed_711
@@ -2278,7 +2278,7 @@ TextureImporter:
     second: monochrome_transparent_packed_757
   - first:
       213: -4791745488033725501
-    second: monochrome_transparent_packed_758
+    second: border_monochrome_transparent_packed_758
   - first:
       213: 6972437396457021282
     second: monochrome_transparent_packed_759
@@ -18173,7 +18173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_710
+      name: border_outlinemonochrome_transparent_packed_710
       rect:
         serializedVersion: 2
         x: 624
@@ -18182,7 +18182,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -19181,7 +19181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_758
+      name: border_monochrome_transparent_packed_758
       rect:
         serializedVersion: 2
         x: 624
@@ -19190,7 +19190,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
