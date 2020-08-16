@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class LogController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    public AutoType typer;
+
+    public IEnumerator TypeAnimation(string message) {
+        yield return typer.TypeText(message);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ClearLogText() {
+        this.typer.ClearText();
     }
 }

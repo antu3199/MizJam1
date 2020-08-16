@@ -12,7 +12,7 @@ public class MapEvent {
 
     public bool hasTriggered = false;
     public bool playerMoving = true;
-    public UnityAction triggerEvent = null;
+    public UnityEvent triggerEvent = null;
 };
 
 public class BasicMap : MonoBehaviour
@@ -20,9 +20,6 @@ public class BasicMap : MonoBehaviour
     public List<MapEvent> mapEvents;
 
     const int VISIBLE_X = 36;
-
-    public bool moveMap = true;
-    public float moveMapSpeed = 1f;
 
     protected Action<BasicMap> onLoadNextMap = null;
     protected Action<BasicMap> onDestroy = null;
@@ -46,19 +43,22 @@ public class BasicMap : MonoBehaviour
         MapEvent destroyEvent = new MapEvent();
         destroyEvent.identifier = "Destroy event";
         destroyEvent.positionToTrigger = -VISIBLE_X;
-        destroyEvent.triggerEvent = DestroyMap;
+        destroyEvent.triggerEvent = new UnityEvent();
+        destroyEvent.triggerEvent.AddListener(this.DestroyMap);
         this.mapEvents.Add(destroyEvent);
 
         MapEvent loadNextMapEvent = new MapEvent();
         loadNextMapEvent.identifier = "Load next map event";
         loadNextMapEvent.positionToTrigger = VISIBLE_X/2;
-        loadNextMapEvent.triggerEvent = this.LoadNextMap;
+        loadNextMapEvent.triggerEvent = new UnityEvent();
+        loadNextMapEvent.triggerEvent.AddListener(this.LoadNextMap);
         this.mapEvents.Add(loadNextMapEvent);
 
         MapEvent setCenterMapEvent = new MapEvent();
         setCenterMapEvent.identifier = "Load next map event";
         setCenterMapEvent.positionToTrigger = VISIBLE_X/2;
-        setCenterMapEvent.triggerEvent = this.LoadNextMap;
+        setCenterMapEvent.triggerEvent = new UnityEvent();
+        setCenterMapEvent.triggerEvent.AddListener(this.SetAsCenterMap);
         this.mapEvents.Add(loadNextMapEvent);
 
         this.DoInitialize();
@@ -73,9 +73,12 @@ public class BasicMap : MonoBehaviour
             if (!mapEvent.hasTriggered && this.GetPosition() <= mapEvent.positionToTrigger) {
                 if (mapEvent.triggerEvent != null) {
                     Debug.Log(this.name + " Trigger event: " + mapEvent.identifier);
-                    mapEvent.triggerEvent();
+                    mapEvent.triggerEvent.Invoke();
                 } else {
                     Debug.LogError("ERROR: Trigger event was null!: " + mapEvent.identifier);
+                }
+                if (mapEvent.playerMoving == false) {
+                    GameManager.Instance.gameController.mapScroller.SetMapMovable(false);
                 }
 
                 mapEvent.hasTriggered = true;
@@ -88,9 +91,7 @@ public class BasicMap : MonoBehaviour
             this.mapEvents = this.mapEvents.Filter(mapEvent => !mapEvent.hasTriggered);
         }
 
-        if (this.moveMap) {
-            this.MoveMap( GameManager.Instance.gameController.mapScroller.mapMoveSpeed );
-        }
+        this.MoveMap( GameManager.Instance.gameController.mapScroller.mapMoveSpeed );
     }
     
     public virtual void DoInitialize() {
@@ -105,9 +106,6 @@ public class BasicMap : MonoBehaviour
         this.transform.position = this.transform.position + new Vector3(-delta * Time.deltaTime, 0, 0);
     }
 
-    protected void SetMapMovable(bool moveable) {
-        this.moveMap = moveable;
-    }
 
     protected float GetPosition() {
         return this.transform.position.x;

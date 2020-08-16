@@ -5,15 +5,15 @@ using UnityEngine.UI;
 public class AutoType : MonoBehaviour {
 	public float letterPause = 0.01f;
 	public float longerPause = 0.2f;
+    public float afterDelay = 1f;
 
 	public AudioClip sound;
 	public Text guiText;
-	string message;
 
-	float ThisTime;
-	bool BreakLoop = false;
+	float thisTime;
 
 	// Use this for initialization
+    /*
 	void Start () {
 		message = guiText.text;
 		guiText.text = "";
@@ -26,20 +26,23 @@ public class AutoType : MonoBehaviour {
 			BreakLoop = true;
 		}
 	}
+    */
 	
-	IEnumerator TypeText () {
-		ThisTime = (Time.time);
+    public void ClearText() {
+        guiText.text = "";
+    }
+
+	public IEnumerator TypeText (string message) {
+        this.ClearText();
+		thisTime = (Time.time);
 	
 		foreach (char letter in message.ToCharArray()) {
-			if (BreakLoop){
-				break;
-			}
 			//Advances text
 			guiText.text += letter;
 
 			//Limit sound frequency and play sound
-			if (Time.time > ThisTime + 0.1f){
-				ThisTime = Time.time;
+			if (Time.time > thisTime + 0.1f){
+				thisTime = Time.time;
                 GameManager.Instance.audio.PlayOneShot(this.sound);
 			}
 
@@ -51,6 +54,8 @@ public class AutoType : MonoBehaviour {
 				yield return new WaitForSeconds (letterPause);
 			}
 
-		}      
+		}
+
+        yield return new WaitForSeconds(afterDelay);
 	}
 }
