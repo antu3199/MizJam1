@@ -21,6 +21,6 @@ public class GameController : MonoBehaviour
     }
 
     public void Update() {
-        GameManager.Instance.gameState.AddCoins(GameManager.Instance.gameState.CPS * Time.deltaTime);
+        GameManager.Instance.gameState.AddGold(GameManager.Instance.gameState.GPS * Time.deltaTime);
     }
 }

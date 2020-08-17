@@ -307,6 +307,7 @@ MonoBehaviour:
   - name: Sword
     description: A handy sword
     icon: {fileID: 1773114259333237010, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 1
 --- !u!114 &1364476240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,5 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8aa51bb8689ac44be42222b2adc642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CPS: 0
-  Coins: 0
+  GPS: 0
+  Gold: 0
+  items: []

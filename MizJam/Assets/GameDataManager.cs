@@ -11,7 +11,8 @@ public class GameDataManager : MonoBehaviour {
         GameManager.Instance.gameState.items = new List<Item>();
         for (int i = 0; i < marketItems.Count; i++) {
             ItemCreationData creationData = marketItems[i];
-            GameManager.Instance.gameState.items.Add(new Item(i, creationData));
+            Item item = new Item(i, creationData, creationData.DEBUG_initialOwned);
+            GameManager.Instance.gameState.items.Add(item);
         }
     }
 

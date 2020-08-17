@@ -4,35 +4,43 @@ using UnityEngine;
 
 public class GameState : PersistableObject
 {
-    public double CPS = 0;
+    public double GPS = 0;
 
     // Saveables ===
-    public double Coins;
+    public double gold;
     public List<Item> items;
 
     // ===
 
     public void Initialize() {
-        
+
     }
 
     public void AfterLoad() {
-        this.UpdateCPS();
+        this.UpdateGPS();
     }
 
-    public void UpdateCPS() {
-        CPS = 0;
+    public void UpdateGPS(bool ignoreBroadcastIfNoChange = true) {
+        double oldGPS = this.GPS;
+        GPS = 0;
         foreach (Item item in this.items) {
-            CPS += item.GetGoldProduction(); 
+            GPS += item.GetGoldProduction(); 
+        }
+
+        if (!ignoreBroadcastIfNoChange || oldGPS != GPS) {
+            Messenger.Broadcast<ResourceUpdate>(Messages.OnGPSUpdate, new ResourceUpdate(Resource.GPS, GPS, this.GPS));
         }
     }
 
-    public void AddCoins(double coinAmount) {
-        this.Coins += coinAmount;
+    public void AddGold(double goldAmount) {
+        double oldGold = this.gold;
+        this.gold += goldAmount;
+
+        Messenger.Broadcast<ResourceUpdate>(Messages.OnGoldUpdate, new ResourceUpdate(Resource.GOLD, oldGold, this.gold));
     }
     
 	public override void Save (GameDataWriter writer) {
-        writer.Write(Coins);
+        writer.Write(gold);
         writer.Write(items.Count);
         for (int i = 0; i < items.Count; i++) {
             items[i].Save(writer);
