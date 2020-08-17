@@ -249,6 +249,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8139179435440924779}
   - component: {fileID: 7673137206083235614}
+  - component: {fileID: 1364476239}
+  - component: {fileID: 1364476240}
+  - component: {fileID: 1364476241}
+  - component: {fileID: 7520835438112392745}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -284,3 +288,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8965954192573908599}
+  gameStorage: {fileID: 1364476240}
+  gameData: {fileID: 1364476239}
+  gameState: {fileID: 7520835438112392745}
+--- !u!114 &1364476239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743770484985925094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfb3573695fef54694d6a039559d423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marketItems:
+  - name: Sword
+    description: A handy sword
+    icon: {fileID: 1773114259333237010, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+--- !u!114 &1364476240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743770484985925094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b777e8a4ea859664aa8d07123f17e9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storage: {fileID: 1364476241}
+--- !u!114 &1364476241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743770484985925094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1e5f11d22b94bd2abab45156b817d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7520835438112392745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743770484985925094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8aa51bb8689ac44be42222b2adc642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CPS: 0
+  Coins: 0
