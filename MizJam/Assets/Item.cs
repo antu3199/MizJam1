@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ItemBoughtMessage {
-    public Item item;
-    public ItemBoughtMessage(Item item) {
-        this.item = item;
-    }
-};
 
 [System.Serializable]
 public class Item : PersistableClass
@@ -37,10 +31,11 @@ public class Item : PersistableClass
     }
 
     public void SetOwned(int newOwned) {
+        int oldOwned = this.owned;
         this.owned = newOwned;
         this.cost = Currency.GetCostToUpgrade(baseCost, owned);
         GameManager.Instance.gameState.UpdateGPS();
-        Messenger.Broadcast<ItemBoughtMessage>(Messages.OnItemBuy, new ItemBoughtMessage(this));
+        Messenger.Broadcast<ItemUpdate>(Messages.OnItemBuy, new ItemUpdate(this.index, oldOwned, this.owned));
     }
 
 

@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     
     public MapScroller mapScroller;
     public LogController logController;
+    public RewardObjectAnimator rewardObjectAnimatorPrefab;
 
 
     public void Start() {
@@ -35,5 +36,11 @@ public class GameController : MonoBehaviour
         if (GameManager.Instance.gameStorage.timeSinceLastSave >= GameManager.Instance.gameStorage.autoSaveTime) {
             GameManager.Instance.gameStorage.SaveGame();
         }
+    }
+
+    public void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {
+        RewardObjectAnimator rewardObject = Instantiate(this.rewardObjectAnimatorPrefab, parent) as RewardObjectAnimator;
+        rewardObject.transform.position = position;
+        rewardObject.Initialize(reward);
     }
 }

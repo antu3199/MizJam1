@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1734589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734590}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 145469522349879268}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1741603442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1741603443}
+  m_Layer: 0
+  m_Name: RewardTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1741603443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741603442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.53, y: 6.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 145469522349879268}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &145469522349879271
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +89,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1741603443}
+  - {fileID: 1734590}
+  - {fileID: 8795382463563075410}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5130,8 +5193,8 @@ Tilemap:
   - first: {x: 6, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5139,8 +5202,8 @@ Tilemap:
   - first: {x: 7, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 10
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5149,7 +5212,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5158,7 +5221,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5175,8 +5238,8 @@ Tilemap:
   - first: {x: 11, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 10
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6875,7 +6938,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 718
+  - m_RefCount: 717
     m_Data: {fileID: 11400000, guid: 24a677f6d8e33f4488907d67d770af6d, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6895,10 +6958,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: c721d7cdc95a4b741b168f7ce2cb1bcb, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 998b7c9dfc9e7ba4ea9d061a334db1cb, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d41ecbe32432a5244a1d2c96f44aaffb, type: 2}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: e293dc9c89dc3054b8bf0e4d2822d089, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 718
+  - m_RefCount: 717
     m_Data: {fileID: 5796111093026465596, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
   - m_RefCount: 0
@@ -6915,17 +6978,17 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -474224122544397703, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 6323585311425368906, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
+  - m_RefCount: 2
+    m_Data: {fileID: 4981835433820443109, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
   - m_RefCount: 36
     m_Data: {fileID: -1348352767817407030, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -2103619482320811382, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
+    m_Data: {fileID: 6323585311425368906, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 8230054176284211154, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
+    m_Data: {fileID: -2103619482320811382, guid: ce0b3ef5e379a9a49a080aba45ebdabf,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 759
@@ -7052,4 +7115,99 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   messages:
-  - It's dangerous to go alone! Take this.
+  - message: It's dangerous to go alone! Take this.
+    icon: {fileID: -8263105801004086612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+  rewards:
+  - value: 0.2
+    indexIfItem: 0
+    icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+    iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
+    rewardType: 0
+  - value: 1
+    indexIfItem: 0
+    icon: {fileID: -8016213982129722612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+    iconColor: {r: 0.8117648, g: 0.77647066, b: 0.72156864, a: 1}
+    rewardType: 2
+  rewardTransform: {fileID: 1741603443}
+--- !u!1 &4255933194812983174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8795382463563075410}
+  - component: {fileID: 1670531977074011567}
+  m_Layer: 0
+  m_Name: WizardMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8795382463563075410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255933194812983174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.49, y: 5.509, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 145469522349879268}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1670531977074011567
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255933194812983174}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1111528411663771762, guid: 87c71c4bcaf52bf43be88648abdc66b4,
+    type: 3}
+  m_Color: {r: 0.8117648, g: 0.77647066, b: 0.72156864, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

@@ -556,7 +556,7 @@ TextureImporter:
     second: monochrome_transparent_packed_183
   - first:
       213: -9161947809214162045
-    second: monochrome_transparent_packed_184
+    second: gold_monochrome_transparent_packed_184
   - first:
       213: -6414341988987347148
     second: monochrome_transparent_packed_185
@@ -700,7 +700,7 @@ TextureImporter:
     second: monochrome_transparent_packed_231
   - first:
       213: -2740495914449344977
-    second: monochrome_transparent_packed_232
+    second: gold_monochrome_transparent_packed_232
   - first:
       213: -3582565090966599422
     second: monochrome_transparent_packed_233
@@ -3266,8 +3266,8 @@ TextureImporter:
       name: monochrome_transparent_packed_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 336
+        x: 0
+        y: 310
         width: 16
         height: 16
       alignment: 0
@@ -7127,7 +7127,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_184
+      name: gold_monochrome_transparent_packed_184
       rect:
         serializedVersion: 2
         x: 656
@@ -8135,7 +8135,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_packed_232
+      name: gold_monochrome_transparent_packed_232
       rect:
         serializedVersion: 2
         x: 656

@@ -20,13 +20,14 @@ public class Market : MonoBehaviour
             this.marketItems.Add(marketItem);
         }
 
-        Messenger.AddListener<ItemBoughtMessage>(Messages.OnItemBuy, this.OnItemBuy);
+        Messenger.AddListener<ItemUpdate>(Messages.OnItemBuy, this.OnItemBuy);
 
         this.UpdateShownItems();
         // TODO: Only show items up to owned+1 
     }
 
-    private void OnItemBuy(ItemBoughtMessage message) {
+    private void OnItemBuy(ItemUpdate message) {
+        marketItems[message.itemIndex].UpdateAll();
         this.UpdateShownItems();
     }
 

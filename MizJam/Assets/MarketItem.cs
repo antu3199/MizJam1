@@ -17,13 +17,7 @@ public class MarketItem : MonoBehaviour
 
     public void Initialize(Item item) {
         this.item = item;
-        this.UpdateTitle();
-        if (item.CreationData.icons[0] != null) {
-            spriteIcon.sprite = item.CreationData.icons[0];
-        }
-
-        this.UpdateCost();
-        this.UpdateDescription();
+        this.UpdateAll();
 
         Messenger.AddListener<ResourceUpdate>(Messages.OnGoldUpdate, this.OnGoldUpdate);
         // TODO: on buy, need to update cost, amount
@@ -78,7 +72,7 @@ public class MarketItem : MonoBehaviour
         if (GameManager.Instance.gameState.gold >= item.cost) {
             item.SetOwned(item.owned + 1);
             GameManager.Instance.gameState.AddGold(-item.cost);
-            this.UpdateAll();
+            //this.UpdateAll();
             GameManager.Instance.gameStorage.SaveGame();
         }
     }

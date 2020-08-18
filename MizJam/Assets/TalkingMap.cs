@@ -6,7 +6,13 @@ public class TalkingMap : BasicMap
 {
     // Start is called before the first frame update
 
-    public List<string> messages;
+    const float REWARD_RECEIVE_DELAY = 0.5f;
+
+    public List<LogMessage> messages;
+    public List<Reward> rewards;
+
+    public Transform rewardTransform;
+
     protected LogController logController;
 
     public override void DoInitialize() {
@@ -20,8 +26,13 @@ public class TalkingMap : BasicMap
 
     protected IEnumerator beginTalkingCor() {
 
-        foreach (string message in messages) {
+        foreach (LogMessage message in messages) {
             yield return logController.TypeAnimation(message);
+        }
+
+        foreach (Reward reward in rewards) {
+            GameManager.Instance.gameController.InstantiateReward(reward, rewardTransform.position, rewardTransform);
+            yield return new WaitForSeconds(REWARD_RECEIVE_DELAY);
         }
 
         this.logController.ClearLogText();

@@ -9,7 +9,8 @@ public class Messages {
 public enum Resource {
     GOLD,
     GPS,
-    STAT_ATTACK
+    STAT_ATTACK,
+    ITEM
 };
 
 public class ResourceUpdate {
@@ -25,3 +26,12 @@ public class ResourceUpdate {
 };
 
 
+public class ItemUpdate : ResourceUpdate {
+    public int itemIndex;
+
+    public ItemUpdate(int itemIndex, double valueBefore, double valueAfter) 
+    : base(Resource.ITEM, valueBefore, valueAfter)
+    {
+        this.itemIndex = itemIndex;
+    }
+}
