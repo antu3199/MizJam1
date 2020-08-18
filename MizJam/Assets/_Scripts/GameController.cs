@@ -21,6 +21,19 @@ public class GameController : MonoBehaviour
     }
 
     public void Update() {
+        if (Input.GetKeyDown("1")) {
+            GameManager.Instance.gameStorage.SaveGame();
+        }
+
+        if (Input.GetKeyDown("2")) {
+            GameManager.Instance.gameStorage.DeleteSaveFile();
+        }
+
         GameManager.Instance.gameState.AddGold(GameManager.Instance.gameState.GPS * Time.deltaTime);
+
+        GameManager.Instance.gameStorage.timeSinceLastSave += Time.deltaTime;
+        if (GameManager.Instance.gameStorage.timeSinceLastSave >= GameManager.Instance.gameStorage.autoSaveTime) {
+            GameManager.Instance.gameStorage.SaveGame();
+        }
     }
 }

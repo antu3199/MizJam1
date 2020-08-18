@@ -23,14 +23,16 @@ public class Currency
 
 
     // Source: https://gameanalytics.com/blog/idle-game-mathematics.html
-    private const double MULTIPLIER = 1.08; // Random constant between 1.08 and 1.15
+    private const double MULTIPLIER = 1.07; // Random constant between 1.08 and 1.15
     private const int BASE_COST_MULTIPLIER = 10;
     private const int BASE_RATE_MULTIPLIER = 30;
         
 
     // Used for setup 
     public static double GetBaseCost(int itemNumber) {
-        return Math.Pow(MULTIPLIER, BASE_COST_MULTIPLIER * itemNumber);
+
+        return GetBaseRate(itemNumber) * (7 + itemNumber * 1.5);
+       // return Math.Pow(MULTIPLIER, BASE_COST_MULTIPLIER * itemNumber);
     }
 
     public static double GetBaseRate(int itemNumber) {

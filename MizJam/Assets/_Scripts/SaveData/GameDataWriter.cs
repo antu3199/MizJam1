@@ -10,14 +10,17 @@ public class GameDataWriter {
 	}
 
 	public void Write (float value) {
+        //Debug.Log("Save value: " + value);
 		writer.Write(value);
 	}
 
 	public void Write (int value) {
+        //Debug.Log("Save value: " + value);
 		writer.Write(value);
 	}
 
     public void Write(double value) {
+        //Debug.Log("Save value: " + value);
         writer.Write(value);
     }
 

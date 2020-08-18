@@ -10,11 +10,21 @@ public class GameDataReader {
 	}
 
 	public float ReadFloat () {
-		return reader.ReadSingle();
+        float val = reader.ReadSingle();
+        //Debug.Log("Load value: " + val);
+		return val;
 	}
 
+    public double ReadDouble() {
+        double val = reader.ReadDouble();
+        //Debug.Log("Load value: " + val);
+        return val;
+    }
+
 	public int ReadInt () {
-		return reader.ReadInt32();
+        int val = reader.ReadInt32();
+        //Debug.Log("Load value: " + val);
+		return val;
 	}
 
 	public Quaternion ReadQuaternion () {

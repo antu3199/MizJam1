@@ -48,6 +48,7 @@ public class GameState : PersistableObject
 	}
 
 	public override void Load (GameDataReader reader) {
+        this.gold = reader.ReadDouble();
         int itemsCount = reader.ReadInt();
         for (int i = 0; i < items.Count; i++) {
             items[i].Load(reader);

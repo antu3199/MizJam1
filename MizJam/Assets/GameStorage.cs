@@ -7,6 +7,8 @@ public class GameStorage : PersistableObject {
     
     public PersistentStorage storage;
 
+    public float autoSaveTime = 10f;
+    public float timeSinceLastSave = 0f;
 
     public void Initialize() {
         this.LoadGame();
@@ -14,7 +16,12 @@ public class GameStorage : PersistableObject {
     }
 
     public void SaveGame() {
+        this.timeSinceLastSave = 0;
         storage.Save(this);
+    }
+
+    public void DeleteSaveFile() {
+        storage.DeleteSaveFile();
     }
 
     public void LoadGame() {

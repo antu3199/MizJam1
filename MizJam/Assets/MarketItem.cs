@@ -54,7 +54,7 @@ public class MarketItem : MonoBehaviour
 
     public void UpdateTitle() {
         string title = item.CreationData.name;
-        if (item.owned > 1) {
+        if (item.owned >= 1) {
             title += " *" + item.owned;
         }
 
@@ -66,7 +66,23 @@ public class MarketItem : MonoBehaviour
     }
 
     public void UpdateDescription() {
-        this.descText.text = "+" + this.item.baseRate + " GPS"; 
+        this.descText.text = "+" + Currency.CurrencyToString(this.item.baseRate) + " GPS"; 
+    }
+
+    public void UpdateSprite() {
+        Sprite theSprite = null;
+
+        if (item.owned >= 1000) {
+            theSprite = item.CreationData.icons[3];
+        } else if (item.owned >= 500) {
+            theSprite = item.CreationData.icons[2];
+        } else if (item.owned >= 25) {
+            theSprite = item.CreationData.icons[1];
+        } else {
+            theSprite = item.CreationData.icons[0];
+        }
+
+        this.spriteIcon.sprite = theSprite;
     }
 
     public void BuyItem() {
@@ -74,6 +90,7 @@ public class MarketItem : MonoBehaviour
             item.SetOwned(item.owned + 1);
             GameManager.Instance.gameState.AddGold(-item.cost);
             this.UpdateAll();
+            GameManager.Instance.gameStorage.SaveGame();
         }
     }
 }

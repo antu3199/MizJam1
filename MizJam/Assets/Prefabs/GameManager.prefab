@@ -359,7 +359,7 @@ MonoBehaviour:
     - {fileID: 3076152179064284722, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 3571034078020712203, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -2685658789620927057, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
-    DEBUG_initialOwned: 1
+    DEBUG_initialOwned: 0
   - name: Necklace
     description: A handy sword
     icons:

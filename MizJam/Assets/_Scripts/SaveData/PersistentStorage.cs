@@ -29,7 +29,6 @@ public class PersistentStorage : MonoBehaviour {
 		}
 	}
 
-
 	public void Load (PersistableObject o) {
         Debug.Log("Loading file: " + this.savePath);
         if (!File.Exists(this.savePath)) {
@@ -60,6 +59,7 @@ public class PersistentStorage : MonoBehaviour {
 
     // :(
     public void DeleteSaveFile() {
+        Debug.Log("Deleting save: " + this.savePath);
         File.Delete(this.savePath);
     }
 }
