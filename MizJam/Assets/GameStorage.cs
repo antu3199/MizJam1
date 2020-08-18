@@ -11,6 +11,7 @@ public class GameStorage : PersistableObject {
     public float timeSinceLastSave = 0f;
 
     public void Initialize() {
+        this.storage.Initialize();
         this.LoadGame();
         GameManager.Instance.AfterLoad();
     }

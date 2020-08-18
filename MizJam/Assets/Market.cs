@@ -17,9 +17,41 @@ public class Market : MonoBehaviour
         for (int i = 0; i < items.Count; i++) {
             MarketItem marketItem = Instantiate(marketItemPrefab, marketItemTransform) as MarketItem;
             marketItem.Initialize(items[i]);
+            this.marketItems.Add(marketItem);
         }
 
+        Messenger.AddListener<ItemBoughtMessage>(Messages.OnItemBuy, this.OnItemBuy);
+
+        this.UpdateShownItems();
         // TODO: Only show items up to owned+1 
+    }
+
+    private void OnItemBuy(ItemBoughtMessage message) {
+        this.UpdateShownItems();
+    }
+
+
+    public void UpdateShownItems() {
+        int indexToShow = -1;
+        for (int i = 0; i < marketItems.Count; i++) {
+            if (marketItems[i].item.owned == 0) {
+                indexToShow = i;
+                break;
+            }
+        }
+
+        if (indexToShow == -1) {
+            indexToShow = marketItems.Count-1;
+        }
+        
+
+        for (int i = 0; i <= indexToShow; i++) {
+            marketItems[i].gameObject.SetActive(true);
+        }
+
+        for (int i = indexToShow+1; i < marketItems.Count; i++) {
+            marketItems[i].gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame

@@ -34,6 +34,7 @@ public class MarketItem : MonoBehaviour
         this.UpdateTitle();
         this.UpdateDescription();
         this.UpdateHighlighted();
+        this.UpdateSprite();
     }
 
 
@@ -70,19 +71,7 @@ public class MarketItem : MonoBehaviour
     }
 
     public void UpdateSprite() {
-        Sprite theSprite = null;
-
-        if (item.owned >= 1000) {
-            theSprite = item.CreationData.icons[3];
-        } else if (item.owned >= 500) {
-            theSprite = item.CreationData.icons[2];
-        } else if (item.owned >= 25) {
-            theSprite = item.CreationData.icons[1];
-        } else {
-            theSprite = item.CreationData.icons[0];
-        }
-
-        this.spriteIcon.sprite = theSprite;
+        this.spriteIcon.sprite = this.item.GetSprite();
     }
 
     public void BuyItem() {

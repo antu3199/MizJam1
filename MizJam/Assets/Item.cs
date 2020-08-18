@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class ItemBoughtMessage {
+    public Item item;
+    public ItemBoughtMessage(Item item) {
+        this.item = item;
+    }
+};
+
 [System.Serializable]
 public class Item : PersistableClass
 {
@@ -14,11 +22,11 @@ public class Item : PersistableClass
     public double baseCost;
     public double baseRate;
 
-    public int Index;
+    public int index;
     public ItemCreationData CreationData;
 
     public Item(int itemIndex, ItemCreationData creationData, int owned = 0) {
-        this.Index = itemIndex;
+        this.index = itemIndex;
         this.CreationData = creationData;
 
         this.baseCost = Currency.GetBaseCost(itemIndex);
@@ -32,6 +40,7 @@ public class Item : PersistableClass
         this.owned = newOwned;
         this.cost = Currency.GetCostToUpgrade(baseCost, owned);
         GameManager.Instance.gameState.UpdateGPS();
+        Messenger.Broadcast<ItemBoughtMessage>(Messages.OnItemBuy, new ItemBoughtMessage(this));
     }
 
 
@@ -42,6 +51,23 @@ public class Item : PersistableClass
     public double GetGoldProduction() {
         return  Currency.GetGoldProduction(this.baseRate, this.owned,this.multiplier);
     }
+
+    public Sprite GetSprite() {
+        Sprite theSprite = null;
+
+        if (this.owned >= 1000) {
+            theSprite = this.CreationData.icons[3];
+        } else if (this.owned >= 100) {
+            theSprite = this.CreationData.icons[2];
+        } else if (this.owned >= 10) {
+            theSprite = this.CreationData.icons[1];
+        } else {
+            theSprite = this.CreationData.icons[0];
+        }
+
+        return theSprite;
+    }
+
 
 	public override void Save (GameDataWriter writer) {
 		writer.Write(owned);

@@ -2,6 +2,8 @@ public class Messages {
     public static string OnJoinChannel = "OnJoinChannel"; // void
     public static string OnGoldUpdate = "OnGoldUpdate";
     public static string OnGPSUpdate = "OnGPSUpdate";
+
+    public static string OnItemBuy = "OnItemBuy";
 }
 
 public enum Resource {
