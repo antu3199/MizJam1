@@ -31,7 +31,9 @@ public class Item : PersistableClass
     public void SetOwned(int newOwned) {
         this.owned = newOwned;
         this.cost = Currency.GetCostToUpgrade(baseCost, owned);
+        GameManager.Instance.gameState.UpdateGPS();
     }
+
 
     public void UpdateMultiplier(double multiplier) {
         this.multiplier = multiplier;

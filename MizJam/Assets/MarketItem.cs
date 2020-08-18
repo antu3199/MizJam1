@@ -9,15 +9,17 @@ public class MarketItem : MonoBehaviour
     public Text descText;
     public Image spriteIcon;
     public Text costText;
+
+    public Button buyButton;
     public Image highlightBackground;
 
     public Item item{get; set;}
 
     public void Initialize(Item item) {
         this.item = item;
-        titleText.text = item.CreationData.name;
-        if (item.CreationData.icon != null) {
-            spriteIcon.sprite = item.CreationData.icon;
+        this.UpdateTitle();
+        if (item.CreationData.icons[0] != null) {
+            spriteIcon.sprite = item.CreationData.icons[0];
         }
 
         this.UpdateCost();
@@ -27,6 +29,14 @@ public class MarketItem : MonoBehaviour
         // TODO: on buy, need to update cost, amount
     }
 
+    public void UpdateAll() {
+        this.UpdateCost();
+        this.UpdateTitle();
+        this.UpdateDescription();
+        this.UpdateHighlighted();
+    }
+
+
     public void OnGoldUpdate(ResourceUpdate update) {
         this.UpdateHighlighted();
     }
@@ -35,9 +45,20 @@ public class MarketItem : MonoBehaviour
         double currentGold = GameManager.Instance.gameState.gold;
         if (currentGold >= item.cost) {
             highlightBackground.gameObject.SetActive(true);
+            buyButton.interactable = true;
         } else {
             highlightBackground.gameObject.SetActive(false);
+            buyButton.interactable = false;
         }
+    }
+
+    public void UpdateTitle() {
+        string title = item.CreationData.name;
+        if (item.owned > 1) {
+            title += " *" + item.owned;
+        }
+
+        this.titleText.text = title;
     }
 
     public void UpdateCost() {
@@ -48,4 +69,11 @@ public class MarketItem : MonoBehaviour
         this.descText.text = "+" + this.item.baseRate + " GPS"; 
     }
 
+    public void BuyItem() {
+        if (GameManager.Instance.gameState.gold >= item.cost) {
+            item.SetOwned(item.owned + 1);
+            GameManager.Instance.gameState.AddGold(-item.cost);
+            this.UpdateAll();
+        }
+    }
 }

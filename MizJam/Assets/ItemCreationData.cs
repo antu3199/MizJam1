@@ -7,7 +7,7 @@ public class ItemCreationData
 {
    public string name;
    public string description;
-   public Sprite icon;
+   public List<Sprite> icons;
 
    public int DEBUG_initialOwned = 0;
 }

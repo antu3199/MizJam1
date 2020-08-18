@@ -306,8 +306,84 @@ MonoBehaviour:
   marketItems:
   - name: Sword
     description: A handy sword
-    icon: {fileID: 1773114259333237010, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    icons:
+    - {fileID: 4443225228113964998, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 4221554640173011281, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -112675583610589720, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 4573733022703828831, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     DEBUG_initialOwned: 1
+  - name: Armor
+    description: Cozy armor
+    icons:
+    - {fileID: -1227554089280259672, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -4191260064585126408, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6759128867594117318, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 7129736685520237834, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Shield
+    description: A handy sword
+    icons:
+    - {fileID: -2428457034786638098, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 3801260131329424895, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 5656553920327872717, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 8471028342874835684, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Helmet
+    description: A handy sword
+    icons:
+    - {fileID: -2898766490122035193, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 9013030891235563096, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -2028190574929148752, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -1405246406446808577, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Gloves
+    description: A handy sword
+    icons:
+    - {fileID: -6101342466439743915, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -3253259982809991985, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 6334787952214627816, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -7500353602330821276, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Boots
+    description: A handy sword
+    icons:
+    - {fileID: 1926842350381423711, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -8753461603174717749, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 9090945159461292800, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 2546865544735757821, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Ring
+    description: A handy sword
+    icons:
+    - {fileID: 4007241824478248768, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 3076152179064284722, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 3571034078020712203, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -2685658789620927057, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 1
+  - name: Necklace
+    description: A handy sword
+    icons:
+    - {fileID: 1360615440012256741, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 339947445258735982, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6703254921191110379, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -5521045682681430589, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Bag
+    description: A handy sword
+    icons:
+    - {fileID: -908471246741745476, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6712739248582885675, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 5709905621640621303, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 8576001079144440311, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
+  - name: Gun
+    description: A handy sword
+    icons:
+    - {fileID: -2469647620817891012, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 2698563690586027720, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -9038332184434397571, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6006416821732856119, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    DEBUG_initialOwned: 0
 --- !u!114 &1364476240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,5 +422,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GPS: 0
-  Gold: 0
+  gold: 0
   items: []
