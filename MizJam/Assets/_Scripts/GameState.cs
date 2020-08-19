@@ -5,15 +5,10 @@ using UnityEngine;
 public class GameState : PersistableObject
 {
     public double GPS = 0;
-
-    // Saveables ===
-    public double gold;
-    public List<Item> items;
-
-    // ===
+    public PlayerStats playerStats;
 
     public void Initialize() {
-
+        playerStats.Initialize();
     }
 
     public void AfterLoad() {
@@ -31,6 +26,13 @@ public class GameState : PersistableObject
             Messenger.Broadcast<ResourceUpdate>(Messages.OnGPSUpdate, new ResourceUpdate(Resource.GPS, GPS, this.GPS));
         }
     }
+
+    // Saveables ===
+    [Header("Savables")]
+    public double gold;
+    public List<Item> items;
+
+    // ===
 
     public void AddGold(double goldAmount) {
         double oldGold = this.gold;
