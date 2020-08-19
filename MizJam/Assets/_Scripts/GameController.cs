@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour
     public MapScroller mapScroller;
     public LogController logController;
     public RewardObjectAnimator rewardObjectAnimatorPrefab;
+    public TopBar topBar;
 
 
     public void Start() {
@@ -36,6 +38,7 @@ public class GameController : MonoBehaviour
         if (GameManager.Instance.gameStorage.timeSinceLastSave >= GameManager.Instance.gameStorage.autoSaveTime) {
             GameManager.Instance.gameStorage.SaveGame();
         }
+
     }
 
     public void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {

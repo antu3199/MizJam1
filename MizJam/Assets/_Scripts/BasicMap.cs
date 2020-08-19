@@ -55,11 +55,11 @@ public class BasicMap : MonoBehaviour
         this.mapEvents.Add(loadNextMapEvent);
 
         MapEvent setCenterMapEvent = new MapEvent();
-        setCenterMapEvent.identifier = "Load next map event";
-        setCenterMapEvent.positionToTrigger = VISIBLE_X/2;
+        setCenterMapEvent.identifier = "Set center position";
+        setCenterMapEvent.positionToTrigger = 0;
         setCenterMapEvent.triggerEvent = new UnityEvent();
         setCenterMapEvent.triggerEvent.AddListener(this.SetAsCenterMap);
-        this.mapEvents.Add(loadNextMapEvent);
+        this.mapEvents.Add(setCenterMapEvent);
 
         this.DoInitialize();
     }

@@ -54,5 +54,6 @@ public class MapScroller : MonoBehaviour
 
     private void SetAsCenterMap(BasicMap map) {
         this.currentMap = map;
+        GameManager.Instance.gameState.SetLevel(GameManager.Instance.gameState.floorNumber + 1);
     }
 }

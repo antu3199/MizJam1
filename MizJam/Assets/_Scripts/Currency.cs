@@ -50,4 +50,8 @@ public class Currency
     public static double GetGoldProduction(double baseRate, int owned, double multipliers) {
         return (baseRate * owned) * multipliers;
     }
+
+    public static double GetEnemyScaling(int index) {
+        return GetBaseRate(index) / 2;
+    }
 }

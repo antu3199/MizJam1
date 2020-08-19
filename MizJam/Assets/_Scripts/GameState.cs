@@ -27,10 +27,16 @@ public class GameState : PersistableObject
         }
     }
 
+    public void SetLevel(int level) {
+        this.floorNumber = level;
+        GameManager.Instance.gameController.topBar.UpdateLevelText();
+    }
+
     // Saveables ===
     [Header("Savables")]
     public double gold;
     public List<Item> items;
+    public int floorNumber = 0;
 
     // ===
 
@@ -43,6 +49,7 @@ public class GameState : PersistableObject
     
 	public override void Save (GameDataWriter writer) {
         writer.Write(gold);
+        writer.Write(floorNumber);
         writer.Write(items.Count);
         for (int i = 0; i < items.Count; i++) {
             items[i].Save(writer);
@@ -51,6 +58,7 @@ public class GameState : PersistableObject
 
 	public override void Load (GameDataReader reader) {
         this.gold = reader.ReadDouble();
+        this.floorNumber = reader.ReadInt();
         int itemsCount = reader.ReadInt();
         for (int i = 0; i < items.Count; i++) {
             items[i].Load(reader);

@@ -1443,6 +1443,7 @@ GameObject:
   - component: {fileID: 673033052}
   - component: {fileID: 673033054}
   - component: {fileID: 673033053}
+  - component: {fileID: 673033055}
   m_Layer: 5
   m_Name: TopBar
   m_TagString: Untagged
@@ -1507,6 +1508,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673033051}
   m_CullTransparentMesh: 0
+--- !u!114 &673033055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673033051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba3fbe7f7a7d194fb342f91111ffa6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelText: {fileID: 1758851440}
 --- !u!1 &691457570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1679,7 @@ MonoBehaviour:
   logController: {fileID: 1012420794}
   rewardObjectAnimatorPrefab: {fileID: 5071080888519483266, guid: dfaa764d8ba2f1c45a54aad7661230de,
     type: 3}
+  topBar: {fileID: 673033055}
 --- !u!1 &791123844
 GameObject:
   m_ObjectHideFlags: 0

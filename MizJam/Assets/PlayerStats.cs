@@ -32,9 +32,9 @@ public class PlayerStats : MonoBehaviour
 
 
     [Header("Modifiable Values")]
-    public double attackGPSScaling = 0.1;
-    public double defenceGPSScaling = 0.01;
-    public double healthGPSScaling = 0.5;
+    public double attackScaling = 0.1;
+    public double defenceScaling = 0.01;
+    public double healthScaling = 0.5;
 
     public void Initialize() {
         this.stats.Add(Stat.ATTACK, new PlayerStat(Stat.ATTACK, 0));
@@ -43,21 +43,26 @@ public class PlayerStats : MonoBehaviour
         this.hp = GetScaledStat(Stat.MAX_HEALTH);
     }
 
+    // Player stat should be GameManager.Instance.gameState.GPS;
     public double GetScaledStat(Stat stat) {
         double GPS = GameManager.Instance.gameState.GPS;
+        return this.GetScaledStat(stat, GPS);
+    }
+
+    public virtual double GetScaledStat(Stat stat, double reference) {
         double result = 0;
 
         switch (stat) {
             case (Stat.ATTACK):
-                result = GPS * (this.stats[Stat.ATTACK].value * attackGPSScaling);
+                result = reference * (this.stats[Stat.ATTACK].value * attackScaling);
                 break;
 
             case (Stat.DEFENCE):
-                result = GPS * (this.stats[Stat.DEFENCE].value * defenceGPSScaling);
+                result = reference * (this.stats[Stat.DEFENCE].value * defenceScaling);
                 break;
 
             case (Stat.MAX_HEALTH):
-                result = 1 + GPS * (this.stats[Stat.MAX_HEALTH].value * healthGPSScaling);
+                result = 1 + reference * (this.stats[Stat.MAX_HEALTH].value * healthScaling);
                 break;
             default:
                 Debug.LogError("ERROR: Stat not found");
@@ -67,9 +72,21 @@ public class PlayerStats : MonoBehaviour
         return result;
     }
 
-
     public PlayerStat GetRawStat(Stat stat) {
         return this.stats[stat];
+    }
+
+    // Note: Damage should be obtained through GetScaledStat
+    public void DealDamageToMe(double damage) {
+        double defenceStat = GetScaledStat(Stat.DEFENCE);
+        double healthStat = GetScaledStat(Stat.MAX_HEALTH);
+
+        double finalDamage = damage - defenceStat;
+        if (finalDamage < 0) {
+            finalDamage = 0;
+        }
+
+        this.hp -= finalDamage;
     }
 
     // Just for debugging 

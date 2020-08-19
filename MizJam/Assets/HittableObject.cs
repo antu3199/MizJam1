@@ -7,6 +7,7 @@ public class HittableObject : MonoBehaviour
     public Animator animator;
     public double maxHealth = 1;
     public double health {get; set;}
+    public PlayerStats playerStats;
 
     protected bool isDead = false;
 
@@ -16,19 +17,19 @@ public class HittableObject : MonoBehaviour
 
     public virtual void Initialize() {
         this.health = maxHealth;
+        this.playerStats.Initialize();
     }
-
 
     public virtual void GetHit(double damage) {
         if (isDead == true) {
             return;
         }
 
-        health -= damage;
-        if (health <= 0) {
+        this.playerStats.DealDamageToMe(damage);
+
+        if (this.playerStats.hp <= 0) {
             isDead = true;
             animator.Play("Death");
         }
     }
-
 }
