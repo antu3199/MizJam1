@@ -23,13 +23,18 @@ public class MapScroller : MonoBehaviour
     private int basicAfterEveryOther = 0;
 
     public int tmp_FixedMap = 0;
+    private Queue<BasicMap> nextMapsToAdd = new Queue<BasicMap>();
+
+    const int NUM_MAPS_PER_MILE = 2;
 
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
         this.activeMaps.Add(this.currentMap);
         double reference = GameManager.Instance.gameState.GPS;
         this.currentMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap );
+        this.GenerateMapsFromIndex(true);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -65,11 +70,16 @@ public class MapScroller : MonoBehaviour
             randMapIndex = tmp_FixedMap; // TMP
         }
 
+        if (this.nextMapsToAdd.Count == 0) {
+            this.GenerateMapsFromIndex(false);
+        }
+
         //randMapIndex = 1;
-        BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
-        double reference = GameManager.Instance.gameState.GPS;
-        newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, map.transform.position);
+        BasicMap newMap = this.nextMapsToAdd.Dequeue();
+        newMap.PositionRelativeTo(map.transform.position);
+        newMap.gameObject.SetActive(true);
         this.activeMaps.Add(newMap);
+
     }
 
     private void SetAsCenterMap(BasicMap map) {
@@ -95,4 +105,28 @@ public class MapScroller : MonoBehaviour
 
         
     }
+
+    // Index = 1 if start, 0 otherwise
+    private void GenerateMapsFromIndex(bool firstTime) {
+        int startingIndex = firstTime ? 1 : 0;
+
+        for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
+
+            int randMapIndex = UnityEngine.Random.Range(0, possibleMaps.Count);
+            if (this.basicAfterEveryOther++ % 2 == 1 ) {
+                randMapIndex = 0;
+            } else {
+                randMapIndex = tmp_FixedMap; // TMP
+            }
+
+            BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
+            double reference = GameManager.Instance.gameState.GPS;
+            reference = GameManager.Instance.gameState.GPS;
+            newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap);
+            newMap.gameObject.SetActive(false);
+            nextMapsToAdd.Enqueue(newMap);
+        }
+    }
+
+
 }

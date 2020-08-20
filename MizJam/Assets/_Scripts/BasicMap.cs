@@ -28,11 +28,6 @@ public class BasicMap : MonoBehaviour
     private bool onInitializeCalled = false;
     
     
-
-    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, Vector3 referencePosition) {
-        this.transform.position = referencePosition + new Vector3(VISIBLE_X, 0, 0);
-        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap);
-    }
     public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
         this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap);
     }
@@ -65,6 +60,10 @@ public class BasicMap : MonoBehaviour
         this.mapEvents.Add(setCenterMapEvent);
 
         this.DoInitialize();
+    }
+
+    public void PositionRelativeTo(Vector3 referencePosition) {
+        this.transform.position = referencePosition + new Vector3(VISIBLE_X, 0, 0);
     }
 
     // Update is called once per frame
