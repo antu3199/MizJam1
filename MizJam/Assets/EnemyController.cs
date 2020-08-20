@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,15 +10,19 @@ public class EnemyController : MonoBehaviour
     public PlayerStats playerStats;
     public PlayerInteractable interactable;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    
+
+    public void Initialize(Action onDeath) {
+        onDeath += moveableObject.LockHorizontalMovement;
+        hittableObject.Initialize(onDeath);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnTriggerEnter(Collider other) {
+        if (other.tag == "PlayerInteractable" || other.tag == "HittableObject") {
+            PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
+            if (interactable.affectsEnemy) {
+                interactable.Interact(this.moveableObject);
+            }
+        }
     }
 }

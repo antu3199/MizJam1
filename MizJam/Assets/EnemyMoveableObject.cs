@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMoveableObject : MoveableObject
 {
+    public Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +15,16 @@ public class EnemyMoveableObject : MoveableObject
     void Update()
     {
 
+        
         if (this.horizontalMovement) {
             moveDirection.x += horizontalMoveSpeed;
 
             // Clamp speed to max
-            moveDirection.x = Mathf.Max(this.maxHorizontalMoveSpeed, moveDirection.x);
+            moveDirection.x = Mathf.Max(-this.maxHorizontalMoveSpeed, moveDirection.x);
+        } else {
+            this.moveDirection = Vector3.zero;
         }
+
 
         this.transform.position += moveDirection * Time.deltaTime;
     }

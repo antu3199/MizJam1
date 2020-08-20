@@ -22,6 +22,7 @@ public abstract class MoveableObject : MonoBehaviour
 
     public void LockHorizontalMovement() {
         this.horizontalMovement = false;
+        this.moveDirection.x = 0;
     }
 
 }

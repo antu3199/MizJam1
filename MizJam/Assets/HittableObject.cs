@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class HittableObject : MonoBehaviour
 {
     public Animator animator;
-    public double maxHealth = 1;
-    public double health {get; set;}
     public PlayerStats playerStats;
 
     public List<Reward> killRewards;
@@ -16,13 +15,26 @@ public class HittableObject : MonoBehaviour
 
     protected bool isDead = false;
 
+    protected Action onDeath = null;
+
+    protected bool initialized = false;
+
     void Start() {
-        this.Initialize();
+        this.Initialize(null);
     }
 
-    public virtual void Initialize() {
-        this.health = maxHealth;
+    public virtual void Initialize(Action onDeath) {
+        if (initialized) {
+            if (this.onDeath == null && onDeath != null) {
+                this.onDeath = onDeath;
+            }
+            return;
+        }
+
+        this.onDeath = onDeath;
         this.playerStats.Initialize();
+
+        this.initialized = true;
     }
 
     public virtual void GetHit(double damage) {
@@ -36,6 +48,9 @@ public class HittableObject : MonoBehaviour
             isDead = true;
             animator.Play("Death");
             StartCoroutine(GameManager.Instance.gameController.InstantiateRewardCor(killRewards, killRewardTransform.position, killRewardTransform));
+            if (this.onDeath != null) {
+                this.onDeath();
+            }
         }
     }
 }

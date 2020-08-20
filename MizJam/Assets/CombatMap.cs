@@ -6,10 +6,19 @@ public class CombatMap : BasicMap
 {
 
     public List<LogMessage> messages;
+    public EnemyController enemy;
+    public PlayerInteractable immovableWall;
+    public CameraResetterInteractable cameraResetter;
+    public bool mustKillEnemyToAdvance = true;
     protected LogController logController;
 
     public override void DoInitialize() {
+        immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
+        cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
+
         this.logController = GameManager.Instance.gameController.logController;
+        this.enemy.Initialize(this.OnEnemyDeath);
+        this.cameraResetter.Initialize(this.OnSkip);
     }
 
     public void BeginBattle() {
@@ -17,15 +26,15 @@ public class CombatMap : BasicMap
         StartCoroutine(this.beginTalkingCor());
     }
 
-    protected IEnumerator beginTalkingCor() {
+    protected virtual IEnumerator beginTalkingCor() {
         foreach (LogMessage message in messages) {
             yield return logController.TypeAnimation(message);
         }
  
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         GameManager.Instance.gameController.playerController.UnlockHorizontalMovement();
-
+        enemy.moveableObject.UnlockHorizontalMovement();
 
 
         // this.logController.ClearLogText();
@@ -35,5 +44,21 @@ public class CombatMap : BasicMap
 
     protected virtual void MoveMapAgain() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(true);
+    }
+
+    protected virtual void OnEnemyDeath() {
+        Debug.Log("On Enemy death");
+        immovableWall.gameObject.SetActive(false);
+        this.cameraResetter.gameObject.SetActive(true);
+
+        
+    }
+
+    protected virtual void OnSkip() {
+        enemy.moveableObject.LockHorizontalMovement();
+
+        List<Transform> otherTransforms = new List<Transform>();
+        otherTransforms.Add(enemy.transform);
+        GameManager.Instance.gameController.mapScroller.ResetPlayerCamera(GameManager.Instance.gameController.playerController.moveableObject, otherTransforms);
     }
 }
