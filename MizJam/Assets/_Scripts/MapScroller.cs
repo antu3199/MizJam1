@@ -25,14 +25,15 @@ public class MapScroller : MonoBehaviour
     public int tmp_FixedMap = 0;
     private Queue<BasicMap> nextMapsToAdd = new Queue<BasicMap>();
 
-    const int NUM_MAPS_PER_MILE = 2;
+    const int NUM_MAPS_PER_MILE = 10;
 
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
         this.activeMaps.Add(this.currentMap);
-        double reference = GameManager.Instance.gameState.GPS;
+        double reference = Currency.GetBaseCost(GameManager.Instance.gameState.floorNumber);
         this.currentMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap );
         this.GenerateMapsFromIndex(true);
+        
     }
 
 
@@ -72,6 +73,7 @@ public class MapScroller : MonoBehaviour
 
         if (this.nextMapsToAdd.Count == 0) {
             this.GenerateMapsFromIndex(false);
+            GameManager.Instance.gameState.SetLevel(GameManager.Instance.gameState.floorNumber + 1);
         }
 
         //randMapIndex = 1;
@@ -84,7 +86,6 @@ public class MapScroller : MonoBehaviour
 
     private void SetAsCenterMap(BasicMap map) {
         this.currentMap = map;
-        GameManager.Instance.gameState.SetLevel(GameManager.Instance.gameState.floorNumber + 1);
     }
 
     private IEnumerator movePlayerBackToPosition(MoveableObject player, List<Transform> otherObjects) {
@@ -110,7 +111,17 @@ public class MapScroller : MonoBehaviour
     private void GenerateMapsFromIndex(bool firstTime) {
         int startingIndex = firstTime ? 1 : 0;
 
+        const int initialLevel = 1;
+
+        double referenceA = Currency.GetBaseCost(initialLevel + GameManager.Instance.gameState.floorNumber);
+        double referenceB = Currency.GetBaseCost(initialLevel + GameManager.Instance.gameState.floorNumber+1);
+
         for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
+
+            float t = (float)i/NUM_MAPS_PER_MILE;
+            double reference = this.LerpDouble(referenceA, referenceB, t);
+            Debug.Log("Floor: " + GameManager.Instance.gameState.floorNumber + " Level: " + i + " Reference: " + reference );
+
 
             int randMapIndex = UnityEngine.Random.Range(0, possibleMaps.Count);
             if (this.basicAfterEveryOther++ % 2 == 1 ) {
@@ -120,12 +131,14 @@ public class MapScroller : MonoBehaviour
             }
 
             BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
-            double reference = GameManager.Instance.gameState.GPS;
-            reference = GameManager.Instance.gameState.GPS;
             newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap);
             newMap.gameObject.SetActive(false);
             nextMapsToAdd.Enqueue(newMap);
         }
+    }
+
+    private double LerpDouble(double a, double b, float t) {
+        return a * (1-t) + b * t;
     }
 
 

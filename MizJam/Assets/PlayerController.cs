@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public SwordSwing swordSwing;
     public PlayerMoveableObject moveableObject;
+    public double GPSScaler = 300;
+
 
 
     public void Initialize() {
@@ -43,6 +45,10 @@ public class PlayerController : MonoBehaviour
             moveableObject.moveDirection.y = this.jumpSpeed;
         }
 
+    }
+
+    public double GetReference() {
+        return GameManager.Instance.gameState.GPS * this.GPSScaler;
     }
 
     private IEnumerator playAttackAnimation() {

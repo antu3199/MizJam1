@@ -17,7 +17,7 @@ public class SwordSwing : MonoBehaviour
             HittableObject hittableObject = other.GetComponent<HittableObject>();
 
             controller.moveableObject.moveDirection.x = -knockback;
-            hittableObject.GetHit(GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.ATTACK), this.knockback);
+            hittableObject.GetHit(GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.ATTACK, this.controller.GetReference()), this.knockback);
         }
     }
 }

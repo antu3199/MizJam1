@@ -1859,7 +1859,7 @@ MonoBehaviour:
   mapMoveSpeed: 10
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
-  tmp_FixedMap: 0
+  tmp_FixedMap: 2
 --- !u!114 &781262416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3230,6 +3230,7 @@ MonoBehaviour:
   jumpSpeed: 7
   swordSwing: {fileID: 1372844203}
   moveableObject: {fileID: 1467792549}
+  GPSScaler: 1
 --- !u!143 &1467792546
 CharacterController:
   m_ObjectHideFlags: 0

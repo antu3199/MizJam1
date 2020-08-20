@@ -47,6 +47,7 @@ public class HittableObject : MonoBehaviour
             return;
         }
 
+        Debug.Log("Hit object reference: " + this.reference);
         this.playerStats.DealDamageToMe(damage, reference);
 
         if (this.playerStats.hp <= 0) {

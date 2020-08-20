@@ -44,20 +44,14 @@ public class PlayerStats : MonoBehaviour
         this.stats.Add(Stat.ATTACK, new PlayerStat(Stat.ATTACK, baseAttack));
         this.stats.Add(Stat.DEFENCE, new PlayerStat(Stat.DEFENCE, baseDefence));
         this.stats.Add(Stat.MAX_HEALTH, new PlayerStat(Stat.MAX_HEALTH, baseMaxHealth));
-        this.hp = GetScaledStat(Stat.MAX_HEALTH);
+        this.hp = GetScaledStat(Stat.MAX_HEALTH, 0);
     }
 
     public void UpdateMaxHealth(double reference) {
-        double newHealth = this.GetScaledStat(Stat.MAX_HEALTH);
+        double newHealth = this.GetScaledStat(Stat.MAX_HEALTH, reference);
         double delta = newHealth - this.hp;
         this.hp += delta;
         this.hp = System.Math.Min(this.hp, newHealth);
-    }
-
-    // Player stat should be GameManager.Instance.gameState.GPS;
-    public double GetScaledStat(Stat stat) {
-        double GPS = GameManager.Instance.gameState.GPS;
-        return this.GetScaledStat(stat, GPS);
     }
 
     public virtual double GetScaledStat(Stat stat, double reference) {
@@ -98,14 +92,13 @@ public class PlayerStats : MonoBehaviour
         }
 
         this.hp -= finalDamage;
-        Debug.Log("Damage dealt: " + finalDamage + " HP: " + this.hp);
-        Debug.Log("Should have dealt: " + damage + " Actually dealt: " + finalDamage );
+        Debug.Log("Damage dealt: " + finalDamage + " HP: " + this.hp + " refernece: " + reference );
     }
 
     // Just for debugging 
     void Update() {
-        this.tmp_ATTACK = GetScaledStat(Stat.ATTACK);
-        this.tmp_DEFENCE = GetScaledStat(Stat.DEFENCE);
-        this.tmp_MAX_HEALTH = GetScaledStat(Stat.MAX_HEALTH);
+        this.tmp_ATTACK = GetScaledStat(Stat.ATTACK, GameManager.Instance.gameState.GPS);
+        this.tmp_DEFENCE = GetScaledStat(Stat.DEFENCE, GameManager.Instance.gameState.GPS);
+        this.tmp_MAX_HEALTH = GetScaledStat(Stat.MAX_HEALTH, GameManager.Instance.gameState.GPS);
     }
 }
