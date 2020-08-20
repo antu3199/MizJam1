@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     public void Initialize() {
         this.moveableObject.Initialize(GameManager.Instance.gameController.mapScroller.mapMoveSpeed);
+        //this.moveableObject.UnlockHorizontalMovement();
+    }
+
+    public void UnlockHorizontalMovement() {
         this.moveableObject.UnlockHorizontalMovement();
     }
 

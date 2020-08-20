@@ -18,10 +18,15 @@ public class CombatMap : BasicMap
     }
 
     protected IEnumerator beginTalkingCor() {
-
         foreach (LogMessage message in messages) {
             yield return logController.TypeAnimation(message);
         }
+ 
+        yield return new WaitForSeconds(1f);
+
+        GameManager.Instance.gameController.playerController.UnlockHorizontalMovement();
+
+
 
         // this.logController.ClearLogText();
 
