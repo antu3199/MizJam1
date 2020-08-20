@@ -9,6 +9,9 @@ public class HittableObject : MonoBehaviour
     public double health {get; set;}
     public PlayerStats playerStats;
 
+    public List<Reward> killRewards;
+    public Transform killRewardTransform;
+
     protected bool isDead = false;
 
     void Start() {
@@ -30,6 +33,7 @@ public class HittableObject : MonoBehaviour
         if (this.playerStats.hp <= 0) {
             isDead = true;
             animator.Play("Death");
+            StartCoroutine(GameManager.Instance.gameController.InstantiateRewardCor(killRewards, killRewardTransform.position, killRewardTransform));
         }
     }
 }

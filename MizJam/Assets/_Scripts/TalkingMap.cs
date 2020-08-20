@@ -6,7 +6,6 @@ public class TalkingMap : BasicMap
 {
     // Start is called before the first frame update
 
-    const float REWARD_RECEIVE_DELAY = 0.5f;
 
     public List<LogMessage> messages;
     public List<Reward> rewards;
@@ -30,10 +29,7 @@ public class TalkingMap : BasicMap
             yield return logController.TypeAnimation(message);
         }
 
-        foreach (Reward reward in rewards) {
-            GameManager.Instance.gameController.InstantiateReward(reward, rewardTransform.position, rewardTransform);
-            yield return new WaitForSeconds(REWARD_RECEIVE_DELAY);
-        }
+        yield return GameManager.Instance.gameController.InstantiateRewardCor(rewards, rewardTransform.position, rewardTransform);
 
         this.logController.ClearLogText();
 

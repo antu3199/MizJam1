@@ -26,7 +26,7 @@ public class RewardObjectAnimator : MonoBehaviour
         this.reward = reward;
         this.iconImage.sprite = reward.icon;
         this.iconImage.color = reward.iconColor;
-        this.SetText();
+        this.GiveReward();
 
         if (useVariance) {
             float varianceX = Random.Range(-variance, variance);
@@ -36,7 +36,7 @@ public class RewardObjectAnimator : MonoBehaviour
         }
     }
 
-    private void SetText() {
+    private void GiveReward() {
 
         switch (this.reward.rewardType) {
             case RewardType.GOLD:

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
+    const float REWARD_RECEIVE_DELAY = 0.5f;
     
     public MapScroller mapScroller;
     public LogController logController;
@@ -41,7 +42,14 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {
+    public IEnumerator InstantiateRewardCor(List<Reward> rewards, Vector3 position, Transform parent = null) {
+        foreach (Reward reward in rewards) {
+            this.InstantiateReward(reward, position, parent);
+            yield return new WaitForSeconds(REWARD_RECEIVE_DELAY);
+        }
+    }
+
+    private void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {
         RewardObjectAnimator rewardObject = Instantiate(this.rewardObjectAnimatorPrefab, parent) as RewardObjectAnimator;
         rewardObject.transform.position = position;
         rewardObject.Initialize(reward);
