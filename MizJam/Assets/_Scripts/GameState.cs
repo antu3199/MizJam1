@@ -9,6 +9,7 @@ public class GameState : PersistableObject
 
     public void Initialize() {
         playerStats.Initialize();
+        playerStats.UpdateMaxHealth(this.GPS);
     }
 
     public void AfterLoad() {
@@ -25,6 +26,8 @@ public class GameState : PersistableObject
         if (!ignoreBroadcastIfNoChange || oldGPS != GPS) {
             Messenger.Broadcast<ResourceUpdate>(Messages.OnGPSUpdate, new ResourceUpdate(Resource.GPS, GPS, this.GPS));
         }
+
+        playerStats.UpdateMaxHealth(this.GPS);
     }
 
     public void SetLevel(int level) {

@@ -18,6 +18,7 @@ public class MapEvent {
 public class BasicMap : MonoBehaviour
 {
     public List<MapEvent> mapEvents;
+    public double reference = 1;
 
     const int VISIBLE_X = 36;
 
@@ -26,19 +27,21 @@ public class BasicMap : MonoBehaviour
     protected Action<BasicMap> onSetAsCenterMap = null;
     private bool onInitializeCalled = false;
     
+    
 
-    public void Initialize(Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, Vector3 referencePosition) {
+    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, Vector3 referencePosition) {
         this.transform.position = referencePosition + new Vector3(VISIBLE_X, 0, 0);
-        this.CommonInitialization(onLoadNextMap, onDestroy, setAsCenterMap);
+        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap);
     }
-    public void Initialize(Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
-        this.CommonInitialization(onLoadNextMap, onDestroy, setAsCenterMap);
+    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
+        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap);
     }
 
-    private void CommonInitialization(Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
+    private void CommonInitialization(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
         this.onLoadNextMap = onLoadNextMap;
         this.onDestroy = onDestroy;
         this.onSetAsCenterMap = setAsCenterMap;
+        this.reference = reference;
 
         MapEvent destroyEvent = new MapEvent();
         destroyEvent.identifier = "Destroy event";
@@ -72,7 +75,7 @@ public class BasicMap : MonoBehaviour
             MapEvent mapEvent = mapEvents[i];
             if (!mapEvent.hasTriggered && this.GetPosition() <= mapEvent.positionToTrigger) {
                 if (mapEvent.triggerEvent != null) {
-                    Debug.Log(this.name + " Trigger event: " + mapEvent.identifier);
+                    //Debug.Log(this.name + " Trigger event: " + mapEvent.identifier);
                     mapEvent.triggerEvent.Invoke();
                 } else {
                     Debug.LogError("ERROR: Trigger event was null!: " + mapEvent.identifier);

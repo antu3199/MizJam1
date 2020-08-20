@@ -18,20 +18,25 @@ public class HittableObject : MonoBehaviour
     protected Action onDeath = null;
 
     protected bool initialized = false;
+    protected double reference = 0;
+
+
 
     void Start() {
         this.Initialize(null);
     }
 
-    public virtual void Initialize(Action onDeath) {
+    public virtual void Initialize(Action onDeath, double reference = 0) {
         if (initialized) {
             if (this.onDeath == null && onDeath != null) {
                 this.onDeath = onDeath;
+                this.reference = reference;
             }
             return;
         }
 
         this.onDeath = onDeath;
+        this.reference = reference;
         this.playerStats.Initialize();
 
         this.initialized = true;
@@ -42,7 +47,7 @@ public class HittableObject : MonoBehaviour
             return;
         }
 
-        this.playerStats.DealDamageToMe(damage);
+        this.playerStats.DealDamageToMe(damage, reference);
 
         if (this.playerStats.hp <= 0) {
             isDead = true;

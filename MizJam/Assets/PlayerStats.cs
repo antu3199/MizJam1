@@ -30,6 +30,10 @@ public class PlayerStats : MonoBehaviour
     public double tmp_DEFENCE;
     public double tmp_MAX_HEALTH;
 
+    public double baseAttack = 1;
+    public double baseDefence = 0;
+    public double baseMaxHealth = 1;
+
 
     [Header("Modifiable Values")]
     public double attackScaling = 0.1;
@@ -37,10 +41,17 @@ public class PlayerStats : MonoBehaviour
     public double healthScaling = 0.5;
 
     public void Initialize() {
-        this.stats.Add(Stat.ATTACK, new PlayerStat(Stat.ATTACK, 0));
-        this.stats.Add(Stat.DEFENCE, new PlayerStat(Stat.DEFENCE, 0));
-        this.stats.Add(Stat.MAX_HEALTH, new PlayerStat(Stat.MAX_HEALTH, 0));
+        this.stats.Add(Stat.ATTACK, new PlayerStat(Stat.ATTACK, baseAttack));
+        this.stats.Add(Stat.DEFENCE, new PlayerStat(Stat.DEFENCE, baseDefence));
+        this.stats.Add(Stat.MAX_HEALTH, new PlayerStat(Stat.MAX_HEALTH, baseMaxHealth));
         this.hp = GetScaledStat(Stat.MAX_HEALTH);
+    }
+
+    public void UpdateMaxHealth(double reference) {
+        double newHealth = this.GetScaledStat(Stat.MAX_HEALTH);
+        double delta = newHealth - this.hp;
+        this.hp += delta;
+        this.hp = System.Math.Min(this.hp, newHealth);
     }
 
     // Player stat should be GameManager.Instance.gameState.GPS;
@@ -54,15 +65,15 @@ public class PlayerStats : MonoBehaviour
 
         switch (stat) {
             case (Stat.ATTACK):
-                result = reference * (this.stats[Stat.ATTACK].value * attackScaling);
+                result = 1 + reference * (this.stats[Stat.ATTACK].value ) * attackScaling;
                 break;
 
             case (Stat.DEFENCE):
-                result = reference * (this.stats[Stat.DEFENCE].value * defenceScaling);
+                result = reference * ( this.stats[Stat.DEFENCE].value ) * defenceScaling;
                 break;
 
             case (Stat.MAX_HEALTH):
-                result = 1 + reference * (this.stats[Stat.MAX_HEALTH].value * healthScaling);
+                result = 1 + reference * (this.stats[Stat.MAX_HEALTH].value ) * healthScaling;
                 break;
             default:
                 Debug.LogError("ERROR: Stat not found");
@@ -77,9 +88,9 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Note: Damage should be obtained through GetScaledStat
-    public void DealDamageToMe(double damage) {
-        double defenceStat = GetScaledStat(Stat.DEFENCE);
-        double healthStat = GetScaledStat(Stat.MAX_HEALTH);
+    public void DealDamageToMe(double damage, double reference) {
+        double defenceStat = GetScaledStat(Stat.DEFENCE, reference);
+        double healthStat = GetScaledStat(Stat.MAX_HEALTH, reference);
 
         double finalDamage = damage - defenceStat;
         if (finalDamage < 0) {
@@ -87,6 +98,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         this.hp -= finalDamage;
+        Debug.Log("Damage dealt: " + finalDamage + " HP: " + this.hp);
+        Debug.Log("Should have dealt: " + damage + " Actually dealt: " + finalDamage );
     }
 
     // Just for debugging 

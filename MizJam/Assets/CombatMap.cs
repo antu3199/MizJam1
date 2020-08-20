@@ -10,6 +10,7 @@ public class CombatMap : BasicMap
     public PlayerInteractable immovableWall;
     public CameraResetterInteractable cameraResetter;
     public bool mustKillEnemyToAdvance = true;
+
     protected LogController logController;
 
     public override void DoInitialize() {
@@ -17,7 +18,7 @@ public class CombatMap : BasicMap
         cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
 
         this.logController = GameManager.Instance.gameController.logController;
-        this.enemy.Initialize(this.OnEnemyDeath);
+        this.enemy.Initialize(this.OnEnemyDeath, reference);
         this.cameraResetter.Initialize(this.OnSkip);
     }
 

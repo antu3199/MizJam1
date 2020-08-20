@@ -22,10 +22,13 @@ public class MapScroller : MonoBehaviour
 
     private int basicAfterEveryOther = 0;
 
+    public int tmp_FixedMap = 0;
+
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
         this.activeMaps.Add(this.currentMap);
-        this.currentMap.Initialize(this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap );
+        double reference = GameManager.Instance.gameState.GPS;
+        this.currentMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap );
     }
 
     // Update is called once per frame
@@ -59,12 +62,13 @@ public class MapScroller : MonoBehaviour
         if (this.basicAfterEveryOther++ % 2 == 1 ) {
             randMapIndex = 0;
         } else {
-            randMapIndex = 2; // TMP
+            randMapIndex = tmp_FixedMap; // TMP
         }
 
         //randMapIndex = 1;
         BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
-        newMap.Initialize(this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, map.transform.position);
+        double reference = GameManager.Instance.gameState.GPS;
+        newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, map.transform.position);
         this.activeMaps.Add(newMap);
     }
 

@@ -9,7 +9,7 @@ public class SwordSwing : MonoBehaviour
         if (other.tag == "HittableObject") {
             HittableObject hittableObject = other.GetComponent<HittableObject>();
 
-            hittableObject.GetHit(1);
+            hittableObject.GetHit(GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.ATTACK));
         }
     }
 }

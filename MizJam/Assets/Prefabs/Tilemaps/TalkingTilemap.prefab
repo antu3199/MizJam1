@@ -7084,6 +7084,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  reference: 1
   messages:
   - message: It's dangerous to go alone! Take this.
     icon: {fileID: -8263105801004086612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
@@ -7274,7 +7275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5999905246340886586}
-  maxHealth: 1
   playerStats: {fileID: 7674098352741732629}
   killRewards:
   - value: 2
@@ -7319,9 +7319,9 @@ MonoBehaviour:
   tmp_ATTACK: 0
   tmp_DEFENCE: 0
   tmp_MAX_HEALTH: 0
-  attackScaling: 0.1
-  defenceScaling: 0.01
-  healthScaling: 0.5
+  attackScaling: 0
+  defenceScaling: 0
+  healthScaling: 0
 --- !u!65 &6422952131011418004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7347,3 +7347,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448d909ca70db54498c53d26c3c64da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteract: 1
+  affectsEnemy: 1

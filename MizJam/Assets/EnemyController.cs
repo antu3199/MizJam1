@@ -10,11 +10,14 @@ public class EnemyController : MonoBehaviour
     public PlayerStats playerStats;
     public PlayerInteractable interactable;
 
+    private double reference;
     
 
-    public void Initialize(Action onDeath) {
+    public void Initialize(Action onDeath, double reference) {
+        this.reference = reference;
         onDeath += moveableObject.LockHorizontalMovement;
-        hittableObject.Initialize(onDeath);
+        hittableObject.Initialize(onDeath, reference);
+        this.playerStats.UpdateMaxHealth(reference);
     }
 
     public void OnTriggerEnter(Collider other) {
