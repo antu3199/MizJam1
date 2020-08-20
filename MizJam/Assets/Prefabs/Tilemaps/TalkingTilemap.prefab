@@ -7190,9 +7190,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8795382463563075410}
   - component: {fileID: 1363235302}
-  - component: {fileID: 1363235304}
   - component: {fileID: 5999905246340886586}
   - component: {fileID: 7674098352741732629}
+  - component: {fileID: 6422952131011418004}
+  - component: {fileID: 4691876032062175650}
   m_Layer: 0
   m_Name: WizardMan
   m_TagString: HittableObject
@@ -7237,32 +7238,7 @@ MonoBehaviour:
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
   killRewardTransform: {fileID: 1741603443}
---- !u!61 &1363235304
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4255933194812983174}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  interactable: {fileID: 4691876032062175650}
 --- !u!95 &5999905246340886586
 Animator:
   serializedVersion: 3
@@ -7301,3 +7277,28 @@ MonoBehaviour:
   attackScaling: 0.1
   defenceScaling: 0.01
   healthScaling: 0.5
+--- !u!65 &6422952131011418004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255933194812983174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4691876032062175650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255933194812983174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448d909ca70db54498c53d26c3c64da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

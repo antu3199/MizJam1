@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordSwing : MonoBehaviour
 {
     
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerEnter(Collider other) {
         if (other.tag == "HittableObject") {
             HittableObject hittableObject = other.GetComponent<HittableObject>();
 

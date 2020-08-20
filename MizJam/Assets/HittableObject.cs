@@ -11,6 +11,7 @@ public class HittableObject : MonoBehaviour
 
     public List<Reward> killRewards;
     public Transform killRewardTransform;
+    public PlayerInteractable interactable; // All hittable objects shoudl have a interactable script, even if it doesn't do anything.
 
     protected bool isDead = false;
 

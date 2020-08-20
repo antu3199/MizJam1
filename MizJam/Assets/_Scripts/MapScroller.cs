@@ -46,7 +46,8 @@ public class MapScroller : MonoBehaviour
 
     private void OnLoadNextMap(BasicMap map) {
         int randMapIndex = UnityEngine.Random.Range(0, possibleMaps.Count);
-        randMapIndex = 1;
+        randMapIndex = 0;
+        //randMapIndex = 1;
         BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
         newMap.Initialize(this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, map.transform.position);
         this.activeMaps.Add(newMap);

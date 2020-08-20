@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public RewardObjectAnimator rewardObjectAnimatorPrefab;
     public TopBar topBar;
 
+    public PlayerController playerController;
+
 
     public void Start() {
 
@@ -22,6 +24,7 @@ public class GameController : MonoBehaviour
 
     public void Initialize() {
         this.mapScroller.Initialize();
+        this.playerController.Initialize();
     }
 
     public void Update() {
