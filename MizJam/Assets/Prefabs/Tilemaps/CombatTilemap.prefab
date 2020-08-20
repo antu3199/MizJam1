@@ -56,7 +56,7 @@ MonoBehaviour:
   animator: {fileID: 2927361591921538336}
   playerStats: {fileID: 1268957472495277071}
   killRewards:
-  - value: 2
+  - value: 5
     indexIfItem: 0
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
@@ -98,6 +98,9 @@ MonoBehaviour:
   tmp_ATTACK: 0
   tmp_DEFENCE: 0
   tmp_MAX_HEALTH: 0
+  baseAttack: 1
+  baseDefence: 0
+  baseMaxHealth: 1
   attackScaling: 0.1
   defenceScaling: 0
   healthScaling: 0.3
