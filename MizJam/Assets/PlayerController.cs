@@ -10,26 +10,20 @@ public class PlayerController : MonoBehaviour
     public float attackCooldown = 0.5f;
     private bool isAttacking = false;
 
-    private int tmpTest = 0;
-
-    public CharacterController controller;
-
-    public float jumpSpeed = 1f;
-    public float gravity = 9.8f;
-
-    public float horizontalMoveSpeed = 1f;
-    private bool horizontalMovement = false;
-    private float maxHorizontalMoveSpeed = 1f;
+    public float jumpSpeed = 7f;
 
 
-    [Header("Debug")]
-    public Vector3 moveDirection;
+    public PlayerMoveableObject moveableObject;
 
 
     public void Initialize() {
-        this.maxHorizontalMoveSpeed = GameManager.Instance.gameController.mapScroller.mapMoveSpeed;
+        this.moveableObject.Initialize(GameManager.Instance.gameController.mapScroller.mapMoveSpeed);
+        this.moveableObject.UnlockHorizontalMovement();
+    }
 
-        this.UnlockHorizontalMovement(); // debug
+    public void LockHorizontalMovement() {
+        this.moveableObject.LockHorizontalMovement();
+        // TODO: Need to wait for camera
     }
 
     // Update is called once per frame
@@ -39,29 +33,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(playAttackAnimation());
         }
 
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.X)) {
-            moveDirection.y = jumpSpeed;
+        if (moveableObject.controller.isGrounded && Input.GetKeyDown(KeyCode.X)) {
+            moveableObject.moveDirection.y = this.jumpSpeed;
         }
 
-        if (!controller.isGrounded) {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        moveDirection.x += horizontalMoveSpeed;
-
-        // Clamp speed to max
-        moveDirection.x = Mathf.Min(this.maxHorizontalMoveSpeed, moveDirection.x);
-
-        controller.Move(moveDirection * Time.deltaTime);
-    }
-
-    public void UnlockHorizontalMovement() {
-        this.horizontalMovement = true;
-    }
-
-    public void LockHorizontalMovement() {
-        this.horizontalMovement = false;
-        // TODO: Need to wait for camera
     }
 
     private IEnumerator playAttackAnimation() {
@@ -89,7 +64,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Trigger enter: " + other.tag);
         if (other.tag == "PlayerInteractable" || other.tag == "HittableObject") {
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
-            interactable.Interact(this);
+            interactable.Interact(this.moveableObject);
         }
     }
 

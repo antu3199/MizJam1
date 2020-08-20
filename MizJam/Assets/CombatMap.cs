@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkingMap : BasicMap
+public class CombatMap : BasicMap
 {
 
     public List<LogMessage> messages;
-    public List<Reward> rewards;
-
-    public Transform rewardTransform;
-
     protected LogController logController;
 
     public override void DoInitialize() {
         this.logController = GameManager.Instance.gameController.logController;
     }
 
-    public void BeginTalking() {
+    public void BeginBattle() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(false);
         StartCoroutine(this.beginTalkingCor());
     }
@@ -27,15 +23,12 @@ public class TalkingMap : BasicMap
             yield return logController.TypeAnimation(message);
         }
 
-        yield return GameManager.Instance.gameController.InstantiateRewardCor(rewards, rewardTransform.position, rewardTransform);
+        // this.logController.ClearLogText();
 
-        this.logController.ClearLogText();
-
-        this.OnTalkingEnd();
+        // this.MoveMapAgain();
     }
 
-    protected virtual void OnTalkingEnd() {
+    protected virtual void MoveMapAgain() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(true);
-        // TODO: give hero rewards
     }
 }

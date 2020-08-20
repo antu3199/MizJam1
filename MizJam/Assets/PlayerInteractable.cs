@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteractable : MonoBehaviour
 {
-    public virtual void Interact(PlayerController controller) {
+    public virtual void Interact(MoveableObject controller) {
         // Override me!
     }
 }
