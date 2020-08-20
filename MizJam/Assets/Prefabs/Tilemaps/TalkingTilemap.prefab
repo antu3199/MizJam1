@@ -7085,6 +7085,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   reference: 1
+  levelIconSprite: {fileID: -1111528411663771762, guid: 87c71c4bcaf52bf43be88648abdc66b4,
+    type: 3}
   messages:
   - message: It's dangerous to go alone! Take this.
     icon: {fileID: -8263105801004086612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
@@ -7319,6 +7321,9 @@ MonoBehaviour:
   tmp_ATTACK: 0
   tmp_DEFENCE: 0
   tmp_MAX_HEALTH: 0
+  baseAttack: 1
+  baseDefence: 0
+  baseMaxHealth: 1
   attackScaling: 0
   defenceScaling: 0
   healthScaling: 0

@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     }
 
     public void Initialize() {
+        this.topBar.Initialize();
         this.mapScroller.Initialize();
         this.playerController.Initialize();
     }

@@ -21,6 +21,9 @@ public class BasicMap : MonoBehaviour
     public double reference = 1;
 
     const int VISIBLE_X = 36;
+    public int mapIndex {get; set;}
+
+    public Sprite levelIconSprite;
 
     protected Action<BasicMap> onLoadNextMap = null;
     protected Action<BasicMap> onDestroy = null;
@@ -28,15 +31,16 @@ public class BasicMap : MonoBehaviour
     private bool onInitializeCalled = false;
     
     
-    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
-        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap);
+    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, int mapIndex) {
+        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap, mapIndex);
     }
 
-    private void CommonInitialization(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap) {
+    private void CommonInitialization(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, int mapIndex) {
         this.onLoadNextMap = onLoadNextMap;
         this.onDestroy = onDestroy;
         this.onSetAsCenterMap = setAsCenterMap;
         this.reference = reference;
+        this.mapIndex = mapIndex;
 
         MapEvent destroyEvent = new MapEvent();
         destroyEvent.identifier = "Destroy event";

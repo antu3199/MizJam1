@@ -7373,6 +7373,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   reference: 1
+  levelIconSprite: {fileID: -1111528411663771762, guid: 87c71c4bcaf52bf43be88648abdc66b4,
+    type: 3}
   messages:
   - message: URRRAGHHHH
     icon: {fileID: 5709905621640621303, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
