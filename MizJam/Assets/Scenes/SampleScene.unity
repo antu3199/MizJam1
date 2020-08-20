@@ -2605,6 +2605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64ee97e5b4b57f45a78cb0044c4668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockback: 20
 --- !u!136 &1372844204
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3227,6 +3228,7 @@ MonoBehaviour:
   swordCollider: {fileID: 1372844204}
   attackCooldown: 0.15
   jumpSpeed: 7
+  swordSwing: {fileID: 1372844203}
   moveableObject: {fileID: 1467792549}
 --- !u!143 &1467792546
 CharacterController:

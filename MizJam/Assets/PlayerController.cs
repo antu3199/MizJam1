@@ -13,10 +13,12 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 7f;
 
 
+    public SwordSwing swordSwing;
     public PlayerMoveableObject moveableObject;
 
 
     public void Initialize() {
+        this.swordSwing.Initialize(this);
         this.moveableObject.Initialize(GameManager.Instance.gameController.mapScroller.mapMoveSpeed);
         //this.moveableObject.UnlockHorizontalMovement();
     }

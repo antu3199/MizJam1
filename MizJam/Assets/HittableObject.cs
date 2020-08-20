@@ -42,7 +42,7 @@ public class HittableObject : MonoBehaviour
         this.initialized = true;
     }
 
-    public virtual void GetHit(double damage) {
+    public virtual void GetHit(double damage, float knockback) {
         if (isDead == true) {
             return;
         }
@@ -55,6 +55,11 @@ public class HittableObject : MonoBehaviour
             StartCoroutine(GameManager.Instance.gameController.InstantiateRewardCor(killRewards, killRewardTransform.position, killRewardTransform));
             if (this.onDeath != null) {
                 this.onDeath();
+            }
+        } else {
+            MoveableObject moveableObject = GetComponent<MoveableObject>();
+            if (moveableObject != null) {
+                moveableObject.moveDirection.x = knockback;
             }
         }
     }
