@@ -24,6 +24,7 @@ public class BottomMenu : MonoBehaviour
 
     void OnDestroy() {
         Messenger.RemoveListener<ResourceUpdate>(Messages.OnGoldUpdate, this.OnGoldUpdate);
+        Messenger.RemoveListener<ResourceUpdate>(Messages.OnGPSUpdate, this.OnGPSUpdate);
     }
 
     public void OnGoldUpdate(ResourceUpdate update) {

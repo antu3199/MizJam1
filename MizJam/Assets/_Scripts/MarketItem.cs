@@ -23,6 +23,10 @@ public class MarketItem : MonoBehaviour
         // TODO: on buy, need to update cost, amount
     }
 
+    public void OnDestroy() {
+        Messenger.RemoveListener<ResourceUpdate>(Messages.OnGoldUpdate, this.OnGoldUpdate);
+    }
+
     public void UpdateAll() {
         this.UpdateCost();
         this.UpdateTitle();

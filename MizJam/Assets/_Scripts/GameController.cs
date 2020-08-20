@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class GameController : MonoBehaviour
             GameManager.Instance.gameStorage.DeleteSaveFile();
         }
 
+        if (Input.GetKeyDown("0")) {
+            this.RestartRun();
+        }
+
         GameManager.Instance.gameState.AddGold(GameManager.Instance.gameState.GPS * Time.deltaTime);
 
         GameManager.Instance.gameStorage.timeSinceLastSave += Time.deltaTime;
@@ -51,6 +56,12 @@ public class GameController : MonoBehaviour
             this.InstantiateReward(reward, position, parent);
             yield return new WaitForSeconds(REWARD_RECEIVE_DELAY);
         }
+    }
+
+
+    // Call when death
+    public void RestartRun() {
+        SceneManager.LoadScene("MainGame");
     }
 
     private void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {

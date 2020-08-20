@@ -26,6 +26,10 @@ public class Market : MonoBehaviour
         // TODO: Only show items up to owned+1 
     }
 
+    void OnDestroy() {
+        Messenger.RemoveListener<ItemUpdate>(Messages.OnItemBuy, this.OnItemBuy);
+    }
+
     private void OnItemBuy(ItemUpdate message) {
         marketItems[message.itemIndex].UpdateAll();
         this.UpdateShownItems();
