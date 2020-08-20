@@ -12,12 +12,16 @@ public class SwordSwing : MonoBehaviour
         this.controller = controller;
     }
 
+    public double GetSwordDamage() {
+        return GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.ATTACK, this.controller.GetReference());
+    }
+
     void OnTriggerEnter(Collider other) {
         if (other.tag == "HittableObject") {
             HittableObject hittableObject = other.GetComponent<HittableObject>();
 
             controller.moveableObject.moveDirection.x = -knockback;
-            hittableObject.GetHit(GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.ATTACK, this.controller.GetReference()), this.knockback);
+            hittableObject.GetHit(this.GetSwordDamage(), this.knockback);
         }
     }
 }

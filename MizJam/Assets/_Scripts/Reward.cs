@@ -12,7 +12,7 @@ public enum RewardType {
 [System.Serializable]
 public class Reward 
 {
-    public double value;
+    public double value = 1;
     public int indexIfItem = 0;
     public Sprite icon;
     public Color iconColor;

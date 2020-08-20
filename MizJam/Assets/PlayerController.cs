@@ -73,8 +73,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other) {
-        Debug.Log("Trigger enter: " + other.tag);
         if (other.tag == "PlayerInteractable" || other.tag == "HittableObject") {
+            Debug.Log("Trigger enter: " + other.tag);
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
             interactable.Interact(this.moveableObject);
         }

@@ -13,6 +13,8 @@ public class HittableObject : MonoBehaviour
     public Transform killRewardTransform;
     public PlayerInteractable interactable; // All hittable objects shoudl have a interactable script, even if it doesn't do anything.
 
+    public double numTimesHit{get; set;}
+
     protected bool isDead = false;
 
     protected Action onDeath = null;
@@ -38,11 +40,12 @@ public class HittableObject : MonoBehaviour
         this.onDeath = onDeath;
         this.reference = reference;
         this.playerStats.Initialize();
+        this.numTimesHit = 1;
 
         this.initialized = true;
     }
 
-    public virtual void GetHit(double damage, float knockback) {
+    public virtual void GetHit(double damage, float knockback, bool increaseRewardForHit = true) {
         if (isDead == true) {
             return;
         }
@@ -50,9 +53,18 @@ public class HittableObject : MonoBehaviour
         Debug.Log("Hit object reference: " + this.reference);
         this.playerStats.DealDamageToMe(damage, reference);
 
+        if (increaseRewardForHit) {
+            this.numTimesHit++;
+        }
+
         if (this.playerStats.hp <= 0) {
             isDead = true;
             animator.Play("Death");
+
+            foreach (Reward killReward in killRewards) {
+                killReward.value *= this.numTimesHit;
+            }
+
             StartCoroutine(GameManager.Instance.gameController.InstantiateRewardCor(killRewards, killRewardTransform.position, killRewardTransform));
             if (this.onDeath != null) {
                 this.onDeath();
@@ -64,4 +76,8 @@ public class HittableObject : MonoBehaviour
             }
         }
     }
+
+    public void ManualGetHit(double damage, float knockback) {
+        this.GetHit(damage, knockback, false);
+    } 
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8927227185567962364}
   - component: {fileID: 2927361591921538336}
   - component: {fileID: 1268957472495277071}
-  - component: {fileID: 4251122859021204664}
   - component: {fileID: 1740123034595321396}
   - component: {fileID: 7792788360729006230}
   - component: {fileID: 7868496929615647921}
@@ -62,7 +61,7 @@ MonoBehaviour:
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
   killRewardTransform: {fileID: 8927227185391109993}
-  interactable: {fileID: 4251122859021204664}
+  interactable: {fileID: 0}
 --- !u!95 &2927361591921538336
 Animator:
   serializedVersion: 3
@@ -104,20 +103,6 @@ MonoBehaviour:
   attackScaling: 0.1
   defenceScaling: 0
   healthScaling: 0.3
---- !u!114 &4251122859021204664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4680363038893884060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 448d909ca70db54498c53d26c3c64da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteract: 1
-  affectsEnemy: 1
 --- !u!114 &1740123034595321396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +147,7 @@ MonoBehaviour:
   hittableObject: {fileID: 8927227185567962364}
   moveableObject: {fileID: 1740123034595321396}
   playerStats: {fileID: 1268957472495277071}
-  interactable: {fileID: 249666959609355057}
+  damageInteractable: {fileID: 249666959609355057}
 --- !u!114 &249666959609355057
 MonoBehaviour:
   m_ObjectHideFlags: 0
