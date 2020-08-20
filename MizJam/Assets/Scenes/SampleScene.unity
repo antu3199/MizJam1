@@ -257,7 +257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50.990234, y: -52.620125}
+  m_AnchoredPosition: {x: -50.990234, y: -52.620132}
   m_SizeDelta: {x: 66.5, y: -207.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34485136
@@ -1405,12 +1405,12 @@ MonoBehaviour:
   - {fileID: 2165225730350801497, guid: 7f654f27e34f8dc4fa73feaa2db70dc1, type: 3}
   - {fileID: 4131128122250205026, guid: b0f6774d6182bd5488483f66683cfa52, type: 3}
   - {fileID: 8025352801313225363, guid: f4fef9c13acd54b4f98bd56ff95dc5f5, type: 3}
-  currentMap: {fileID: 741965913}
+  startingMap: {fileID: 741965913}
   grid: {fileID: 1546707885}
   mapMoveSpeed: 10
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
-  tmp_FixedMap: 2
+  tmp_FixedMap: 0
 --- !u!114 &781262416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3370,7 +3370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5666667}
-  m_AnchoredPosition: {x: 0, y: -42.175278}
+  m_AnchoredPosition: {x: 0, y: -42.175293}
   m_SizeDelta: {x: 0, y: 29.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651683991
@@ -4215,7 +4215,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -427.85}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2026271422
 MonoBehaviour:

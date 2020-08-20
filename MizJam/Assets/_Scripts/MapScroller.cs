@@ -9,7 +9,7 @@ public class MapScroller : MonoBehaviour
 
     public List<BasicMap> possibleMaps;
 
-    public BasicMap currentMap; // Set this to starting map at the start
+    public BasicMap startingMap; // Set this to starting map at the start
 
     public Grid grid; // Used for parent
 
@@ -25,14 +25,18 @@ public class MapScroller : MonoBehaviour
     private Queue<BasicMap> nextMapsToAdd = new Queue<BasicMap>();
 
     public const int NUM_MAPS_PER_MILE = 10;
+    //public const int NUM_UNIQUE_MAPS_PER_MILE = NUM_MAPS_PER_MILE/2 - 1;
+
+    private int curMapIndex = 0;
 
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
-        this.activeMaps.Add(this.currentMap);
+        this.activeMaps.Add(this.startingMap);
         double reference = Currency.GetBaseCost(GameManager.Instance.gameState.floorNumber);
-        this.currentMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, -1 );
+        this.startingMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, -1 );
         this.GenerateMapsFromIndex(true);
-        
+        GameManager.Instance.gameController.topBar.SetLevelIconHighlight(this.curMapIndex);
+        this.SetTopBarFromMaps();
     }
 
 
@@ -64,8 +68,7 @@ public class MapScroller : MonoBehaviour
 
     private void OnLoadNextMap(BasicMap map) {
         if (this.nextMapsToAdd.Count == 0) {
-            this.GenerateMapsFromIndex(false);
-            GameManager.Instance.gameState.SetLevel(GameManager.Instance.gameState.floorNumber + 1);
+            return;
         }
 
         //randMapIndex = 1;
@@ -73,38 +76,61 @@ public class MapScroller : MonoBehaviour
         newMap.PositionRelativeTo(map.transform.position);
         newMap.gameObject.SetActive(true);
         this.activeMaps.Add(newMap);
-
-        if (newMap.mapIndex != -1) {
-            GameManager.Instance.gameController.topBar.SetLevelIconHighlight(newMap.mapIndex);
-        }
-
     }
 
-    private void SetAsCenterMap(BasicMap map) {
-        this.currentMap = map;
+    private void GoToNextMap(BasicMap map) {
+        // Only unique maps matter
+        if (map.mapIndex != -1) {
+            if (curMapIndex == NUM_MAPS_PER_MILE/2 - 1) {
+                Debug.Log("NO MORE MAPS");
+                // Need to regenerate maps!
+                this.RegenerateMaps();
+                return;
+            }
+
+
+            curMapIndex++;
+            GameManager.Instance.gameController.topBar.SetLevelIconHighlight(curMapIndex);
+        }
+    }
+
+    private void RegenerateMaps() {
+        GameManager.Instance.gameState.SetLevel(GameManager.Instance.gameState.floorNumber + 1);
+
+        this.GenerateMapsFromIndex(false);
+        BasicMap nextMap = this.nextMapsToAdd.Dequeue();
+        nextMap.PositionRelativeTo( this.activeMaps[this.activeMaps.Count-1].transform.position );
+        nextMap.gameObject.SetActive(true);
+        this.activeMaps.Add(nextMap);
+        this.curMapIndex = 0;
+        this.SetTopBarFromMaps();
+        GameManager.Instance.gameController.topBar.SetLevelIconHighlight(curMapIndex);
     }
 
     private IEnumerator movePlayerBackToPosition(MoveableObject player, List<Transform> otherObjects) {
         float target = this.playerDefaultPosition.position.x;
 
-        while (player.transform.position.x > target) {
-            float delta =  -(this.mapMoveSpeed * Time.deltaTime);
-
-            foreach (Transform trans in otherObjects) {
-                trans.position += Vector3.right * delta;
-            }
-
-            player.transform.position += Vector3.right * delta;
+        float lerpTime = 1f;
+        float lerpCounter = 0;
+        float start = player.transform.position.x;
+        float end = target;
+        
+        while (lerpCounter < lerpTime) {
+            float t = lerpCounter / lerpTime;
+            float x = Mathf.Lerp(start, end, t);
+            player.transform.position = new Vector3(x, player.transform.position.y, player.transform.position.z );
             yield return null;
+
+            lerpCounter += Time.deltaTime;
         }
 
         player.transform.position = new Vector3(target, player.transform.position.y, player.transform.position.z );
-
-        
     }
 
     // Index = 1 if start, 0 otherwise
     private void GenerateMapsFromIndex(bool firstTime) {
+        Debug.Log("GENERATE MAPS from index!!");
+
         int startingIndex = firstTime ? 1 : 0;
 
         const int initialLevel = 1;
@@ -120,23 +146,27 @@ public class MapScroller : MonoBehaviour
             double reference = this.LerpDouble(referenceA, referenceB, t);
             //Debug.Log("Floor: " + GameManager.Instance.gameState.floorNumber + " Level: " + i + " Reference: " + reference );
             
-            int randMapIndex = UnityEngine.Random.Range(0, possibleMaps.Count);
+            int randMapIndex = UnityEngine.Random.Range(1, possibleMaps.Count);
             int basicMapIndex = -1;
-            if (i % 2 == 1 ) {
+            if (i % 2 == 0 ) {
                 randMapIndex = 0;
             } else {
-                randMapIndex = tmp_FixedMap; // TMP
-                basicMapIndex = mapIndexCount; 
+                //randMapIndex = tmp_FixedMap; // TMP
+                basicMapIndex = mapIndexCount++; 
             }
 
             BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
-            newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.SetAsCenterMap, basicMapIndex);
+            newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, basicMapIndex);
             newMap.gameObject.SetActive(false);
             nextMapsToAdd.Enqueue(newMap);
 
-            if (basicMapIndex != -1) {
-                GameManager.Instance.gameController.topBar.SetLevelIconSprite(mapIndexCount, newMap.levelIconSprite);
-                mapIndexCount++;
+        }
+    }
+
+    private void SetTopBarFromMaps() {
+        foreach (BasicMap map in this.nextMapsToAdd ) {
+            if (map.mapIndex != -1) {
+                GameManager.Instance.gameController.topBar.SetLevelIconSprite(map.mapIndex, map.levelIconSprite);
             }
         }
     }

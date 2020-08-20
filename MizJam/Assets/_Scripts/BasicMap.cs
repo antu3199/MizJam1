@@ -24,21 +24,21 @@ public class BasicMap : MonoBehaviour
     public int mapIndex {get; set;}
 
     public Sprite levelIconSprite;
-
     protected Action<BasicMap> onLoadNextMap = null;
+    protected Action<BasicMap> onGoToNextMap = null;
     protected Action<BasicMap> onDestroy = null;
-    protected Action<BasicMap> onSetAsCenterMap = null;
+
     private bool onInitializeCalled = false;
     
     
-    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, int mapIndex) {
-        this.CommonInitialization(reference, onLoadNextMap, onDestroy, setAsCenterMap, mapIndex);
+    public void Initialize(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> onGoToNextMap, int mapIndex) {
+        this.CommonInitialization(reference, onLoadNextMap, onDestroy, onGoToNextMap, mapIndex);
     }
 
-    private void CommonInitialization(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> setAsCenterMap, int mapIndex) {
+    private void CommonInitialization(double reference, Action<BasicMap> onLoadNextMap, Action<BasicMap> onDestroy, Action<BasicMap> onGoToNextMap, int mapIndex) {
         this.onLoadNextMap = onLoadNextMap;
         this.onDestroy = onDestroy;
-        this.onSetAsCenterMap = setAsCenterMap;
+        this.onGoToNextMap = onGoToNextMap;
         this.reference = reference;
         this.mapIndex = mapIndex;
 
@@ -55,13 +55,6 @@ public class BasicMap : MonoBehaviour
         loadNextMapEvent.triggerEvent = new UnityEvent();
         loadNextMapEvent.triggerEvent.AddListener(this.LoadNextMap);
         this.mapEvents.Add(loadNextMapEvent);
-
-        MapEvent setCenterMapEvent = new MapEvent();
-        setCenterMapEvent.identifier = "Set center position";
-        setCenterMapEvent.positionToTrigger = 0;
-        setCenterMapEvent.triggerEvent = new UnityEvent();
-        setCenterMapEvent.triggerEvent.AddListener(this.SetAsCenterMap);
-        this.mapEvents.Add(setCenterMapEvent);
 
         this.DoInitialize();
     }
@@ -117,12 +110,16 @@ public class BasicMap : MonoBehaviour
         return this.transform.position.x;
     }
 
-    protected void LoadNextMap() {
-        this.onLoadNextMap(this);
+    public void LoadNextMap() {
+        if (this.onLoadNextMap != null) {
+            this.onLoadNextMap(this);
+        }
     }
 
-    protected void SetAsCenterMap() {
-        this.onSetAsCenterMap(this);
+    public void CallGoToNextMap() {
+        if (this.onGoToNextMap != null) {
+            this.onGoToNextMap(this);
+        }
     }
 
 }

@@ -7373,7 +7373,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   reference: 1
-  levelIconSprite: {fileID: -1111528411663771762, guid: 87c71c4bcaf52bf43be88648abdc66b4,
+  levelIconSprite: {fileID: -6490497597242228226, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
   messages:
   - message: URRRAGHHHH
@@ -7381,7 +7381,7 @@ MonoBehaviour:
   enemy: {fileID: 7868496929615647921}
   immovableWall: {fileID: 8110422996799575929}
   cameraResetter: {fileID: 288055521483724908}
-  mustKillEnemyToAdvance: 1
+  mustKillEnemyToAdvance: 0
 --- !u!1 &8927227185391109992
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class TalkingMap : BasicMap
 
     protected virtual void OnTalkingEnd() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(true);
+        this.CallGoToNextMap();
         // TODO: give hero rewards
     }
 }

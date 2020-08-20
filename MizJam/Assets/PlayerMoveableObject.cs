@@ -31,6 +31,8 @@ public class PlayerMoveableObject : MoveableObject
 
             // Clamp speed to max
             moveDirection.x = Mathf.Min(this.maxHorizontalMoveSpeed, moveDirection.x);
+        } else {
+            moveDirection.x = 0;
         }
 
         controller.Move(moveDirection * Time.deltaTime);

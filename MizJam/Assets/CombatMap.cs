@@ -45,6 +45,7 @@ public class CombatMap : BasicMap
 
     protected virtual void MoveMapAgain() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(true);
+        this.CallGoToNextMap();
     }
 
     protected virtual void OnEnemyDeath() {
@@ -60,6 +61,7 @@ public class CombatMap : BasicMap
 
         List<Transform> otherTransforms = new List<Transform>();
         otherTransforms.Add(enemy.transform);
+        this.CallGoToNextMap();
         GameManager.Instance.gameController.mapScroller.ResetPlayerCamera(GameManager.Instance.gameController.playerController.moveableObject, otherTransforms);
     }
 }
