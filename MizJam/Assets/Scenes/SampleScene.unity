@@ -6173,6 +6173,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatTilemap
       objectReference: {fileID: 0}
+    - target: {fileID: 8784040250855074557, guid: f4fef9c13acd54b4f98bd56ff95dc5f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8784040250855074558, guid: f4fef9c13acd54b4f98bd56ff95dc5f5,
         type: 3}
       propertyPath: m_LocalPosition.x
