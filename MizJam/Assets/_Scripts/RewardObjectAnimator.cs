@@ -40,8 +40,6 @@ public class RewardObjectAnimator : MonoBehaviour
 
         switch (this.reward.rewardType) {
             case RewardType.GOLD:
-                
-
                 double goldGain = 10 + GameManager.Instance.gameState.GPS * this.reward.value;
 
                 GameManager.Instance.gameState.AddGold(goldGain);

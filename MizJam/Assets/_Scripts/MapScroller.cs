@@ -27,7 +27,7 @@ public class MapScroller : MonoBehaviour
     public const int NUM_MAPS_PER_MILE = 10;
     //public const int NUM_UNIQUE_MAPS_PER_MILE = NUM_MAPS_PER_MILE/2 - 1;
 
-    private int curMapIndex = 0;
+    public int curMapIndex{get; set;}
 
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
