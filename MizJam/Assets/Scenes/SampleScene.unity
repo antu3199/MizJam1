@@ -1410,7 +1410,7 @@ MonoBehaviour:
   mapMoveSpeed: 10
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
-  tmp_FixedMap: 0
+  tmp_FixedMap: 2
 --- !u!114 &781262416
 MonoBehaviour:
   m_ObjectHideFlags: 0

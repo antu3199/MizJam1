@@ -151,7 +151,7 @@ public class MapScroller : MonoBehaviour
             if (i % 2 == 0 ) {
                 randMapIndex = 0;
             } else {
-                //randMapIndex = tmp_FixedMap; // TMP
+                randMapIndex = tmp_FixedMap; // TMP
                 basicMapIndex = mapIndexCount++; 
             }
 
