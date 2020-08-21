@@ -60,9 +60,20 @@ public class GameController : MonoBehaviour
 
 
     // Call when death
-    public void RestartRun() {
-        SceneManager.LoadScene("MainGame");
+    public void OnPlayerDeath() {
+        this.StartCoroutine(this.RestartRun());
     }
+
+    private IEnumerator RestartRun() {
+        string message = "Your vision blurs...";
+        LogMessage logMessage = new LogMessage(message, null);
+        yield return this.logController.TypeAnimation(logMessage);
+
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("MainGame");
+
+    }
+
 
     private void InstantiateReward(Reward reward, Vector3 position, Transform parent = null) {
         RewardObjectAnimator rewardObject = Instantiate(this.rewardObjectAnimatorPrefab, parent) as RewardObjectAnimator;

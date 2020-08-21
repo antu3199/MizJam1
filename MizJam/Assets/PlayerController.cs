@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider swordCollider;
 
     public float attackCooldown = 0.5f;
+    public bool canMove = true;
+
     private bool isAttacking = false;
 
     public float jumpSpeed = 7f;
@@ -37,6 +39,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) {
+            return;
+        }
+
         if (isAttacking == false && Input.GetKeyDown(KeyCode.Z)) {
             StartCoroutine(playAttackAnimation());
         }
@@ -49,6 +55,18 @@ public class PlayerController : MonoBehaviour
 
     public double GetReference() {
         return GameManager.Instance.gameState.GPS * this.GPSScaler;
+    }
+
+    public void DealDamageToMe(double damage, float knockback) {
+        GameManager.Instance.gameState.playerStats.DealDamageToMe(damage, this.GetReference());
+        this.moveableObject.moveDirection.x = -knockback;
+        if (GameManager.Instance.gameState.playerStats.hp <= 0) {
+            this.canMove = false;
+            this.moveableObject.LockHorizontalMovement();
+            this.animator.StopPlayback();
+            this.animator.Play("Death");
+            GameManager.Instance.gameController.OnPlayerDeath();
+        }
     }
 
     private IEnumerator playAttackAnimation() {
@@ -73,6 +91,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other) {
+        if (!canMove) {
+            return;
+        }
+
         if (other.tag == "PlayerInteractable" || other.tag == "HittableObject") {
             Debug.Log("Trigger enter: " + other.tag);
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();

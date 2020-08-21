@@ -30,8 +30,8 @@ public class DealDamageInteractable : PlayerInteractable
 
             Debug.Log("Deal damage interactable 2");
             double enemyToPlayerDamage = this.enemyController.playerStats.GetScaledStat(Stat.ATTACK, this.enemyController.reference);
-            GameManager.Instance.gameState.playerStats.DealDamageToMe(enemyToPlayerDamage, playerController.GetReference());
-            controller.moveDirection.x = -knockback;
+            playerController.DealDamageToMe(enemyToPlayerDamage, knockback);
+
 
             double playerToEnemyDamage = playerController.swordSwing.GetSwordDamage()/5.0;
             this.enemyController.hittableObject.ManualGetHit(playerToEnemyDamage, knockback);
