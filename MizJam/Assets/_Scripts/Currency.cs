@@ -54,4 +54,8 @@ public class Currency
     public static double GetEnemyScaling(int index) {
         return GetBaseRate(index) / 2;
     }
+
+    public static double GetNumAscendPoints(double goldValue) {
+        return Math.Sqrt( goldValue / Math.Pow(10, 11));
+    }
 }

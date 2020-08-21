@@ -6,9 +6,19 @@ using UnityEngine.UI;
 public class BottomMenu : MonoBehaviour
 {
     public Market market;
+    public PlayerStatsMenu playerStatsMenu;
+    public AscensionMenu ascensionMenu;
+
     public Text goldText;
 
     public Text GPSText;
+
+
+    public List<Transform> tabs;
+
+    public List<ImageIcon> tabIcons;
+    
+    private int curTabOpen = 0;
 
 
     // Start is called before the first frame update
@@ -35,9 +45,17 @@ public class BottomMenu : MonoBehaviour
         this.GPSText.text = Currency.CurrencyToString(update.valueAfter) + " GPS";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SwitchTab(int index) {
+        if (index == this.curTabOpen) {
+            return;
+        }
+
+        this.tabs[this.curTabOpen].gameObject.SetActive(false);
+        this.tabIcons[this.curTabOpen].SetHighlight(false);
+        this.curTabOpen = index;
+        this.tabs[this.curTabOpen].gameObject.SetActive(true);
+        this.tabIcons[this.curTabOpen].SetHighlight(true);
     }
+
+    
 }
