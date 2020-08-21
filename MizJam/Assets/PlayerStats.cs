@@ -5,7 +5,8 @@ using UnityEngine;
 public enum Stat {
     ATTACK,
     DEFENCE,
-    MAX_HEALTH
+    MAX_HEALTH,
+    OTHER
 };
 
 public struct PlayerStat {
@@ -95,10 +96,33 @@ public class PlayerStats : MonoBehaviour
         return finalDamage;
     }
 
+    public void SetStatsToBase() {
+        PlayerStat attackStat = this.stats[Stat.ATTACK];
+        PlayerStat defenceStat = this.stats[Stat.DEFENCE];
+        PlayerStat healthStat = this.stats[Stat.MAX_HEALTH];
+
+        attackStat.value = this.baseAttack;
+        defenceStat.value = this.baseDefence;
+        healthStat.value = this.baseMaxHealth;
+    }
+
     // Just for debugging 
     void Update() {
         this.tmp_ATTACK = GetScaledStat(Stat.ATTACK, GameManager.Instance.gameState.GPS);
         this.tmp_DEFENCE = GetScaledStat(Stat.DEFENCE, GameManager.Instance.gameState.GPS);
         this.tmp_MAX_HEALTH = GetScaledStat(Stat.MAX_HEALTH, GameManager.Instance.gameState.GPS);
+    }
+
+    public static string StatToString(Stat stat) {
+        switch (stat) {
+            case Stat.ATTACK:
+                return "Attack";
+            case Stat.DEFENCE:
+                return "Defence";
+            case Stat.MAX_HEALTH:
+                return "Max Health";
+        }
+
+        return "";
     }
 }

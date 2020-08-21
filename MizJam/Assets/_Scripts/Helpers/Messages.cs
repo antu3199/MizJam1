@@ -4,6 +4,8 @@ public class Messages {
     public static string OnGPSUpdate = "OnGPSUpdate";
 
     public static string OnItemBuy = "OnItemBuy";
+
+    public static string OnStatsUpdate = "OnStatsUpdate";
 }
 
 public enum Resource {

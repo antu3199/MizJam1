@@ -312,6 +312,8 @@ MonoBehaviour:
     - {fileID: 4221554640173011281, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -112675583610589720, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 4573733022703828831, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 1
     DEBUG_initialOwned: 1
   - name: Armor
     description: Cozy armor
@@ -320,6 +322,8 @@ MonoBehaviour:
     - {fileID: -4191260064585126408, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -6759128867594117318, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 7129736685520237834, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 0
     DEBUG_initialOwned: 0
   - name: Shield
     description: A handy sword
@@ -328,6 +332,8 @@ MonoBehaviour:
     - {fileID: 3801260131329424895, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 5656553920327872717, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 8471028342874835684, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 2
     DEBUG_initialOwned: 0
   - name: Helmet
     description: A handy sword
@@ -336,6 +342,8 @@ MonoBehaviour:
     - {fileID: 9013030891235563096, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -2028190574929148752, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -1405246406446808577, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 1
+    statIncreaseAmount: 0.2
     DEBUG_initialOwned: 0
   - name: Gloves
     description: A handy sword
@@ -344,6 +352,8 @@ MonoBehaviour:
     - {fileID: -3253259982809991985, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 6334787952214627816, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -7500353602330821276, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 1
+    statIncreaseAmount: 0.1
     DEBUG_initialOwned: 0
   - name: Boots
     description: A handy sword
@@ -352,6 +362,8 @@ MonoBehaviour:
     - {fileID: -8753461603174717749, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 9090945159461292800, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 2546865544735757821, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 0.5
     DEBUG_initialOwned: 0
   - name: Ring
     description: A handy sword
@@ -360,6 +372,8 @@ MonoBehaviour:
     - {fileID: 3076152179064284722, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 3571034078020712203, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -2685658789620927057, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 1.5
     DEBUG_initialOwned: 0
   - name: Necklace
     description: A handy sword
@@ -368,6 +382,8 @@ MonoBehaviour:
     - {fileID: 339947445258735982, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -6703254921191110379, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -5521045682681430589, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 1.25
     DEBUG_initialOwned: 0
   - name: Bag
     description: A handy sword
@@ -376,6 +392,8 @@ MonoBehaviour:
     - {fileID: -6712739248582885675, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 5709905621640621303, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 8576001079144440311, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 1
+    statIncreaseAmount: 0.2
     DEBUG_initialOwned: 0
   - name: Gun
     description: A handy sword
@@ -384,6 +402,8 @@ MonoBehaviour:
     - {fileID: 2698563690586027720, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -9038332184434397571, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -6006416821732856119, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 2
     DEBUG_initialOwned: 0
 --- !u!114 &1364476240
 MonoBehaviour:

@@ -22,7 +22,15 @@ public class RewardObjectAnimator : MonoBehaviour
 
         switch (this.reward.rewardType) {
             case RewardType.GOLD:
-                double goldGain = 10 + GameManager.Instance.gameState.GPS * this.reward.value;
+                double referenceRate = 1;
+                if (GameManager.Instance.gameState.floorNumber > 0) {
+                    int curMap = GameManager.Instance.gameController.mapScroller.curMapIndex+1;
+                    referenceRate = Currency.GetBaseRate(GameManager.Instance.gameState.floorNumber-1) * curMap;
+                }
+
+                double GPS = GameManager.Instance.gameState.GPS;
+
+                double goldGain = 10 + referenceRate + GPS * this.reward.value;
 
                 GameManager.Instance.gameState.AddGold(goldGain);
 

@@ -65,7 +65,13 @@ public class MarketItem : MonoBehaviour
     }
 
     public void UpdateDescription() {
-        this.descText.text = "+" + Currency.CurrencyToString(this.item.baseRate) + " GPS"; 
+        string descText =  "+" + Currency.CurrencyToString(this.item.baseRate) + " GPS";
+        if (this.item.CreationData.statToIncrease != Stat.OTHER) {
+            descText += "\n";
+            descText += "+" + this.item.CreationData.statIncreaseAmount + " " + PlayerStats.StatToString(this.item.CreationData.statToIncrease);
+        }
+
+        this.descText.text = descText; 
     }
 
     public void UpdateSprite() {

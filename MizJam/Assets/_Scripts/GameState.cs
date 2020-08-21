@@ -28,6 +28,34 @@ public class GameState : PersistableObject
         }
 
         playerStats.UpdateMaxHealth(this.GPS);
+
+        this.UpdatePlayerStats();
+    }
+
+    public void UpdatePlayerStats() {
+        this.playerStats.SetStatsToBase();
+
+        PlayerStat attackStat = this.playerStats.GetRawStat(Stat.ATTACK);
+        PlayerStat defenceStat = this.playerStats.GetRawStat(Stat.DEFENCE);
+        PlayerStat maxHealthStat = this.playerStats.GetRawStat(Stat.MAX_HEALTH);
+
+        foreach (Item item in this.items) {
+            double value = item.CreationData.statIncreaseAmount * item.owned;
+            
+            switch (item.CreationData.statToIncrease) {
+                case Stat.ATTACK:
+                    attackStat.value += value;
+                    break;
+                case Stat.DEFENCE:
+                    defenceStat.value += value;
+                    break;
+                case Stat.MAX_HEALTH:
+                    maxHealthStat.value += value;
+                    break;
+            }
+        }
+
+        Messenger.Broadcast(Messages.OnStatsUpdate);
     }
 
     public void SetLevel(int level) {

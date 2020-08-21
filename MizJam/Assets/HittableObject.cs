@@ -74,7 +74,9 @@ public class HittableObject : MonoBehaviour
             animator.Play("Death");
 
             foreach (Reward killReward in killRewards) {
+                Debug.Log("Previous kill reward: " + killReward.value);
                 killReward.value *= this.numTimesHit;
+                Debug.Log("Updated kill reward: " + killReward.value);
             }
 
             StartCoroutine(GameManager.Instance.gameController.InstantiateRewardCor(killRewards, killRewardTransform.position, killRewardTransform));
