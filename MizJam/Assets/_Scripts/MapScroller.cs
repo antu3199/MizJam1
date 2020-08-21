@@ -137,8 +137,8 @@ public class MapScroller : MonoBehaviour
 
         const int initialLevel = 1;
 
-        double referenceA = Currency.GetBaseCost(initialLevel + GameManager.Instance.gameState.floorNumber);
-        double referenceB = Currency.GetBaseCost(initialLevel + GameManager.Instance.gameState.floorNumber+1);
+        double referenceA = Currency.GetBaseRate(initialLevel + GameManager.Instance.gameState.floorNumber);
+        double referenceB = Currency.GetBaseRate(initialLevel + GameManager.Instance.gameState.floorNumber+1);
 
         int mapIndexCount = 0;
 
