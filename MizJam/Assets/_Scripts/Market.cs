@@ -10,9 +10,7 @@ public class Market : MonoBehaviour
 
     private List<MarketItem> marketItems = new List<MarketItem>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public void Initialize() {
         List<Item> items = GameManager.Instance.gameState.items;
         for (int i = 0; i < items.Count; i++) {
             MarketItem marketItem = Instantiate(marketItemPrefab, marketItemTransform) as MarketItem;
@@ -23,7 +21,6 @@ public class Market : MonoBehaviour
         Messenger.AddListener<ItemUpdate>(Messages.OnItemBuy, this.OnItemBuy);
 
         this.UpdateShownItems();
-        // TODO: Only show items up to owned+1 
     }
 
     void OnDestroy() {

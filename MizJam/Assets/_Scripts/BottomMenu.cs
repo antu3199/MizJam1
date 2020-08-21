@@ -30,6 +30,10 @@ public class BottomMenu : MonoBehaviour
         // Force update
         GameManager.Instance.gameState.AddGold(0);
         GameManager.Instance.gameState.UpdateGPS(false);
+
+        this.market.Initialize();
+        this.playerStatsMenu.Initialize();
+        this.ascensionMenu.Initialize();
     }
 
     void OnDestroy() {
