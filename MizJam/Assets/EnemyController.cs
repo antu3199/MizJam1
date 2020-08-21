@@ -32,6 +32,17 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void SetAsBossEnemy() {
+        PlayerStat attackStat = playerStats.GetRawStat(Stat.ATTACK);
+        attackStat.value *= 2;
+
+        PlayerStat healthStat = playerStats.GetRawStat(Stat.MAX_HEALTH);
+        healthStat.value *= 100;
+        foreach (Reward reward in this.hittableObject.killRewards) {
+            reward.value *= 150;
+        }
+    }
+
     private void RemoveDamageHitbox() {
         this.damageInteractable.canInteract = false;
     }

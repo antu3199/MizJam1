@@ -29,6 +29,8 @@ public class MapScroller : MonoBehaviour
 
     public int curMapIndex{get; set;}
 
+    public float combatMapChance = 0.5f;
+
     public void Initialize() {
         this.activeMaps = new List<BasicMap>();
         this.activeMaps.Add(this.startingMap);
@@ -142,21 +144,35 @@ public class MapScroller : MonoBehaviour
 
         for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
 
+
+
             float t = (float)i/NUM_MAPS_PER_MILE;
             double reference = this.LerpDouble(referenceA, referenceB, t);
             //Debug.Log("Floor: " + GameManager.Instance.gameState.floorNumber + " Level: " + i + " Reference: " + reference );
             
-            int randMapIndex = UnityEngine.Random.Range(1, possibleMaps.Count);
+            int mapIndex = UnityEngine.Random.Range(1, possibleMaps.Count);
             int basicMapIndex = -1;
             if (i % 2 == 0 ) {
-                randMapIndex = 0;
+                mapIndex = 0;
+            } else if (i == NUM_MAPS_PER_MILE - 1) {
+                mapIndex = 2;
+            } else if (UnityEngine.Random.Range(0, 1) <= this.combatMapChance) {
+                mapIndex = 2;
             } else {
-                randMapIndex = tmp_FixedMap; // TMP
+                mapIndex = tmp_FixedMap; // TMP
+            }
+
+            if (i % 2 != 0) {
                 basicMapIndex = mapIndexCount++; 
             }
 
-            BasicMap newMap = Instantiate(possibleMaps[randMapIndex], grid.transform) as BasicMap;
+            BasicMap newMap = Instantiate(possibleMaps[mapIndex], grid.transform) as BasicMap;
             newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, basicMapIndex);
+            if (i == NUM_MAPS_PER_MILE - 1) {
+                CombatMap combatMap = (CombatMap)newMap;
+                combatMap.SetAsBossMap();
+            }
+
             newMap.gameObject.SetActive(false);
             nextMapsToAdd.Enqueue(newMap);
 

@@ -19,8 +19,11 @@ public class PlayerCanvas : MonoBehaviour
     public void SetHPProgress(float value) {
         this.healthBar.value = value;
         if (this.isShowingHealth == true) {
+            Debug.Log("Showing health already: " + this.gameObject.name);
             this.healthCounter = 0;
+            this.healthBar.gameObject.SetActive(true);
         } else {
+            this.healthCounter = 0;
             this.isShowingHealth = true;
             StartCoroutine(ShowForSeconds(this.healthBar.gameObject, showTime));
         }
@@ -30,6 +33,7 @@ public class PlayerCanvas : MonoBehaviour
         obj.SetActive(true);
         while (this.healthCounter < this.showTime) {
             this.healthCounter += Time.deltaTime;
+            Debug.Log("Showing for seconds");
             yield return null;
         }
 

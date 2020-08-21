@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 8784040250855074544}
   - component: {fileID: 8784040250855074559}
   - component: {fileID: 8025352801313225363}
+  - component: {fileID: 4434267107408715893}
   m_Layer: 0
   m_Name: CombatTilemap
   m_TagString: Untagged
@@ -7400,6 +7401,21 @@ MonoBehaviour:
   immovableWall: {fileID: 8110422996799575929}
   cameraResetter: {fileID: 288055521483724908}
   mustKillEnemyToAdvance: 0
+  combatMapRes: {fileID: 4434267107408715893}
+--- !u!114 &4434267107408715893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784040250855074557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a337f5b8269677e43a4eb1cbe161611f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMap: {fileID: -3799357261983773811, guid: 87c71c4bcaf52bf43be88648abdc66b4,
+    type: 3}
 --- !u!1 &8927227185391109992
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class CombatMap : BasicMap
     public PlayerInteractable immovableWall;
     public CameraResetterInteractable cameraResetter;
     public bool mustKillEnemyToAdvance = true;
-
+    public CombatMapRes combatMapRes;
     protected LogController logController;
 
     public override void DoInitialize() {
@@ -25,6 +25,14 @@ public class CombatMap : BasicMap
     public void BeginBattle() {
         GameManager.Instance.gameController.mapScroller.SetMapMovable(false);
         StartCoroutine(this.beginTalkingCor());
+    }
+
+    public void SetAsBossMap() {
+        this.mustKillEnemyToAdvance = true;
+        immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
+        cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
+        this.levelIconSprite = this.combatMapRes.bossMap;
+        this.enemy.SetAsBossEnemy();
     }
 
     protected virtual IEnumerator beginTalkingCor() {
