@@ -23,10 +23,8 @@ public class RewardObjectAnimator : MonoBehaviour
         switch (this.reward.rewardType) {
             case RewardType.GOLD:
                 double referenceRate = 1;
-                if (GameManager.Instance.gameState.floorNumber > 0) {
-                    int curMap = GameManager.Instance.gameController.mapScroller.curMapIndex+1;
-                    referenceRate = Currency.GetBaseRate(GameManager.Instance.gameState.floorNumber-1) * curMap;
-                }
+                int curMap = GameManager.Instance.gameController.mapScroller.curMapIndex+1;
+                referenceRate = Currency.GetBaseRate(GameManager.Instance.gameState.floorNumber) * curMap;
 
                 double GPS = GameManager.Instance.gameState.GPS;
 

@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     }
 
     public void Update() {
+
         if (Input.GetKeyDown("1")) {
             GameManager.Instance.gameStorage.SaveGame();
         }

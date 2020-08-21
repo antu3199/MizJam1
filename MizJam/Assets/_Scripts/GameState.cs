@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -76,6 +77,8 @@ public class GameState : PersistableObject
     public double ascensionPoints = 0;
     public int numAscensions = 0;
 
+    public double lastSaveTime = 0;
+
     // ===
 
     public void AddGold(double goldAmount) {
@@ -86,6 +89,11 @@ public class GameState : PersistableObject
     }
     
 	public override void Save (GameDataWriter writer) {
+
+        TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+        double secondsSinceEpoch = t.TotalSeconds;
+        this.lastSaveTime = secondsSinceEpoch;
+
         writer.Write(gold);
         writer.Write(floorNumber);
         writer.Write(items.Count);
@@ -96,6 +104,8 @@ public class GameState : PersistableObject
         writer.Write(hasPlayedTutorial);
         writer.Write(ascensionPoints);
         writer.Write(numAscensions);
+
+        writer.Write(lastSaveTime);
 
 	}
 
@@ -110,5 +120,29 @@ public class GameState : PersistableObject
         this.hasPlayedTutorial = reader.ReadBool();
         this.ascensionPoints = reader.ReadDouble();
         this.numAscensions = reader.ReadInt();
+
+        this.lastSaveTime = reader.ReadDouble();
+        if (this.lastSaveTime != 0) {
+            StartCoroutine(this.GiveMoneyWhenControllerReady());
+        }
 	}
+
+    private IEnumerator GiveMoneyWhenControllerReady() {
+        while (GameManager.Instance.gameController == null) {
+            yield return null;
+        }
+
+        TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+        double secondsSinceEpoch = t.TotalSeconds;
+
+
+        double secondsSinceLastAway = secondsSinceEpoch - lastSaveTime;
+        Debug.Log("Last epoch: " + secondsSinceEpoch + " this epoch: " + secondsSinceEpoch + " Delta: " + secondsSinceLastAway);
+
+        GameManager.Instance.gameState.UpdateGPS();
+        double addedGold = secondsSinceLastAway * GameManager.Instance.gameState.GPS;
+        GameManager.Instance.gameState.AddGold( addedGold );
+        LogMessage message = new LogMessage("You have gained: " + Currency.CurrencyToString(addedGold) + " gold while you were away!", null);
+        yield return GameManager.Instance.gameController.logController.TypeAnimation(message);
+    }
 }

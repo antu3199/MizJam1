@@ -322,8 +322,8 @@ MonoBehaviour:
     - {fileID: -4191260064585126408, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -6759128867594117318, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 7129736685520237834, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
-    statToIncrease: 0
-    statIncreaseAmount: 0
+    statToIncrease: 2
+    statIncreaseAmount: 3
     DEBUG_initialOwned: 0
   - name: Shield
     description: A handy sword
@@ -332,7 +332,7 @@ MonoBehaviour:
     - {fileID: 3801260131329424895, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 5656553920327872717, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 8471028342874835684, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
-    statToIncrease: 2
+    statToIncrease: 1
     statIncreaseAmount: 2
     DEBUG_initialOwned: 0
   - name: Helmet
@@ -343,7 +343,7 @@ MonoBehaviour:
     - {fileID: -2028190574929148752, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -1405246406446808577, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 1
-    statIncreaseAmount: 0.2
+    statIncreaseAmount: 1
     DEBUG_initialOwned: 0
   - name: Gloves
     description: A handy sword
@@ -353,7 +353,7 @@ MonoBehaviour:
     - {fileID: 6334787952214627816, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -7500353602330821276, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 1
-    statIncreaseAmount: 0.1
+    statIncreaseAmount: 2
     DEBUG_initialOwned: 0
   - name: Boots
     description: A handy sword
@@ -363,7 +363,7 @@ MonoBehaviour:
     - {fileID: 9090945159461292800, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 2546865544735757821, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 0
-    statIncreaseAmount: 0.5
+    statIncreaseAmount: 0.75
     DEBUG_initialOwned: 0
   - name: Ring
     description: A handy sword
@@ -373,7 +373,7 @@ MonoBehaviour:
     - {fileID: 3571034078020712203, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -2685658789620927057, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 2
-    statIncreaseAmount: 1.5
+    statIncreaseAmount: 2
     DEBUG_initialOwned: 0
   - name: Necklace
     description: A handy sword
@@ -383,7 +383,7 @@ MonoBehaviour:
     - {fileID: -6703254921191110379, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -5521045682681430589, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 2
-    statIncreaseAmount: 1.25
+    statIncreaseAmount: 3
     DEBUG_initialOwned: 0
   - name: Bag
     description: A handy sword
@@ -393,7 +393,7 @@ MonoBehaviour:
     - {fileID: 5709905621640621303, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: 8576001079144440311, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 1
-    statIncreaseAmount: 0.2
+    statIncreaseAmount: 2
     DEBUG_initialOwned: 0
   - name: Gun
     description: A handy sword
@@ -403,7 +403,107 @@ MonoBehaviour:
     - {fileID: -9038332184434397571, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     - {fileID: -6006416821732856119, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
     statToIncrease: 0
+    statIncreaseAmount: 3
+    DEBUG_initialOwned: 0
+  - name: Bow
+    description: A handybow
+    icons:
+    - {fileID: 7083740059057954997, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 7075408883563834605, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6198502043902462585, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -2978641687401379823, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 1
+    DEBUG_initialOwned: 0
+  - name: Dice
+    description: For those who need luck
+    icons:
+    - {fileID: -43060619894195219, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 2271276709101021292, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 6739924222222041824, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -1819262968705994338, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 1
+    statIncreaseAmount: 1
+    DEBUG_initialOwned: 0
+  - name: Axe
+    description: Axe
+    icons:
+    - {fileID: 7957432328719489023, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 6157229201285197721, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -5106005085510500744, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -7556306621620579997, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
     statIncreaseAmount: 2
+    DEBUG_initialOwned: 0
+  - name: Farmer Tool
+    description: A handy sword
+    icons:
+    - {fileID: 3721874940370442328, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -1650671218431046709, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 2534207553924729238, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -2164121391734894861, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 2
+    DEBUG_initialOwned: 0
+  - name: Potion
+    description: A handy potion
+    icons:
+    - {fileID: -3327647020169399311, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -3618769469041373301, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -9189560104319344002, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 8014280565748932039, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 5
+    DEBUG_initialOwned: 0
+  - name: Hourglass
+    description: A handy sword
+    icons:
+    - {fileID: 1825377801898254938, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -2907650507427087349, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 7217710881630065341, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 1470923875070562410, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 3
+    DEBUG_initialOwned: 0
+  - name: Pocket house
+    description: House in a pocket
+    icons:
+    - {fileID: -1698976551018737680, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -7417756558462626061, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -3887546544757185648, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 8048966992481251810, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 2
+    statIncreaseAmount: 1
+    DEBUG_initialOwned: 0
+  - name: Deck of cards
+    description: cards
+    icons:
+    - {fileID: 8001088611083504113, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -7569115567966757304, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -5750833683175654283, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 7595878407315390576, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 1
+    DEBUG_initialOwned: 0
+  - name: Salad
+    description: Salad
+    icons:
+    - {fileID: -6293995064867100216, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -5203684967152839622, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 689246634788846138, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 4981835433820443109, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 1
+    statIncreaseAmount: 2
+    DEBUG_initialOwned: 0
+  - name: Red deck of cards
+    description: A handy sword
+    icons:
+    - {fileID: 4419168265652638832, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: 2465089903010599903, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -6234611697187890340, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    - {fileID: -1055306245452111109, guid: ce0b3ef5e379a9a49a080aba45ebdabf, type: 3}
+    statToIncrease: 0
+    statIncreaseAmount: 7
     DEBUG_initialOwned: 0
 --- !u!114 &1364476240
 MonoBehaviour:
@@ -449,6 +549,9 @@ MonoBehaviour:
   gold: 0
   items: []
   floorNumber: 0
+  hasPlayedTutorial: 0
+  ascensionPoints: 0
+  numAscensions: 0
 --- !u!114 &3991079338427064246
 MonoBehaviour:
   m_ObjectHideFlags: 0
