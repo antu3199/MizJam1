@@ -20,6 +20,8 @@ public class BottomMenu : MonoBehaviour
     
     private int curTabOpen = 0;
 
+    public Text titleText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +48,7 @@ public class BottomMenu : MonoBehaviour
     }
 
     public void OnGPSUpdate(ResourceUpdate update) {
-        this.GPSText.text = Currency.CurrencyToString(update.valueAfter) + " GPS";
+    this.GPSText.text = Currency.CurrencyToString(update.valueAfter) + " GPS";
     }
 
     public void SwitchTab(int index) {
@@ -59,6 +61,21 @@ public class BottomMenu : MonoBehaviour
         this.curTabOpen = index;
         this.tabs[this.curTabOpen].gameObject.SetActive(true);
         this.tabIcons[this.curTabOpen].SetHighlight(true);
+
+        switch (index) {
+            case 0:
+                this.titleText.text = "Market";
+            break;
+            case 1:
+                this.titleText.text = "Stats";
+                break;
+            
+            case 2:
+                this.titleText.text = "Ascend";
+                break;
+            default:
+                break;
+        }
     }
 
     

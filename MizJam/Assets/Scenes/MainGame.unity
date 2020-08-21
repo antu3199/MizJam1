@@ -601,7 +601,6 @@ GameObject:
   - component: {fileID: 278198503}
   - component: {fileID: 278198506}
   - component: {fileID: 278198505}
-  - component: {fileID: 278198504}
   m_Layer: 5
   m_Name: Player StatsMenu
   m_TagString: Untagged
@@ -631,18 +630,6 @@ RectTransform:
   m_AnchoredPosition: {x: 7.3625, y: -79.963}
   m_SizeDelta: {x: 1871.8, y: 481.73}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &278198504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278198502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf80196dc77bc0f47ac1d25f478c3a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &278198505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +906,7 @@ GameObject:
   - component: {fileID: 483070319}
   - component: {fileID: 483070318}
   m_Layer: 5
-  m_Name: DefenceStatText (4)
+  m_Name: AscPointsText (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1575,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 651420521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1651683994}
+        m_MethodName: Ascend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &651420521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,7 +1728,7 @@ GameObject:
   - component: {fileID: 684823511}
   - component: {fileID: 684823510}
   m_Layer: 5
-  m_Name: DefenceStatText (3)
+  m_Name: AscNumText (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2954,7 +2952,6 @@ GameObject:
   - component: {fileID: 1317542028}
   - component: {fileID: 1317542030}
   - component: {fileID: 1317542029}
-  - component: {fileID: 1317542031}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -3021,21 +3018,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317542027}
   m_CullTransparentMesh: 0
---- !u!114 &1317542031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317542027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b723749f7df882a42955e8c61274121c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marketItemPrefab: {fileID: 2942430938546121602, guid: f070b141fab4b5d4f8321dd9bf00489d,
-    type: 3}
-  marketItemTransform: {fileID: 2026271421}
 --- !u!1 &1359951484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,6 +4947,9 @@ GameObject:
   - component: {fileID: 1651683992}
   - component: {fileID: 1651683991}
   - component: {fileID: 1651683993}
+  - component: {fileID: 1651683994}
+  - component: {fileID: 1651683995}
+  - component: {fileID: 1651683996}
   m_Layer: 5
   m_Name: BottomMenu
   m_TagString: Untagged
@@ -4993,7 +4978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5666667}
-  m_AnchoredPosition: {x: 0, y: -42.17527}
+  m_AnchoredPosition: {x: 0, y: -42.175262}
   m_SizeDelta: {x: 0, y: 29.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651683991
@@ -5045,9 +5030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6e2ebb6ee72784aa0a15afe6b99405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  market: {fileID: 1317542031}
-  playerStatsMenu: {fileID: 278198504}
-  ascensionMenu: {fileID: 1759125830}
+  market: {fileID: 1651683996}
+  playerStatsMenu: {fileID: 1651683995}
+  ascensionMenu: {fileID: 1651683994}
   goldText: {fileID: 853177610}
   GPSText: {fileID: 533752951}
   tabs:
@@ -5058,6 +5043,54 @@ MonoBehaviour:
   - {fileID: 1631158144}
   - {fileID: 723462581199470713}
   - {fileID: 1457978274}
+  titleText: {fileID: 180680422}
+--- !u!114 &1651683994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651683989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f008500de41fe854fad4a82acd1a6f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusIfAscendText: {fileID: 1608631474}
+  dontHaveEnoughText: {fileID: 946609768}
+  ascendButton: {fileID: 651420520}
+--- !u!114 &1651683995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651683989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf80196dc77bc0f47ac1d25f478c3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackText: {fileID: 86102748}
+  defenceText: {fileID: 1099986887}
+  healthText: {fileID: 1805786479}
+  ascensionAmountText: {fileID: 684823510}
+  ascensionBonusText: {fileID: 483070318}
+--- !u!114 &1651683996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651683989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b723749f7df882a42955e8c61274121c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marketItemPrefab: {fileID: 2942430938546121602, guid: f070b141fab4b5d4f8321dd9bf00489d,
+    type: 3}
+  marketItemTransform: {fileID: 2026271421}
 --- !u!224 &1658608954 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 723462579618504002, guid: 3237a58ba27d5f5408752f1338e16dbe,
@@ -5152,7 +5185,6 @@ GameObject:
   - component: {fileID: 1759125829}
   - component: {fileID: 1759125832}
   - component: {fileID: 1759125831}
-  - component: {fileID: 1759125830}
   m_Layer: 5
   m_Name: AscensionMenu
   m_TagString: Untagged
@@ -5182,18 +5214,6 @@ RectTransform:
   m_AnchoredPosition: {x: 7.3625, y: -79.963}
   m_SizeDelta: {x: 1871.8, y: 481.73}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1759125830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759125828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f008500de41fe854fad4a82acd1a6f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1759125831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5538,7 +5558,7 @@ GameObject:
   - component: {fileID: 1805786480}
   - component: {fileID: 1805786479}
   m_Layer: 5
-  m_Name: DefenceStatText (1)
+  m_Name: HealthStatText (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5864,8 +5884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49, y: -136.82}
-  m_SizeDelta: {x: -1231.6, y: 40.3}
+  m_AnchoredPosition: {x: -45.400024, y: -136.82}
+  m_SizeDelta: {x: -1235.2, y: 40.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912146798
 MonoBehaviour:

@@ -68,6 +68,9 @@ public class GameState : PersistableObject
     public double gold;
     public List<Item> items;
     public int floorNumber = 0;
+    public bool hasPlayedTutorial = false;
+    public double ascensionPoints = 0;
+    public int numAscensions = 0;
 
     // ===
 
@@ -85,6 +88,11 @@ public class GameState : PersistableObject
         for (int i = 0; i < items.Count; i++) {
             items[i].Save(writer);
         }
+
+        writer.Write(hasPlayedTutorial);
+        writer.Write(ascensionPoints);
+        writer.Write(numAscensions);
+
 	}
 
 	public override void Load (GameDataReader reader) {
@@ -94,5 +102,9 @@ public class GameState : PersistableObject
         for (int i = 0; i < items.Count; i++) {
             items[i].Load(reader);
         }
+
+        this.hasPlayedTutorial = reader.ReadBool();
+        this.ascensionPoints = reader.ReadDouble();
+        this.numAscensions = reader.ReadInt();
 	}
 }

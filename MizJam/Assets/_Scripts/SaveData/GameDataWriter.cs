@@ -9,6 +9,12 @@ public class GameDataWriter {
 		this.writer = writer;
 	}
 
+	public void Write (bool value) {
+        //Debug.Log("Save value: " + value);
+		writer.Write(value);
+	}
+
+
 	public void Write (float value) {
         //Debug.Log("Save value: " + value);
 		writer.Write(value);

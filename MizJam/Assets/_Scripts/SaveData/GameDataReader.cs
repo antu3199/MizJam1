@@ -27,6 +27,11 @@ public class GameDataReader {
 		return val;
 	}
 
+    public bool ReadBool() {
+        bool val = reader.ReadBoolean();
+        return val;
+    }
+
 	public Quaternion ReadQuaternion () {
 		Quaternion value;
 		value.x = reader.ReadSingle();
