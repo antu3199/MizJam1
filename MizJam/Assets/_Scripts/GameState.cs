@@ -23,6 +23,10 @@ public class GameState : PersistableObject
             GPS += item.GetGoldProduction(); 
         }
 
+        double percentageModifiers = 0;
+        percentageModifiers += this.ascensionPoints;
+        GPS = GPS + (GPS * percentageModifiers);
+
         if (!ignoreBroadcastIfNoChange || oldGPS != GPS) {
             Messenger.Broadcast<ResourceUpdate>(Messages.OnGPSUpdate, new ResourceUpdate(Resource.GPS, GPS, this.GPS));
         }
