@@ -82,7 +82,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Note: Damage should be obtained through GetScaledStat
-    public void DealDamageToMe(double damage, double reference) {
+    public double DealDamageToMe(double damage, double reference) {
         double defenceStat = GetScaledStat(Stat.DEFENCE, reference);
         double healthStat = GetScaledStat(Stat.MAX_HEALTH, reference);
 
@@ -92,7 +92,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         this.hp -= finalDamage;
-        Debug.Log("Damage dealt: " + finalDamage + " HP: " + this.hp + " refernece: " + reference );
+        return finalDamage;
     }
 
     // Just for debugging 

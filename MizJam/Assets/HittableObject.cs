@@ -15,6 +15,11 @@ public class HittableObject : MonoBehaviour
 
     public double numTimesHit{get; set;}
 
+    public PlayerCanvas enemyCanvas;
+
+    public Transform damageTextTransform;
+
+
     protected bool isDead = false;
 
     protected Action onDeath = null;
@@ -50,8 +55,15 @@ public class HittableObject : MonoBehaviour
             return;
         }
 
-        Debug.Log("Hit object reference: " + this.reference);
-        this.playerStats.DealDamageToMe(damage, reference);
+        double realDamage = this.playerStats.DealDamageToMe(damage, reference);
+
+        GameManager.Instance.gameController.InstantiateDamageText(realDamage, false, this.damageTextTransform.position, this.damageTextTransform);
+
+        if (this.enemyCanvas != null) {
+            double t = this.playerStats.hp / this.playerStats.GetScaledStat(Stat.MAX_HEALTH, reference);
+            this.enemyCanvas.SetHPProgress((float)t);
+        }
+
 
         if (increaseRewardForHit) {
             this.numTimesHit++;

@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public PlayerStats playerStats;
     public DealDamageInteractable damageInteractable;
 
+
     public double reference{get; set;}
     
 

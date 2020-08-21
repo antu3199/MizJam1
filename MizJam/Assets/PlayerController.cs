@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
     public PlayerMoveableObject moveableObject;
     public double GPSScaler = 300;
 
+    public PlayerCanvas playerCanvas;
 
+    public Transform damageTextTransform;
 
     public void Initialize() {
         this.swordSwing.Initialize(this);
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void DealDamageToMe(double damage, float knockback) {
-        GameManager.Instance.gameState.playerStats.DealDamageToMe(damage, this.GetReference());
+        double realDamage = GameManager.Instance.gameState.playerStats.DealDamageToMe(damage, this.GetReference());
         this.moveableObject.moveDirection.x = -knockback;
         if (GameManager.Instance.gameState.playerStats.hp <= 0) {
             this.canMove = false;
@@ -67,6 +69,12 @@ public class PlayerController : MonoBehaviour
             this.animator.Play("Death");
             GameManager.Instance.gameController.OnPlayerDeath();
         }
+
+        Debug.Log("Player remaining Hp: " + GameManager.Instance.gameState.playerStats.hp + "/" + GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.MAX_HEALTH, GameManager.Instance.gameState.GPS));
+
+        double t = GameManager.Instance.gameState.playerStats.hp / GameManager.Instance.gameState.playerStats.GetScaledStat(Stat.MAX_HEALTH, GameManager.Instance.gameState.GPS);
+        this.playerCanvas.SetHPProgress((float)t);
+        GameManager.Instance.gameController.InstantiateDamageText(realDamage, true, this.damageTextTransform.position, this.damageTextTransform);
     }
 
     private IEnumerator playAttackAnimation() {

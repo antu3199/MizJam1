@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
 
     public PlayerController playerController;
 
+    public BasicText damageTextPrefab;
+
 
     public void Start() {
 
@@ -62,6 +64,13 @@ public class GameController : MonoBehaviour
     // Call when death
     public void OnPlayerDeath() {
         this.StartCoroutine(this.RestartRun());
+    }
+
+    public void InstantiateDamageText(double damage, bool isPlayer, Vector3 position, Transform parent = null) {
+        BasicText textObject = Instantiate(this.damageTextPrefab, parent) as BasicText;
+        textObject.transform.position = position;
+        textObject.text.text = Currency.CurrencyToString(damage);
+        textObject.text.color = isPlayer ? textObject.playerColor : textObject.enemyColor; 
     }
 
     private IEnumerator RestartRun() {
