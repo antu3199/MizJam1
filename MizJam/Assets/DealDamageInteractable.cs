@@ -25,8 +25,11 @@ public class DealDamageInteractable : PlayerInteractable
         // Instead of doing it the proper way, just use GetComponent to save time
         PlayerController playerController = controller.GetComponent<PlayerController>();
         Debug.Log("Deal damage interactable");
-        if (pushBack == true && playerController != null) {
-            float knockback = playerController.swordSwing.knockback;
+        if ( playerController != null) {
+            float knockback = 0;
+            if (pushBack) {
+                knockback = playerController.swordSwing.knockback;
+            }
 
             Debug.Log("Deal damage interactable 2");
             double enemyToPlayerDamage = this.enemyController.playerStats.GetScaledStat(Stat.ATTACK, this.enemyController.reference);

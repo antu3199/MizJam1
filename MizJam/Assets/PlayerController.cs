@@ -114,7 +114,10 @@ public class PlayerController : MonoBehaviour
 
     public void DealDamageToMe(double damage, float knockback) {
         double realDamage = GameManager.Instance.gameState.playerStats.DealDamageToMe(damage, this.GetReference());
-        this.moveableObject.moveDirection.x = -knockback;
+        if (knockback != 0) {
+            this.moveableObject.moveDirection.x = -knockback;
+        }
+
         if (GameManager.Instance.gameState.playerStats.hp <= 0) {
             this.canMove = false;
             this.moveableObject.LockHorizontalMovement();
@@ -168,9 +171,9 @@ public class PlayerController : MonoBehaviour
         this.actionItems[1].gameObject.SetActive(true);
         this.actionItems[1].SetProgressBarVisible(defaultChoice);
         this.actionItems[1].SetLabel("X:" + label);
+        this.exclaimationPoint.gameObject.SetActive(true);
 
         if (defaultChoice) {
-            this.exclaimationPoint.gameObject.SetActive(true);
             this.autoTimerCounter = 0;
         }
     }
@@ -180,9 +183,9 @@ public class PlayerController : MonoBehaviour
         this.actionItems[2].gameObject.SetActive(true);
         this.actionItems[2].SetProgressBarVisible(defaultChoice);
         this.actionItems[2].SetLabel("C:" + label);
+        this.exclaimationPoint.gameObject.SetActive(true);
 
         if (defaultChoice) {
-            this.exclaimationPoint.gameObject.SetActive(true);
             this.autoTimerCounter = 0;
         }
     }

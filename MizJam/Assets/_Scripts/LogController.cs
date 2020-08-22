@@ -21,6 +21,10 @@ public class LogController : MonoBehaviour
     public AutoType typer;
     public Image talkerIcon;
 
+    public void TypeAnimationFunc(LogMessage message) {
+        this.StartCoroutine(this.TypeAnimation(message));
+    }
+
     public IEnumerator TypeAnimation(LogMessage message) {
         if (message.icon == null) {
             talkerIcon.gameObject.SetActive(false);
@@ -29,7 +33,12 @@ public class LogController : MonoBehaviour
             talkerIcon.gameObject.SetActive(true);
         }
 
-        yield return typer.TypeText(message.message);
+        if (this.typer.isTyping) {
+            typer.InterruptWithAnotherMessage(message.message);
+        } else {
+            yield return typer.TypeText(message.message);
+        }
+
     }
 
     public void ClearLogText() {

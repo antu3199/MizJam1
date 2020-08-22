@@ -11,6 +11,9 @@ public class AutoType : MonoBehaviour {
 	public Text guiText;
 
 	float thisTime;
+    private char[] messageArray;
+
+    public bool isTyping = false;
 
 	// Use this for initialization
     /*
@@ -27,16 +30,30 @@ public class AutoType : MonoBehaviour {
 		}
 	}
     */
+
+    private int messageIndex = 0;
 	
     public void ClearText() {
         guiText.text = "";
     }
 
+    public void InterruptWithAnotherMessage(string message) {
+        this.ClearText();
+        this.messageArray = message.ToCharArray();
+        this.messageIndex = 0;
+    }
+
 	public IEnumerator TypeText (string message) {
         this.ClearText();
+        
 		thisTime = (Time.time);
-	
-		foreach (char letter in message.ToCharArray()) {
+        this.isTyping = true;
+        this.messageIndex = 0;
+        this.messageArray = message.ToCharArray();
+
+        while (this.messageIndex < this.messageArray.Length) {
+            char letter = messageArray[messageIndex];
+
 			//Advances text
 			guiText.text += letter;
 
@@ -46,6 +63,8 @@ public class AutoType : MonoBehaviour {
                 GameManager.Instance.audio.PlayOneShot(this.sound);
 			}
 
+            messageIndex++;
+
 			//If certain punctuation, pause longer
 			if (letter.ToString() == "." ||letter.ToString() == "," || letter.ToString() =="!" ||letter.ToString() == "?"){
 				yield return new WaitForSeconds (longerPause);
@@ -54,8 +73,10 @@ public class AutoType : MonoBehaviour {
 				yield return new WaitForSeconds (letterPause);
 			}
 
+
 		}
 
+        this.isTyping = false;
         yield return new WaitForSeconds(afterDelay);
 	}
 }

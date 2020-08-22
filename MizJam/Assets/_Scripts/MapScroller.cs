@@ -112,6 +112,7 @@ public class MapScroller : MonoBehaviour
     private IEnumerator movePlayerBackToPosition(MoveableObject player, List<Transform> otherObjects, bool disableCollider) {
 
         if (disableCollider) {
+            player.GetComponent<PlayerController>().canMove = false;
             player.GetComponent<CharacterController>().enabled = false;
         }
 
@@ -144,6 +145,7 @@ public class MapScroller : MonoBehaviour
         player.transform.position = new Vector3(target, player.transform.position.y, player.transform.position.z );
 
         if (disableCollider) {
+            player.GetComponent<PlayerController>().canMove = false;
             player.GetComponent<CharacterController>().enabled = true;
         }
     }
