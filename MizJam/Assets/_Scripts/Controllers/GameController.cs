@@ -48,12 +48,10 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene("MainGame");
         }
 
-        /*
         // Not this though
         if (Input.GetKeyDown("9")) {
             GameManager.Instance.gameState.AddGold( System.Math.Pow(10, 12));
         }
-        */
 
         GameManager.Instance.gameState.AddGold(GameManager.Instance.gameState.GPS * Time.deltaTime);
 

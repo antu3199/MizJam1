@@ -364,6 +364,12 @@ MonoBehaviour:
   notificationSoundEffect: {fileID: 8300000, guid: 58c77062f8dc14349b69a9ab8c4aa89e,
     type: 3}
   autoTimerTime: 5
+  armorSprites:
+  - {fileID: 8000117828308700731, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+  - {fileID: 8049024241501034948, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+  - {fileID: 8333053375100661828, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+  - {fileID: 2522206649845509431, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
+  armor: {fileID: 7947583557249818441}
 --- !u!143 &7947583557564735725
 CharacterController:
   m_ObjectHideFlags: 0

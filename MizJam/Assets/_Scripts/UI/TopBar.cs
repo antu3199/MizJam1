@@ -31,7 +31,6 @@ public class TopBar : MonoBehaviour
     }
 
     public void SetLevelIconHighlight(int index) {
-        Debug.Log("Set level icon highlight: " + index);
         for (int i = 0; i < levelIcons.Count; i++) {
             bool highlight = i == index;
             if (highlight) {

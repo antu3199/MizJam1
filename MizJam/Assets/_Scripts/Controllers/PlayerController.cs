@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
 
     private List<ActionItemUI> actionItems;
 
+
+    public List<Sprite> armorSprites;
+    public SpriteRenderer armor;
+
     public void Initialize() {
         this.actionItems = GameManager.Instance.gameController.logController.actionItems;
 
@@ -55,12 +59,43 @@ public class PlayerController : MonoBehaviour
         this.actionItems[1].SetLabel(JUMP_LABEL);
         this.actionItems[2].gameObject.SetActive(false);
 
+        this.SetArmor(null);
+        Messenger.AddListener<ItemUpdate>(Messages.OnItemBuy, this.SetArmor);
 
         //this.moveableObject.UnlockHorizontalMovement();
     }
 
+    private void SetArmor(ItemUpdate update) {
+        // For simplicity just recalculate
+        int maxOwned = 0;
+        int totalItemsInShop = GameManager.Instance.gameData.marketItems.Count;
+        int increment = totalItemsInShop/4;
+
+        for (int i = 0; i < totalItemsInShop; i++) {
+            if (GameManager.Instance.gameState.items[i].owned >= 1) {
+                maxOwned = i;
+            }
+        }
+
+        Sprite spriteToUse = this.armorSprites[0];
+        if (maxOwned >= 3 * increment) {
+            spriteToUse = this.armorSprites[3];
+        } else if (maxOwned >= 2 * increment) {
+            spriteToUse = this.armorSprites[2];
+        } else if (maxOwned >= 1 * increment) {
+            spriteToUse = this.armorSprites[1];
+        } else {
+            spriteToUse = this.armorSprites[0];
+        }
+
+        this.armor.sprite = spriteToUse;
+    }
+
 
     void OnDestroy() {
+
+        Messenger.RemoveListener<ItemUpdate>(Messages.OnItemBuy, this.SetArmor);
+
         if (this.jumpOverride != null || this.cancelOverride != null) {
             this.ResetOverrides();
         }
@@ -182,7 +217,6 @@ public class PlayerController : MonoBehaviour
         }
 
         if (other.tag == "PlayerInteractable" || other.tag == "HittableObject") {
-            Debug.Log("Trigger enter: " + other.tag);
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
             interactable.Interact(this.moveableObject);
         }
