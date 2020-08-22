@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
 
     // Call when death
     public void OnPlayerDeath() {
+        this.mapScroller.SetMapMovable(false);
         this.StartCoroutine(this.RestartRun());
     }
 
