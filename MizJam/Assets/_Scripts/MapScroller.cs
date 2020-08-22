@@ -36,7 +36,13 @@ public class MapScroller : MonoBehaviour
         this.activeMaps.Add(this.startingMap);
         double reference = Currency.GetBaseCost(GameManager.Instance.gameState.floorNumber);
         this.startingMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, -1 );
-        this.GenerateMapsFromIndex(true);
+
+        if (!GameManager.Instance.gameState.hasPlayedTutorial) {
+            this.GenerateTutorialMaps();
+        } else {
+            this.GenerateMapsFromIndex(true);
+        }
+
         GameManager.Instance.gameController.topBar.SetLevelIconHighlight(this.curMapIndex);
         this.SetTopBarFromMaps();
     }
@@ -152,8 +158,6 @@ public class MapScroller : MonoBehaviour
 
     // Index = 1 if start, 0 otherwise
     private void GenerateMapsFromIndex(bool firstTime) {
-        Debug.Log("GENERATE MAPS from index!!");
-
         int startingIndex = firstTime ? 1 : 0;
 
         const int initialLevel = 1;
@@ -163,43 +167,93 @@ public class MapScroller : MonoBehaviour
 
         int mapIndexCount = 0;
 
+        MapType specialMap = MapType.BASIC; // Stays basic unless need to do something special...
+
         for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
 
             float t = (float)i/NUM_MAPS_PER_MILE;
             double reference = this.LerpDouble(referenceA, referenceB, t);
-            //Debug.Log("Floor: " + GameManager.Instance.gameState.floorNumber + " Level: " + i + " Reference: " + reference );
-            
             int mapIndex = UnityEngine.Random.Range(1, possibleMaps.Count);
             int basicMapIndex = -1;
             if (i % 2 == 0 ) {
                 mapIndex = 0;
             } else if (i == NUM_MAPS_PER_MILE - 1) {
                 mapIndex = 2;
-            } else if (UnityEngine.Random.Range(0, 1) <= this.combatMapChance) {
+            } else if (UnityEngine.Random.Range(0.0f, 1.0f) <= this.combatMapChance) {
                 mapIndex = 2;
             } else {
                 
             }
 
             if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
-                mapIndex = tmp_FixedMap; // TMP
+                //mapIndex = tmp_FixedMap; // TMP
             }
 
             if (i % 2 != 0) {
                 basicMapIndex = mapIndexCount++; 
             }
 
-            BasicMap newMap = Instantiate(possibleMaps[mapIndex], grid.transform) as BasicMap;
-            newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, basicMapIndex);
-            if (i == NUM_MAPS_PER_MILE - 1) {
-                CombatMap combatMap = (CombatMap)newMap;
-                combatMap.SetAsBossMap();
+            bool isBossMap = i == NUM_MAPS_PER_MILE-1;
+            if (isBossMap) {
+                specialMap = MapType.COMBAT_BOSS;
             }
 
-            newMap.gameObject.SetActive(false);
-            nextMapsToAdd.Enqueue(newMap);
-
+            this.InstantiateMap(mapIndex, reference, basicMapIndex, specialMap);
         }
+    }
+
+    private void GenerateTutorialMaps() {
+        int startingIndex = 1;
+        int mapIndexCount = 0;
+        double reference = 1;
+
+
+        for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
+            int mapIndex = 1;
+            int basicMapIndex = -1;
+            MapType specialMap = MapType.BASIC;
+
+            if (i % 2 == 0 ) {
+                mapIndex = 0;
+            } else if (i == NUM_MAPS_PER_MILE - 1) {
+                mapIndex = 2;
+            } else {
+                specialMap = MapType.TALKING_TUTORIAL;
+            }
+
+            /*
+            if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
+                mapIndex = tmp_FixedMap; // TMP
+            }
+            */
+
+            if (i % 2 != 0) {
+                basicMapIndex = mapIndexCount++; 
+            }
+
+
+
+            this.InstantiateMap(mapIndex, reference, basicMapIndex, specialMap);
+        }
+    }
+
+    private void InstantiateMap(int mapIndex, double reference, int basicMapIndex, MapType specialMapType) {
+        BasicMap newMap = Instantiate(possibleMaps[mapIndex], grid.transform) as BasicMap;
+        newMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, basicMapIndex);
+
+        switch (specialMapType) {
+            case MapType.COMBAT_BOSS:
+                CombatMap combatMap = (CombatMap)newMap;
+                combatMap.SetAsBossMap();
+                break;
+            case MapType.TALKING_TUTORIAL:
+                TalkingMap talkingMap = (TalkingMap)newMap;
+                talkingMap.SetAsTutorial(basicMapIndex);
+                break;
+        }
+
+        newMap.gameObject.SetActive(false);
+        nextMapsToAdd.Enqueue(newMap);
     }
 
     private void SetTopBarFromMaps() {

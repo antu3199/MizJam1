@@ -14,6 +14,7 @@ public class CombatMap : BasicMap
     protected LogController logController;
 
     public override void DoInitialize() {
+        this.mapType = MapType.COMBAT;
         immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
         cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
 
@@ -28,6 +29,7 @@ public class CombatMap : BasicMap
     }
 
     public void SetAsBossMap() {
+        this.mapType = MapType.COMBAT_BOSS;
         this.mustKillEnemyToAdvance = true;
         immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
         cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);

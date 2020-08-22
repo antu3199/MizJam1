@@ -15,6 +15,17 @@ public class MapEvent {
     public UnityEvent triggerEvent = null;
 };
 
+public enum MapType {
+    BASIC,
+    TALKING,
+    TALKING_TUTORIAL,
+    COMBAT,
+    COMBAT_BOSS,
+    TRADING,
+    GOLD,
+    QUICKTIME
+};
+
 public class BasicMap : MonoBehaviour
 {
     public List<MapEvent> mapEvents;
@@ -24,6 +35,9 @@ public class BasicMap : MonoBehaviour
     public int mapIndex {get; set;}
 
     public Sprite levelIconSprite;
+
+    public MapType mapType {get; set;}
+
     protected Action<BasicMap> onLoadNextMap = null;
     protected Action<BasicMap> onGoToNextMap = null;
     protected Action<BasicMap> onDestroy = null;
@@ -41,6 +55,7 @@ public class BasicMap : MonoBehaviour
         this.onGoToNextMap = onGoToNextMap;
         this.reference = reference;
         this.mapIndex = mapIndex;
+        this.mapType = MapType.BASIC;
 
         MapEvent destroyEvent = new MapEvent();
         destroyEvent.identifier = "Destroy event";

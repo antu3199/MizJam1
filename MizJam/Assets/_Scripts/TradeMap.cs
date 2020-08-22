@@ -34,6 +34,7 @@ public class TradeMap : BasicMap
     private double goldCostToTrade = 0f;
 
     public override void DoInitialize() {
+        this.mapType = MapType.TRADING;
         this.logController = GameManager.Instance.gameController.logController;
     }
 

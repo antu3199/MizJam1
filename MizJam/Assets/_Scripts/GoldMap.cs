@@ -7,7 +7,7 @@ public class GoldMap : BasicMap
 
     public CameraResetterInteractable cameraResetter;
     public override void DoInitialize() {
-        
+        this.mapType = MapType.GOLD;
         this.cameraResetter.Initialize(this.OnSkip);
     }
     protected virtual void OnSkip() {

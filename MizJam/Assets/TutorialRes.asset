@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dede3038ebfa5a41af824369da3ebad, type: 3}
+  m_Name: TutorialRes
+  m_EditorClassIdentifier: 
+  tutorialObj:
+  - messages:
+    - Welcome to Super Dungeon Adventure Crawler Idle Quest! A mix between a dungeon
+      crawler and an idle game.
+    - Buy items on the bottom using the mouse to increase your gold and gold per
+      second.
+  - messages:
+    - Press Z to swing your sword and destroy enemies. Don't point that thing at
+      me though!
+  - messages:
+    - Press X to jump. Jump to reach special places or to skip powerful enemies.
+  - messages:
+    - 'X can also be used to interact with your environment at certain times. '
+    - 'An exclaimation mark will be shown above your character when you can do it.
+
+'
+    - You can also look at the bottom right of this log to see your available actions.
+    - This concludes the tutorial, good luck!

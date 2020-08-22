@@ -17,6 +17,7 @@ public class QuickTimeMap : BasicMap
     
 
     public override void DoInitialize() {
+        this.mapType = MapType.QUICKTIME;
         this.fallingObject.Initialize(this.reference, this.OnGetHit);
         this.cameraResetter.Initialize(this.OnSkip);
         this.playerDefaultPosition = GameManager.Instance.gameController.mapScroller.playerDefaultPosition.position.x;

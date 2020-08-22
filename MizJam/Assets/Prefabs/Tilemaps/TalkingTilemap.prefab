@@ -7102,6 +7102,7 @@ MonoBehaviour:
     iconColor: {r: 0.8117648, g: 0.77647066, b: 0.72156864, a: 1}
     rewardType: 2
   rewardTransform: {fileID: 1741603443}
+  tutorialRes: {fileID: 11400000, guid: 0f4ba1c9b7f64bc44889b448639abc7d, type: 2}
 --- !u!1 &3326252455441221726
 GameObject:
   m_ObjectHideFlags: 0
