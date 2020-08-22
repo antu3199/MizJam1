@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131569408344474115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.53, y: 10.76, z: 0}
+  m_LocalPosition: {x: -9.53, y: 11.34, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1131569408918029254}
@@ -7421,6 +7421,9 @@ MonoBehaviour:
   reference: 1
   levelIconSprite: {fileID: 5480096303562082955, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
+  houseContainer: {fileID: 0}
+  instantiateNPCHouse: 0
+  houseRes: {fileID: 0}
   rewardForCompleting:
     value: 5
     indexIfItem: 0
@@ -7430,3 +7433,4 @@ MonoBehaviour:
   fallingObject: {fileID: 1131569408344474127}
   cameraResetter: {fileID: 4362605419933053026}
   moveAmount: 5
+  fallingObjectRes: {fileID: 11400000, guid: 60d08d08c95db744d9547eda76c6174b, type: 2}

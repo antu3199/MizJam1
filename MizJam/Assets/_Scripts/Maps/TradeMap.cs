@@ -93,6 +93,7 @@ public class TradeMap : BasicMap
             case TradeResponse.YES:
                 yield return logController.TypeAnimation(new LogMessage(responseYes, this.logIcon));
                 GameManager.Instance.gameState.AddGold(-goldCostToTrade);
+                this.reward.value = goldReceiveWhenTrade;
                 yield return GameManager.Instance.gameController.InstantiateRewardCor(reward, rewardTransform.position, rewardTransform);
 
                 break;

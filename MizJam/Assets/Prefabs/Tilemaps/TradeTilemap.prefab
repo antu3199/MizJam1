@@ -7091,7 +7091,7 @@ MonoBehaviour:
     indexIfItem: 0
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
-    rewardType: 0
+    rewardType: 1
   goldCostMultiplierRange: 200
   rewardTransform: {fileID: 25215367187034136}
   npcSpriteRes: {fileID: 11400000, guid: a02182fbedf2b444eb18e76f5665d3a4, type: 2}

@@ -11,6 +11,10 @@ public class QuickTimeMap : BasicMap
 
     public float moveAmount = 3f;
 
+    public FallingObjectRes fallingObjectRes;
+
+    private FallingObjectResObj fallingObjectResObj;
+
     private float playerDefaultPosition = -5.5f;
 
     private bool gotHit = false;
@@ -18,7 +22,9 @@ public class QuickTimeMap : BasicMap
 
     public override void DoInitialize() {
         this.mapType = MapType.QUICKTIME;
-        this.fallingObject.Initialize(this.reference, this.OnGetHit);
+        this.fallingObjectResObj = this.fallingObjectRes.GetRandomFallingObjectRes();
+        this.levelIconSprite = this.fallingObjectResObj.fallingObjectSprite;
+        this.fallingObject.Initialize(this.reference, this.OnGetHit, this.fallingObjectResObj);
         this.cameraResetter.Initialize(this.OnSkip);
         this.playerDefaultPosition = GameManager.Instance.gameController.mapScroller.playerDefaultPosition.position.x;
     }

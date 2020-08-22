@@ -15,10 +15,14 @@ public class FallingObject : MonoBehaviour
 
     private float xMoveSpeed = 1f;
     private float timeToFallToPlayer = 1f;
+    private FallingObjectResObj fallingObjectResObj;
 
-    public void Initialize(double reference, Action onHit) {
+    public void Initialize(double reference, Action onHit, FallingObjectResObj fallingObjectRes) {
         this.dealDamageInteractableObject.Initialize(reference, onHit);
         this.transform.SetParent(null);
+        this.fallingObjectResObj = fallingObjectRes;
+        this.sprite.sprite = fallingObjectRes.fallingObjectSprite;
+
         Vector3 playerPos = GameManager.Instance.gameController.mapScroller.playerDefaultPosition.position;
         this.timeToFallToPlayer = (this.transform.position.y - playerPos.y) / this.fallSpeed;
         this.xMoveSpeed = (this.transform.position.x - playerPos.x) / this.timeToFallToPlayer;
