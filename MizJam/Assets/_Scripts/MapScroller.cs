@@ -58,10 +58,10 @@ public class MapScroller : MonoBehaviour
         this.moveMap = moveable;
     }
 
-    public void ResetPlayerCamera(MoveableObject player, List<Transform> otherObjects) {
+    public void ResetPlayerCamera(MoveableObject player, List<Transform> otherObjects, bool disableCollider = false) {
         this.moveMap = true;
         player.LockHorizontalMovement();
-        StartCoroutine(this.movePlayerBackToPosition(player, otherObjects));
+        StartCoroutine(this.movePlayerBackToPosition(player, otherObjects, disableCollider));
     }
 
     private void OnDestroyMap(BasicMap map) {
@@ -109,24 +109,43 @@ public class MapScroller : MonoBehaviour
         GameManager.Instance.gameController.topBar.SetLevelIconHighlight(curMapIndex);
     }
 
-    private IEnumerator movePlayerBackToPosition(MoveableObject player, List<Transform> otherObjects) {
+    private IEnumerator movePlayerBackToPosition(MoveableObject player, List<Transform> otherObjects, bool disableCollider) {
+
+        if (disableCollider) {
+            player.GetComponent<CharacterController>().enabled = false;
+        }
+
         float target = this.playerDefaultPosition.position.x;
 
         float lerpTime = 1f;
         float lerpCounter = 0;
         float start = player.transform.position.x;
         float end = target;
+
+        float startY = player.transform.position.y;
+        float endY = this.playerDefaultPosition.position.y;
         
         while (lerpCounter < lerpTime) {
             float t = lerpCounter / lerpTime;
             float x = Mathf.Lerp(start, end, t);
-            player.transform.position = new Vector3(x, player.transform.position.y, player.transform.position.z );
+            float y = player.transform.position.y;
+
+            if (disableCollider) {
+                y = Mathf.Lerp(startY, endY, t);
+            }
+
+            player.transform.position = new Vector3(x, y, player.transform.position.z );
+
             yield return null;
 
             lerpCounter += Time.deltaTime;
         }
 
         player.transform.position = new Vector3(target, player.transform.position.y, player.transform.position.z );
+
+        if (disableCollider) {
+            player.GetComponent<CharacterController>().enabled = true;
+        }
     }
 
     // Index = 1 if start, 0 otherwise
@@ -160,7 +179,7 @@ public class MapScroller : MonoBehaviour
                 
             }
 
-            if (i != NUM_MAPS_PER_MILE - 1 ) {
+            if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
                 mapIndex = tmp_FixedMap; // TMP
             }
 
