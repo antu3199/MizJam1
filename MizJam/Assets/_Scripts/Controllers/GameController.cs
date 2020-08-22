@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     public BasicText damageTextPrefab;
 
+    public CanvasGroup fadeInImage;
+
 
     public void Start() {
 
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour
     }
 
     public void Initialize() {
+        this.fadeInImage.alpha = 0;
         this.topBar.Initialize();
         this.mapScroller.Initialize();
         this.InstantiatePlayer();
@@ -97,11 +100,31 @@ public class GameController : MonoBehaviour
     private IEnumerator RestartRun() {
         string message = "Your vision blurs...";
         LogMessage logMessage = new LogMessage(message, null);
-        yield return this.logController.TypeAnimation(logMessage);
+        this.StartCoroutine(this.logController.TypeAnimation(logMessage));
 
-        yield return new WaitForSeconds(0.5f);
+        float counter = 0;
+        float fadeTime = 2f;
+
+        while (counter < fadeTime) {
+            float t = counter / fadeTime;
+            this.fadeInImage.alpha = t;
+            counter += Time.deltaTime;
+            yield return null;
+        }
+
+        this.fadeInImage.alpha = 1;
+
         this.ResetGame();
-        //SceneManager.LoadScene("MainGame");
+        counter = 0;
+
+        while (counter < fadeTime) {
+            float t = counter / fadeTime;
+            this.fadeInImage.alpha = 1 - t;
+            counter += Time.deltaTime;
+            yield return null;
+        }
+
+        this.fadeInImage.alpha = 0;
     }
 
     private void InstantiatePlayer() {

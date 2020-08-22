@@ -38,7 +38,7 @@ public class MapScroller : MonoBehaviour
         double reference = Currency.GetBaseCost(GameManager.Instance.gameState.floorNumber);
         this.startingMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, -1 );
 
-        // GameManager.Instance.gameState.hasPlayedTutorial = true;
+        GameManager.Instance.gameState.hasPlayedTutorial = true;
 
         if (!GameManager.Instance.gameState.hasPlayedTutorial) {
             this.GenerateTutorialMaps();
@@ -214,7 +214,7 @@ public class MapScroller : MonoBehaviour
             }
 
             if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
-                //mapIndex = tmp_FixedMap; // TMP
+                mapIndex = tmp_FixedMap; // TMP
             }
 
             if (i % 2 != 0) {

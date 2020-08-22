@@ -28,7 +28,7 @@ public class AscensionMenu : MonoBehaviour
     private void UpdateValues() {
         double curGold = GameManager.Instance.gameState.gold;
         double ascensionPointsIfAscend = Currency.GetNumAscendPoints(curGold);
-        this.bonusIfAscendText.text = "Bonus if you ascend: " + ascensionPointsIfAscend + "%";
+        this.bonusIfAscendText.text = "Bonus if you ascend: " + this.RoundValue(ascensionPointsIfAscend) + "%";
 
         bool canAscend = (ascensionPointsIfAscend >= 1.0);
         this.dontHaveEnoughText.gameObject.SetActive(!canAscend);
@@ -53,6 +53,10 @@ public class AscensionMenu : MonoBehaviour
         }
         GameManager.Instance.gameState.floorNumber = 0;
         GameManager.Instance.gameStorage.SaveGame();
+    }
+
+    private double RoundValue(double val) {
+        return System.Math.Round(val, 2);
     }
 
 }

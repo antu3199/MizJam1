@@ -28,11 +28,15 @@ public class PlayerStatsMenu : MonoBehaviour
         PlayerStats playerStats = GameManager.Instance.gameState.playerStats;
         double reference = GameManager.Instance.gameState.GPS;
 
-        this.attackText.text = "Attack: " + playerStats.GetScaledStat(Stat.ATTACK, reference);
-        this.defenceText.text = "Defence: " + playerStats.GetScaledStat(Stat.DEFENCE, reference);
-        this.healthText.text = "Health: " + playerStats.hp;
+        this.attackText.text = "Attack: " + RoundValue(playerStats.GetScaledStat(Stat.ATTACK, reference));
+        this.defenceText.text = "Defence: " + RoundValue(playerStats.GetScaledStat(Stat.DEFENCE, reference));
+        this.healthText.text = "Health: " + RoundValue(playerStats.hp);
         this.ascensionAmountText.text = "Ascensions: " + GameManager.Instance.gameState.numAscensions;
-        this.ascensionBonusText.text = "Ascension Bonus: " + GameManager.Instance.gameState.ascensionPoints + "%";
+        this.ascensionBonusText.text = "Ascension Bonus: " + RoundValue(GameManager.Instance.gameState.ascensionPoints) + "%";
+    }
+
+    private double RoundValue(double val) {
+        return System.Math.Round(val, 2);
     }
 
 }
