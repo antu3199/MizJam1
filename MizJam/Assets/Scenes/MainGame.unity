@@ -1974,7 +1974,7 @@ MonoBehaviour:
   mapMoveSpeed: 10
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
-  tmp_FixedMap: 7
+  tmp_FixedMap: 1
   combatMapChance: 0.1
 --- !u!114 &781262416
 MonoBehaviour:

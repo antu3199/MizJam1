@@ -9,17 +9,23 @@ public class EnemyController : MonoBehaviour
     public EnemyMoveableObject moveableObject;
     public PlayerStats playerStats;
     public DealDamageInteractable damageInteractable;
+    public SpriteRenderer enemySpriteRenderer;
 
 
     public double reference{get; set;}
+
+    private CombatResObj combatResObjInstance;
     
 
-    public void Initialize(Action onDeath, double reference) {
+    public void Initialize(Action onDeath, double reference, CombatResObj combatResObj) {
+        this.combatResObjInstance = combatResObj;
+        this.enemySpriteRenderer.sprite = combatResObj.gameSprite;
         this.reference = reference;
         onDeath += moveableObject.LockHorizontalMovement;
         onDeath += RemoveDamageHitbox;
         hittableObject.Initialize(onDeath, reference);
         this.playerStats.UpdateMaxHealth(reference);
+        this.playerStats.SetValues(combatResObj.baseAttack, combatResObj.attackScaling, combatResObj.baseDefence, combatResObj.defenceScaling, combatResObj.baseMaxHealth, combatResObj.healthScaling);
         this.damageInteractable.Initialize(this);
     }
 

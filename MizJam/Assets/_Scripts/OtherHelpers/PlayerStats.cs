@@ -106,6 +106,20 @@ public class PlayerStats : MonoBehaviour
         healthStat.value = this.baseMaxHealth;
     }
 
+    public void SetValues(double baseAttack, double attackScaling, double baseDefence, double defenceScaling, double baseHealth, double healthScaling) {
+        this.attackScaling = attackScaling;
+        this.defenceScaling = defenceScaling;
+        this.healthScaling = healthScaling;
+
+        PlayerStat attackStat = this.stats[Stat.ATTACK];
+        PlayerStat defenceStat = this.stats[Stat.DEFENCE];
+        PlayerStat healthStat = this.stats[Stat.MAX_HEALTH];
+
+        attackStat.value = baseAttack;
+        defenceStat.value = baseDefence;
+        healthStat.value = baseHealth;
+    }
+
     // Just for debugging 
     void Update() {
         this.tmp_ATTACK = GetScaledStat(Stat.ATTACK, GameManager.Instance.gameState.GPS);

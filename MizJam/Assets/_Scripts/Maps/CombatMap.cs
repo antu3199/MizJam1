@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class CombatMap : BasicMap
 {
-
-    public List<LogMessage> messages;
     public EnemyController enemy;
     public PlayerInteractable immovableWall;
     public CameraResetterInteractable cameraResetter;
     public bool mustKillEnemyToAdvance = true;
-    public CombatMapRes combatMapRes;
+    public CombatRes combatRes;
+
+    public Sprite bossEnemyMapSprite;
     protected LogController logController;
+
+    private CombatResObj combatResInstance;
 
     public override void DoInitialize() {
         this.mapType = MapType.COMBAT;
+        this.combatResInstance = this.combatRes.GetRandomResObject();
+        this.levelIconSprite = this.combatResInstance.gameSprite;
+
         immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
         cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
 
         this.logController = GameManager.Instance.gameController.logController;
-        this.enemy.Initialize(this.OnEnemyDeath, reference);
+        this.enemy.Initialize(this.OnEnemyDeath, reference, this.combatResInstance);
         this.cameraResetter.Initialize(this.OnSkip);
     }
 
@@ -33,24 +38,17 @@ public class CombatMap : BasicMap
         this.mustKillEnemyToAdvance = true;
         immovableWall.gameObject.SetActive(mustKillEnemyToAdvance);
         cameraResetter.gameObject.SetActive(!mustKillEnemyToAdvance);
-        this.levelIconSprite = this.combatMapRes.bossMap;
+        this.levelIconSprite = this.bossEnemyMapSprite;
         this.enemy.SetAsBossEnemy();
     }
 
     protected virtual IEnumerator beginTalkingCor() {
-        foreach (LogMessage message in messages) {
-            yield return logController.TypeAnimation(message);
-        }
+        yield return logController.TypeAnimation(new LogMessage(this.combatRes.GetRandomMessage(), this.combatResInstance.gameSprite));
  
         yield return new WaitForSeconds(0.5f);
 
         GameManager.Instance.gameController.playerController.UnlockHorizontalMovement();
         enemy.moveableObject.UnlockHorizontalMovement();
-
-
-        // this.logController.ClearLogText();
-
-        // this.MoveMapAgain();
     }
 
     protected virtual void MoveMapAgain() {

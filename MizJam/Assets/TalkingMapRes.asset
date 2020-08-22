@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b402e1022afab8243bb28644de219528, type: 3}
+  m_Name: TalkingMapRes
+  m_EditorClassIdentifier: 
+  possibleTalkingMapObj:
+  - messages:
+    - It is so easy to find water fish. I can't find a single land fish!
+    - Can you go and find me a land fish somewhere?
+  - messages:
+    - Sometimes you just have to just do it. Other times, it's just not possible.
+    - Thank you for listening to my TED talk.
+  - messages:
+    - I have over 270 APM in Starcraft 2. Take this, I don't need it.
+  - messages:
+    - It's dangerous to go alone. Take this!

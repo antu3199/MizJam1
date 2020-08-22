@@ -7087,22 +7087,17 @@ MonoBehaviour:
   reference: 1
   levelIconSprite: {fileID: -1111528411663771762, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
-  messages:
-  - message: It's dangerous to go alone! Take this.
-    icon: {fileID: -8263105801004086612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
   rewards:
   - value: 5
     indexIfItem: 0
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
-  - value: 1
-    indexIfItem: 0
-    icon: {fileID: -8016213982129722612, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
-    iconColor: {r: 0.8117648, g: 0.77647066, b: 0.72156864, a: 1}
-    rewardType: 2
   rewardTransform: {fileID: 1741603443}
   tutorialRes: {fileID: 11400000, guid: 0f4ba1c9b7f64bc44889b448639abc7d, type: 2}
+  npcSpriteRes: {fileID: 11400000, guid: a02182fbedf2b444eb18e76f5665d3a4, type: 2}
+  talkingMapRes: {fileID: 11400000, guid: b4051f99baa8ce84283974c456aaafff, type: 2}
+  talkerSpriteRenderer: {fileID: 1645582718146803967}
 --- !u!1 &3326252455441221726
 GameObject:
   m_ObjectHideFlags: 0
