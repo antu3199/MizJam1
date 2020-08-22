@@ -24,8 +24,8 @@ public class MapScroller : MonoBehaviour
     public int tmp_FixedMap = 0;
     private Queue<BasicMap> nextMapsToAdd = new Queue<BasicMap>();
 
-    //public const int NUM_MAPS_PER_MILE = 10;
-    public const int NUM_MAPS_PER_MILE = 4;
+    public const int NUM_MAPS_PER_MILE = 10;
+    //public const int NUM_MAPS_PER_MILE = 4;
     //public const int NUM_UNIQUE_MAPS_PER_MILE = NUM_MAPS_PER_MILE/2 - 1;
 
     public int curMapIndex{get; set;}

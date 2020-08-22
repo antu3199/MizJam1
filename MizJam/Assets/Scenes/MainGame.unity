@@ -2049,7 +2049,7 @@ MonoBehaviour:
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
   tmp_FixedMap: 2
-  combatMapChance: 0.1
+  combatMapChance: 0
 --- !u!114 &781262416
 MonoBehaviour:
   m_ObjectHideFlags: 0
