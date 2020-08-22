@@ -78,6 +78,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (this.transform.position.x < -20f) {
+            GameManager.Instance.gameController.mapScroller.ResetPlayerCamera(this.moveableObject, new List<Transform>(), true);
+            return;
+        }
+
+
         if (isAttacking == false && Input.GetKeyDown(KeyCode.Z)) {
             StartCoroutine(playAttackAnimation());
         }

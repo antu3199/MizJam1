@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 138652899501460040}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3373917132862053696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8690555172576643260}
+  m_Layer: 0
+  m_Name: HouseContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8690555172576643260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373917132862053696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8784040250855074558}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4680363038893884060
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +405,7 @@ Transform:
   - {fileID: 138652899501460040}
   - {fileID: 8110422996799575924}
   - {fileID: 2308953293920875023}
+  - {fileID: 8690555172576643260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7394,6 +7425,9 @@ MonoBehaviour:
   reference: 1
   levelIconSprite: {fileID: -6490497597242228226, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
+  houseContainer: {fileID: 8690555172576643260}
+  instantiateNPCHouse: 0
+  houseRes: {fileID: 11400000, guid: b1a18f2e8dc85bc4bad61fa74c38de81, type: 2}
   enemy: {fileID: 7868496929615647921}
   immovableWall: {fileID: 8110422996799575929}
   cameraResetter: {fileID: 288055521483724908}

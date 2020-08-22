@@ -15,7 +15,9 @@ public class TradeMap : BasicMap
 
     public Transform rewardTransform;
 
-    public Sprite logIcon;
+    public NPCSpriteRes npcSpriteRes;
+    public TalkingMapRes talkingMapRes;
+    public SpriteRenderer talkerSpriteRenderer;
 
     protected LogController logController;
 
@@ -33,9 +35,15 @@ public class TradeMap : BasicMap
 
     private double goldCostToTrade = 0f;
 
+    private Sprite logIcon;
+
     public override void DoInitialize() {
         this.mapType = MapType.TRADING;
         this.logController = GameManager.Instance.gameController.logController;
+        this.logIcon = this.npcSpriteRes.GetRandomLogSprite();
+        Sprite gameSprite = this.npcSpriteRes.GetRandomGameSprite();
+        this.talkerSpriteRenderer.sprite = gameSprite;
+        this.levelIconSprite = gameSprite;
     }
 
     public void BeginTalking() {

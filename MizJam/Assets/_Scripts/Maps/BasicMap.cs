@@ -38,6 +38,11 @@ public class BasicMap : MonoBehaviour
 
     public MapType mapType {get; set;}
 
+    public Transform houseContainer;
+
+    public bool instantiateNPCHouse = false;
+    public HouseRes houseRes;
+
     protected Action<BasicMap> onLoadNextMap = null;
     protected Action<BasicMap> onGoToNextMap = null;
     protected Action<BasicMap> onDestroy = null;
@@ -70,6 +75,14 @@ public class BasicMap : MonoBehaviour
         loadNextMapEvent.triggerEvent = new UnityEvent();
         loadNextMapEvent.triggerEvent.AddListener(this.LoadNextMap);
         this.mapEvents.Add(loadNextMapEvent);
+
+        if (this.houseContainer != null) {
+            if (this.instantiateNPCHouse) {
+                this.houseRes.InstantiateNPCHouse(this.houseContainer);
+            } else {
+                this.houseRes.InstantiateEnemyHouse(this.houseContainer);
+            }
+        }
 
         this.DoInitialize();
     }

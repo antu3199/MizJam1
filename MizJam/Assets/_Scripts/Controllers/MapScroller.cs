@@ -24,7 +24,8 @@ public class MapScroller : MonoBehaviour
     public int tmp_FixedMap = 0;
     private Queue<BasicMap> nextMapsToAdd = new Queue<BasicMap>();
 
-    public const int NUM_MAPS_PER_MILE = 10;
+    //public const int NUM_MAPS_PER_MILE = 10;
+    public const int NUM_MAPS_PER_MILE = 4;
     //public const int NUM_UNIQUE_MAPS_PER_MILE = NUM_MAPS_PER_MILE/2 - 1;
 
     public int curMapIndex{get; set;}
@@ -178,7 +179,7 @@ public class MapScroller : MonoBehaviour
         player.transform.position = new Vector3(target, player.transform.position.y, player.transform.position.z );
 
         if (disableCollider) {
-            player.GetComponent<PlayerController>().canMove = false;
+            player.GetComponent<PlayerController>().canMove = true;
             player.GetComponent<CharacterController>().enabled = true;
         }
     }
@@ -213,7 +214,7 @@ public class MapScroller : MonoBehaviour
             }
 
             if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
-                mapIndex = tmp_FixedMap; // TMP
+                //mapIndex = tmp_FixedMap; // TMP
             }
 
             if (i % 2 != 0) {

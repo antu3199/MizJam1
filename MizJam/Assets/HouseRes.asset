@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f47010828ad004faec01330a44b058, type: 3}
+  m_Name: HouseRes
+  m_EditorClassIdentifier: 
+  possibleNPCHouses:
+  - {fileID: 1926732256849098254, guid: 580848f6d6a5d5641bc2b88b2daff9d4, type: 3}
+  - {fileID: 8631564436916955002, guid: cb01eb0b255ade647b27db82a41f242b, type: 3}
+  - {fileID: 612188827131536248, guid: 0b0eda5d0cac7514fb3b3611da1d412c, type: 3}
+  possibleEnemyHouses:
+  - {fileID: 7156841687281027605, guid: 357c3be290159f24083c739d7fc5ad72, type: 3}
