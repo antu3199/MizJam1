@@ -37,9 +37,9 @@ public class EnemyController : MonoBehaviour
         attackStat.value *= 2;
 
         PlayerStat healthStat = playerStats.GetRawStat(Stat.MAX_HEALTH);
-        healthStat.value *= 100;
+        healthStat.value *= 1000;
         foreach (Reward reward in this.hittableObject.killRewards) {
-            reward.value *= 150;
+            reward.value *= 100;
         }
     }
 
