@@ -2326,8 +2326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to Super Dungeon Adventure Crawler Idle Quest! A mix between a
-    dungeon crawler and an idle game.
+  m_Text: 
 --- !u!222 &918831362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5435,7 +5434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1907489875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8064,12 +8063,12 @@ PrefabInstance:
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 570.39496
       objectReference: {fileID: 0}
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
@@ -8089,7 +8088,7 @@ PrefabInstance:
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
@@ -8099,7 +8098,7 @@ PrefabInstance:
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7230828938210529097, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
@@ -8116,10 +8115,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionItem
       objectReference: {fileID: 0}
+    - target: {fileID: 7230828938210529098, guid: a661d934af2110f499cb98961ceb4c0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7230828938390922227, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 7230828938390922227, guid: a661d934af2110f499cb98961ceb4c0b,
         type: 3}

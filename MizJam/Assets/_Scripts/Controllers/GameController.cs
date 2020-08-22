@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
 
     public void Update() {
 
+        // Test functions (I think it's okay to leave these here for the final build...)
         if (Input.GetKeyDown("1")) {
             GameManager.Instance.gameStorage.SaveGame();
         }
@@ -44,13 +45,15 @@ public class GameController : MonoBehaviour
         }
 
         if (Input.GetKeyDown("0")) {
-            //this.RestartRun();
             SceneManager.LoadScene("MainGame");
         }
 
+        /*
+        // Not this though
         if (Input.GetKeyDown("9")) {
             GameManager.Instance.gameState.AddGold( System.Math.Pow(10, 12));
         }
+        */
 
         GameManager.Instance.gameState.AddGold(GameManager.Instance.gameState.GPS * Time.deltaTime);
 
