@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum RewardType {
     GOLD,
+    GOLD_RAW,
     MODIFIER,
     ITEM
 

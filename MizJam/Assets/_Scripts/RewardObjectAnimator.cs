@@ -43,8 +43,11 @@ public class RewardObjectAnimator : MonoBehaviour
                 GameManager.Instance.gameState.items[reward.indexIfItem].SetOwned(GameManager.Instance.gameState.items[reward.indexIfItem].owned + (int)reward.value);
                 this.contentText.text = "+" + reward.value.ToString();
                 break;
-     
-
+            
+            case RewardType.GOLD_RAW:
+                GameManager.Instance.gameState.AddGold(this.reward.value);
+                this.contentText.text = Currency.CurrencyToString(this.reward.value);
+                break;
 
         }
     }

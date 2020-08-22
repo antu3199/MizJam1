@@ -66,6 +66,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public IEnumerator InstantiateRewardCor(Reward reward, Vector3 position, Transform parent = null) {
+        this.InstantiateReward(reward, position, parent);
+        yield return new WaitForSeconds(REWARD_RECEIVE_DELAY);
+    }
 
     // Call when death
     public void OnPlayerDeath() {

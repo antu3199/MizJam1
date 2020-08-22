@@ -56,10 +56,10 @@ public class HittableObject : MonoBehaviour
         }
 
         double realDamage = this.playerStats.DealDamageToMe(damage, reference);
-
-        GameManager.Instance.gameController.InstantiateDamageText(realDamage, false, this.damageTextTransform.position, this.damageTextTransform);
-
+        
         if (this.enemyCanvas != null) {
+            GameManager.Instance.gameController.InstantiateDamageText(realDamage, false, this.damageTextTransform.position, this.damageTextTransform);
+
             double t = this.playerStats.hp / this.playerStats.GetScaledStat(Stat.MAX_HEALTH, reference);
             this.enemyCanvas.SetHPProgress((float)t);
         }

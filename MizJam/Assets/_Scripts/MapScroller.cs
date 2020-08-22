@@ -144,8 +144,6 @@ public class MapScroller : MonoBehaviour
 
         for (int i = startingIndex; i < NUM_MAPS_PER_MILE; i++) {
 
-
-
             float t = (float)i/NUM_MAPS_PER_MILE;
             double reference = this.LerpDouble(referenceA, referenceB, t);
             //Debug.Log("Floor: " + GameManager.Instance.gameState.floorNumber + " Level: " + i + " Reference: " + reference );
@@ -159,6 +157,10 @@ public class MapScroller : MonoBehaviour
             } else if (UnityEngine.Random.Range(0, 1) <= this.combatMapChance) {
                 mapIndex = 2;
             } else {
+                
+            }
+
+            if (i != NUM_MAPS_PER_MILE - 1 ) {
                 mapIndex = tmp_FixedMap; // TMP
             }
 
