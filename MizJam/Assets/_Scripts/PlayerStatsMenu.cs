@@ -17,7 +17,6 @@ public class PlayerStatsMenu : MonoBehaviour
     }
 
     void OnDestroy() {
-        Debug.Log("ON DESTROY CALLED2");
         Messenger.RemoveListener<ResourceUpdate>(Messages.OnGPSUpdate, this.OnGPSUpdate);
     }
 

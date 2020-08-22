@@ -9,12 +9,14 @@ public class GameController : MonoBehaviour
 {
     const float REWARD_RECEIVE_DELAY = 0.5f;
     
+    public PlayerController playerPrefab;
+
     public MapScroller mapScroller;
     public LogController logController;
     public RewardObjectAnimator rewardObjectAnimatorPrefab;
     public TopBar topBar;
 
-    public PlayerController playerController;
+    public PlayerController playerController{get; set;}
 
     public BasicText damageTextPrefab;
 
@@ -28,7 +30,7 @@ public class GameController : MonoBehaviour
     public void Initialize() {
         this.topBar.Initialize();
         this.mapScroller.Initialize();
-        this.playerController.Initialize();
+        this.InstantiatePlayer();
     }
 
     public void Update() {
@@ -83,14 +85,27 @@ public class GameController : MonoBehaviour
         textObject.text.color = isPlayer ? textObject.playerColor : textObject.enemyColor; 
     }
 
+    public void ResetGame() {
+        this.mapScroller.Reset();
+        Destroy(this.playerController.gameObject);
+        this.InstantiatePlayer();
+    }
+
     private IEnumerator RestartRun() {
         string message = "Your vision blurs...";
         LogMessage logMessage = new LogMessage(message, null);
         yield return this.logController.TypeAnimation(logMessage);
 
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("MainGame");
+        this.ResetGame();
+        //SceneManager.LoadScene("MainGame");
+    }
 
+    private void InstantiatePlayer() {
+        PlayerController thePlayer = Instantiate(playerPrefab) as PlayerController;
+        thePlayer.transform.position = mapScroller.playerDefaultPosition.position;
+        this.playerController = thePlayer;
+        thePlayer.Initialize();
     }
 
 

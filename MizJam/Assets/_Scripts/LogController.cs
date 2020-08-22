@@ -21,6 +21,8 @@ public class LogController : MonoBehaviour
     public AutoType typer;
     public Image talkerIcon;
 
+    public List<ActionItemUI> actionItems;
+
     public void TypeAnimationFunc(LogMessage message) {
         this.StartCoroutine(this.TypeAnimation(message));
     }
@@ -42,6 +44,7 @@ public class LogController : MonoBehaviour
     }
 
     public void ClearLogText() {
+        this.talkerIcon.gameObject.SetActive(false);
         this.typer.ClearText();
     }
 }

@@ -37,6 +37,8 @@ public class MapScroller : MonoBehaviour
         double reference = Currency.GetBaseCost(GameManager.Instance.gameState.floorNumber);
         this.startingMap.Initialize(reference, this.OnLoadNextMap, this.OnDestroyMap, this.GoToNextMap, -1 );
 
+        GameManager.Instance.gameState.hasPlayedTutorial = true;
+
         if (!GameManager.Instance.gameState.hasPlayedTutorial) {
             this.GenerateTutorialMaps();
         } else {
@@ -45,6 +47,31 @@ public class MapScroller : MonoBehaviour
 
         GameManager.Instance.gameController.topBar.SetLevelIconHighlight(this.curMapIndex);
         this.SetTopBarFromMaps();
+    }
+
+    public void Reset() {
+        this.curMapIndex = 0;
+        foreach(BasicMap map in this.activeMaps) {
+            Destroy(map.gameObject);
+        }
+
+        foreach (BasicMap map in this.nextMapsToAdd) {
+            Destroy(map.gameObject);
+        }
+
+
+        this.activeMaps.Clear();
+        this.nextMapsToAdd.Clear();
+
+        this.GenerateMapsFromIndex(false);
+        BasicMap nextMap = this.nextMapsToAdd.Dequeue();
+        nextMap.transform.position = Vector3.zero;
+        nextMap.gameObject.SetActive(true);
+        this.activeMaps.Add(nextMap);
+        this.curMapIndex = 0;
+        this.SetTopBarFromMaps();
+        GameManager.Instance.gameController.topBar.SetLevelIconHighlight(curMapIndex);
+        this.moveMap = true;
     }
 
 
@@ -186,7 +213,7 @@ public class MapScroller : MonoBehaviour
             }
 
             if (i % 2 != 0 && i != NUM_MAPS_PER_MILE - 1 ) {
-                //mapIndex = tmp_FixedMap; // TMP
+                mapIndex = tmp_FixedMap; // TMP
             }
 
             if (i % 2 != 0) {

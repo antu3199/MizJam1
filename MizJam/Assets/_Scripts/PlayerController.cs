@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform damageTextTransform;
 
-    public List<ActionItemUI> actionItems;
+ 
     public GameObject exclaimationPoint;
 
 
@@ -40,7 +40,11 @@ public class PlayerController : MonoBehaviour
 
     private const string JUMP_LABEL = "X:JUMP";
 
+    private List<ActionItemUI> actionItems;
+
     public void Initialize() {
+        this.actionItems = GameManager.Instance.gameController.logController.actionItems;
+
         this.swordSwing.Initialize(this);
         this.moveableObject.Initialize(GameManager.Instance.gameController.mapScroller.mapMoveSpeed);
 
@@ -49,6 +53,11 @@ public class PlayerController : MonoBehaviour
 
 
         //this.moveableObject.UnlockHorizontalMovement();
+    }
+
+    public void Reset() {
+        this.jumpOverride = null;
+        this.cancelOverride = null;
     }
 
     public void UnlockHorizontalMovement() {
