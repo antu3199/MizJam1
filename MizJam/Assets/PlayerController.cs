@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public Transform damageTextTransform;
 
     public List<ActionItemUI> actionItems;
+    public GameObject exclaimationPoint;
+
 
     private Action jumpOverride = null;
     private Action cancelOverride = null;
@@ -168,6 +170,7 @@ public class PlayerController : MonoBehaviour
         this.actionItems[1].SetLabel("X:" + label);
 
         if (defaultChoice) {
+            this.exclaimationPoint.gameObject.SetActive(true);
             this.autoTimerCounter = 0;
         }
     }
@@ -179,6 +182,7 @@ public class PlayerController : MonoBehaviour
         this.actionItems[2].SetLabel("C:" + label);
 
         if (defaultChoice) {
+            this.exclaimationPoint.gameObject.SetActive(true);
             this.autoTimerCounter = 0;
         }
     }
@@ -189,6 +193,7 @@ public class PlayerController : MonoBehaviour
         this.actionItems[1].SetProgressBarVisible(false);
         this.actionItems[1].SetLabel(JUMP_LABEL);
         this.actionItems[2].gameObject.SetActive(false);
+        this.exclaimationPoint.gameObject.SetActive(false);
 
     }
 

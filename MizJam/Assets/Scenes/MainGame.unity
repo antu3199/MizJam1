@@ -1973,7 +1973,7 @@ MonoBehaviour:
   mapMoveSpeed: 10
   moveMap: 1
   playerDefaultPosition: {fileID: 758966686}
-  tmp_FixedMap: 6
+  tmp_FixedMap: 3
   combatMapChance: 0.5
 --- !u!114 &781262416
 MonoBehaviour:
@@ -3713,7 +3713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1437538752
 Transform:
   m_ObjectHideFlags: 0
@@ -3766,10 +3766,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: -5787184411713654936, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
-  m_Color: {r: 0.8117648, g: 0.77647066, b: 0.72156864, a: 1}
+  m_Color: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4079,6 +4079,7 @@ MonoBehaviour:
   - {fileID: 1384483409}
   - {fileID: 1785754544}
   - {fileID: 7230828938302454720}
+  exclaimationPoint: {fileID: 1437538751}
   autoTimerTime: 5
 --- !u!143 &1467792546
 CharacterController:
