@@ -55,9 +55,11 @@ public class PlayerController : MonoBehaviour
         //this.moveableObject.UnlockHorizontalMovement();
     }
 
-    public void Reset() {
-        this.jumpOverride = null;
-        this.cancelOverride = null;
+
+    void OnDestroy() {
+        if (this.jumpOverride != null || this.cancelOverride != null) {
+            this.ResetOverrides();
+        }
     }
 
     public void UnlockHorizontalMovement() {

@@ -41,6 +41,9 @@ public class EnemyController : MonoBehaviour
         foreach (Reward reward in this.hittableObject.killRewards) {
             reward.value *= 100;
         }
+
+        this.transform.localScale = new Vector3(2, 2, 1);
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z);
     }
 
     private void RemoveDamageHitbox() {

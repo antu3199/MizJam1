@@ -87,6 +87,7 @@ public class GameController : MonoBehaviour
     }
 
     public void ResetGame() {
+        this.logController.ClearLogText();
         this.mapScroller.Reset();
         Destroy(this.playerController.gameObject);
         this.InstantiatePlayer();
