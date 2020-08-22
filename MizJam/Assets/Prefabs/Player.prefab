@@ -358,11 +358,11 @@ MonoBehaviour:
   GPSScaler: 1
   playerCanvas: {fileID: 7761053623384125}
   damageTextTransform: {fileID: 7947583557002638894}
-  actionItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   exclaimationPoint: {fileID: 7947583557536450032}
+  swordSwingSoundEffect: {fileID: 8300000, guid: 858bc51f1851d1c4d94d5ffdeb365fd4,
+    type: 3}
+  notificationSoundEffect: {fileID: 8300000, guid: 58c77062f8dc14349b69a9ab8c4aa89e,
+    type: 3}
   autoTimerTime: 5
 --- !u!143 &7947583557564735725
 CharacterController:

@@ -104,6 +104,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &6717151776262849173
 BoxCollider:
   m_ObjectHideFlags: 0

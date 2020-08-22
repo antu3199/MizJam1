@@ -104,6 +104,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &8571705967350073136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,6 +223,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &4394159412633241247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -449,6 +453,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &3508655608940090233
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -566,6 +572,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &5894435953564986711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -605,7 +613,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2325940734346328029}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7625,6 +7633,9 @@ MonoBehaviour:
   reference: 1
   levelIconSprite: {fileID: -2740495914449344977, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
+  houseContainer: {fileID: 0}
+  instantiateNPCHouse: 0
+  houseRes: {fileID: 0}
   cameraResetter: {fileID: 3301954740891184254}
 --- !u!1 &2493839988036550285
 GameObject:
@@ -7730,6 +7741,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &6131554195292630488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7847,6 +7860,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &1501629959599512494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7964,6 +7979,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &8742565520315261409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8125,6 +8142,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &4109781282825648046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8242,6 +8261,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &1512517360566066949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8359,6 +8380,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &7326126682521041433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8476,6 +8499,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &6466140186714627459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8593,6 +8618,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &6387892097176974378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8710,6 +8737,8 @@ MonoBehaviour:
     icon: {fileID: -9161947809214162045, guid: 87c71c4bcaf52bf43be88648abdc66b4, type: 3}
     iconColor: {r: 0.9686275, g: 0.69803923, b: 0.09411766, a: 1}
     rewardType: 0
+  soundVolume: 1
+  soundEffect: {fileID: 8300000, guid: 89911ba088456f3478018138f4765ba8, type: 3}
 --- !u!65 &3587004874254023232
 BoxCollider:
   m_ObjectHideFlags: 0

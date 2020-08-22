@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
  
     public GameObject exclaimationPoint;
 
+    public AudioClip swordSwingSoundEffect;
+    public AudioClip notificationSoundEffect;
+
+
 
     private Action jumpOverride = null;
     private Action cancelOverride = null;
@@ -85,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
 
         if (isAttacking == false && Input.GetKeyDown(KeyCode.Z)) {
+            GameManager.Instance.audio.PlayOneShot(this.swordSwingSoundEffect);
             StartCoroutine(playAttackAnimation());
         }
 
@@ -189,6 +194,8 @@ public class PlayerController : MonoBehaviour
         this.actionItems[1].SetProgressBarVisible(defaultChoice);
         this.actionItems[1].SetLabel("X:" + label);
         this.exclaimationPoint.gameObject.SetActive(true);
+
+        GameManager.Instance.audio.PlayOneShot(this.notificationSoundEffect);
 
         if (defaultChoice) {
             this.autoTimerCounter = 0;

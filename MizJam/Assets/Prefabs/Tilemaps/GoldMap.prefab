@@ -7385,6 +7385,9 @@ MonoBehaviour:
   reference: 1
   levelIconSprite: {fileID: -2740495914449344977, guid: 87c71c4bcaf52bf43be88648abdc66b4,
     type: 3}
+  houseContainer: {fileID: 0}
+  instantiateNPCHouse: 0
+  houseRes: {fileID: 0}
   cameraResetter: {fileID: 8907148787381888539}
 --- !u!1001 &42711311303968992
 PrefabInstance:
