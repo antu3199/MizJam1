@@ -3,6 +3,39 @@ using UnityEngine;
 
 public class GameDataReader {
 
+    #if UNITY_WEBGL
+
+    private int prefsIndex = 0;
+
+	public GameDataReader (BinaryReader reader) {
+		//this.reader = reader;
+	}
+
+	public float ReadFloat () {
+        float val = PlayerPrefs.GetFloat(prefsIndex++.ToString());
+        //Debug.Log("Load value: " + val);
+		return val;
+	}
+
+    public double ReadDouble() {
+        double val = GameDataWriter.GetDouble(prefsIndex++.ToString());
+        //Debug.Log("Load value: " + val);
+        return val;
+    }
+
+	public int ReadInt () {
+        int val = PlayerPrefs.GetInt(prefsIndex++.ToString());
+        //Debug.Log("Load value: " + val);
+		return val;
+	}
+
+    public bool ReadBool() {
+        bool val = GameDataWriter.GetBool(prefsIndex++.ToString());
+        return val;
+    }
+
+    #else
+
 	BinaryReader reader;
 
 	public GameDataReader (BinaryReader reader) {
@@ -48,4 +81,7 @@ public class GameDataReader {
 		value.z = reader.ReadSingle();
 		return value;
 	}
+
+    #endif
+
 }

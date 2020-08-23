@@ -22,15 +22,29 @@ public class PersistentStorage : MonoBehaviour {
 	public void Save (PersistableClass o) {
         Debug.Log("Saving file: " + this.savePath);
 
+
+        #if UNITY_WEBGL
+            o.Save(new GameDataWriter(null));
+        #else
 		using (
 			var writer = new BinaryWriter(File.Open(savePath, FileMode.Create))
 		) {
 			o.Save(new GameDataWriter(writer));
 		}
+        #endif
 	}
 
 	public void Load (PersistableObject o) {
         Debug.Log("Loading file: " + this.savePath);
+
+        #if UNITY_WEBGL
+            if (!PlayerPrefs.HasKey("0")) {
+                Debug.Log("First time playing. Loading canceled!");
+                return;
+            }
+            
+            o.Load(new GameDataReader(null));
+        #else
         if (!File.Exists(this.savePath)) {
             Debug.Log("First time playing. Loading canceled!");
             return;
@@ -41,6 +55,7 @@ public class PersistentStorage : MonoBehaviour {
 		) {
 			o.Load(new GameDataReader(reader));
 		}
+        #endif
 	}
 
 	public void Load (PersistableClass o) {
