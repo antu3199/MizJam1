@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81c5a54ec8a00d428c6d28314bc7f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMoveSpeed: 1
+  horizontalMoveSpeed: 40
   maxHorizontalMoveSpeed: 10
   moveDirection: {x: 0, y: 0, z: 0}
   controller: {fileID: 7947583557564735725}

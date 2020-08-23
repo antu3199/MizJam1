@@ -27,7 +27,7 @@ public class PlayerMoveableObject : MoveableObject
         }
 
         if (this.horizontalMovement) {
-            moveDirection.x += horizontalMoveSpeed;
+            moveDirection.x += horizontalMoveSpeed * Time.deltaTime;
 
             // Clamp speed to max
             moveDirection.x = Mathf.Min(this.maxHorizontalMoveSpeed, moveDirection.x);

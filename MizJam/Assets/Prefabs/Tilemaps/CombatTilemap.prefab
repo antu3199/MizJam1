@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a5f2e81c6fa241a389b5920aacb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMoveSpeed: -1
+  horizontalMoveSpeed: -40
   maxHorizontalMoveSpeed: 10
   moveDirection: {x: 0, y: 0, z: 0}
   rigidbody: {fileID: 983432516}

@@ -17,7 +17,7 @@ public class EnemyMoveableObject : MoveableObject
 
         
         if (this.horizontalMovement) {
-            moveDirection.x += horizontalMoveSpeed;
+            moveDirection.x += horizontalMoveSpeed * Time.deltaTime;
 
             // Clamp speed to max
             moveDirection.x = Mathf.Max(-this.maxHorizontalMoveSpeed, moveDirection.x);
