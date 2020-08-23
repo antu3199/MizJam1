@@ -42,7 +42,7 @@ public class PersistentStorage : MonoBehaviour {
                 Debug.Log("First time playing. Loading canceled!");
                 return;
             }
-            
+
             o.Load(new GameDataReader(null));
         #else
         if (!File.Exists(this.savePath)) {
@@ -75,6 +75,11 @@ public class PersistentStorage : MonoBehaviour {
     // :(
     public void DeleteSaveFile() {
         Debug.Log("Deleting save: " + this.savePath);
+        #if UNITY_WEBGL
+        PlayerPrefs.DeleteAll();
+        #else
         File.Delete(this.savePath);
+
+        #endif
     }
 }

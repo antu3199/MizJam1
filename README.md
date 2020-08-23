@@ -4,8 +4,9 @@ A game made in (approximately) 48 hours over the span of a week for the Miz game
 
 ![Picture](/screenshot.png?raw=true "Screenshot")
 
-You can watch me talk about the game over at: https://youtu.be/rB-TO94OuZo 
+Play the game over at: https://antu3199.itch.io/super-dungeon-adventure-crawler-idle-quest
 
+You can watch me talk about the game over at: https://youtu.be/rB-TO94OuZo 
 
 Note: In spirit of the game jam time limit, not all of the code follows the best practices.
 
