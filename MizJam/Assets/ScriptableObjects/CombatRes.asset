@@ -60,17 +60,17 @@ MonoBehaviour:
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
-    defenceScaling: 0.01
+    attackScaling: 0.2
+    defenceScaling: 0.05
     healthScaling: 0.5
   - gameSprite: {fileID: 2208757953064020883, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.05
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.8
   - gameSprite: {fileID: -4809883122222883778, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
@@ -78,39 +78,39 @@ MonoBehaviour:
     baseMaxHealth: 1
     attackScaling: 0.1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.9
   - gameSprite: {fileID: 7869824132658008932, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.3
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1
   - gameSprite: {fileID: 3104047901595889003, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.5
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 2
   - gameSprite: {fileID: 7296436772228631656, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1
   - gameSprite: {fileID: -2592878764302948225, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.5
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1.2
   - gameSprite: {fileID: -948550874130613498, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
@@ -118,39 +118,39 @@ MonoBehaviour:
     baseMaxHealth: 1
     attackScaling: 0.1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1.4
   - gameSprite: {fileID: -2830441778638380704, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.05
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1.6
   - gameSprite: {fileID: -8565889731476765358, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.5
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.3
   - gameSprite: {fileID: -626811634075550851, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.3
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 1.7
   - gameSprite: {fileID: -6794547871091391193, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.2
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.9
   - gameSprite: {fileID: 2120472549703521817, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
@@ -158,7 +158,7 @@ MonoBehaviour:
     baseMaxHealth: 1
     attackScaling: 0.1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.6
   - gameSprite: {fileID: 3104047901595889003, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
     baseMaxHealth: 1
     attackScaling: 0.1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.2
   - gameSprite: {fileID: 1755107958665602330, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
@@ -174,52 +174,52 @@ MonoBehaviour:
     baseMaxHealth: 1
     attackScaling: 0.1
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.8
   - gameSprite: {fileID: 3470555314043229895, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.2
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.8
   - gameSprite: {fileID: 8638444602565260330, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.2
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.3
   - gameSprite: {fileID: 1990439349366096712, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 1.5
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.1
   - gameSprite: {fileID: -8209727461738605624, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.15
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.9
   - gameSprite: {fileID: 3801235997656501102, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.2
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.6
   - gameSprite: {fileID: 4232359980678410691, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}
     baseAttack: 1
     baseDefence: 0
     baseMaxHealth: 1
-    attackScaling: 0.1
+    attackScaling: 0.3
     defenceScaling: 0.01
-    healthScaling: 0.5
+    healthScaling: 0.6

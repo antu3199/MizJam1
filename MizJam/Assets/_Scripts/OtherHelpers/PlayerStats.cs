@@ -9,7 +9,7 @@ public enum Stat {
     OTHER
 };
 
-public struct PlayerStat {
+public class PlayerStat {
     public Stat stat;
     public double value;
 
@@ -60,15 +60,15 @@ public class PlayerStats : MonoBehaviour
 
         switch (stat) {
             case (Stat.ATTACK):
-                result = 1 + reference * (this.stats[Stat.ATTACK].value ) * attackScaling;
+                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.ATTACK].value ) * attackScaling;
                 break;
 
             case (Stat.DEFENCE):
-                result = reference * ( this.stats[Stat.DEFENCE].value ) * defenceScaling;
+                result = reference * System.Math.Sqrt( this.stats[Stat.DEFENCE].value ) * defenceScaling;
                 break;
 
             case (Stat.MAX_HEALTH):
-                result = 1 + reference * (this.stats[Stat.MAX_HEALTH].value ) * healthScaling;
+                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.MAX_HEALTH].value ) * healthScaling;
                 break;
             default:
                 Debug.LogError("ERROR: Stat not found");

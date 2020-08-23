@@ -24,7 +24,8 @@ public class MarketItem : MonoBehaviour
     }
 
     public void OnDestroy() {
-        Messenger.RemoveListener<ResourceUpdate>(Messages.OnGoldUpdate, this.OnGoldUpdate);
+        Messenger.RemoveListener<
+        ResourceUpdate>(Messages.OnGoldUpdate, this.OnGoldUpdate);
     }
 
     public void UpdateAll() {
