@@ -47,6 +47,10 @@ public class GameController : MonoBehaviour
             GameManager.Instance.gameStorage.DeleteSaveFile();
         }
 
+        if (Input.GetKeyDown("9")) {
+            GameManager.Instance.gameState.floorNumber++;
+        }
+
         if (Input.GetKeyDown("0")) {
             SceneManager.LoadScene("MainGame");
         }

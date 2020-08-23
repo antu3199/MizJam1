@@ -13,6 +13,10 @@ public class ActionItemUI : MonoBehaviour
     }
 
     public void SetProgressBarVisible(bool visible) {
+        if (!this.progressBar) {
+            return;
+        }
+
         this.progressBar.gameObject.SetActive(visible);
     }
 

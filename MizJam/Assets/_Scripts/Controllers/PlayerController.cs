@@ -251,9 +251,15 @@ public class PlayerController : MonoBehaviour
     public void ResetOverrides() {
         this.jumpOverride = null;
         this.cancelOverride = null;
-        this.actionItems[1].SetProgressBarVisible(false);
-        this.actionItems[1].SetLabel(JUMP_LABEL);
-        this.actionItems[2].gameObject.SetActive(false);
+        if (this.actionItems[1]) {
+            this.actionItems[1].SetProgressBarVisible(false);
+            this.actionItems[1].SetLabel(JUMP_LABEL);
+        }
+
+        if (this.actionItems[2]) {
+            this.actionItems[2].gameObject.SetActive(false);
+        }
+
         this.exclaimationPoint.gameObject.SetActive(false);
 
     }

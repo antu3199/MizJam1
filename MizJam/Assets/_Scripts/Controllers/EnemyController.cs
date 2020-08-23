@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         attackStat.value *= 2;
 
         PlayerStat healthStat = playerStats.GetRawStat(Stat.MAX_HEALTH);
-        healthStat.value *= 1000;
+        healthStat.value *= 100;
 
         this.playerStats.UpdateMaxHealth(this.reference);
 

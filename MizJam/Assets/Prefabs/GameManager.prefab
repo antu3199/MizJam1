@@ -572,6 +572,9 @@ MonoBehaviour:
   baseAttack: 1
   baseDefence: 0.1
   baseMaxHealth: 1
-  attackScaling: 0.01
-  defenceScaling: 0.001
-  healthScaling: 0.5
+  attackScaling: 0.25
+  defenceScaling: 0.01
+  healthScaling: 2
+  attackShopScaling: 0.5
+  defenceShopScaling: 0.05
+  healthShopScaling: 1

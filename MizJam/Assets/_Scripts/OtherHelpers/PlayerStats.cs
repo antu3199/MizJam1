@@ -41,6 +41,10 @@ public class PlayerStats : MonoBehaviour
     public double defenceScaling = 0.01;
     public double healthScaling = 0.5;
 
+    public double attackShopScaling = 1.0;
+    public double defenceShopScaling = 1.0;
+    public double healthShopScaling = 1.0;
+
     public void Initialize() {
         this.stats.Add(Stat.ATTACK, new PlayerStat(Stat.ATTACK, baseAttack));
         this.stats.Add(Stat.DEFENCE, new PlayerStat(Stat.DEFENCE, baseDefence));
@@ -60,15 +64,15 @@ public class PlayerStats : MonoBehaviour
 
         switch (stat) {
             case (Stat.ATTACK):
-                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.ATTACK].value ) * attackScaling;
+                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.ATTACK].value * this.attackShopScaling ) * attackScaling;
                 break;
 
             case (Stat.DEFENCE):
-                result = reference * System.Math.Sqrt( this.stats[Stat.DEFENCE].value ) * defenceScaling;
+                result = reference * System.Math.Sqrt( this.stats[Stat.DEFENCE].value * this.defenceShopScaling ) * defenceScaling;
                 break;
 
             case (Stat.MAX_HEALTH):
-                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.MAX_HEALTH].value ) * healthScaling;
+                result = 1 + reference * System.Math.Sqrt( this.stats[Stat.MAX_HEALTH].value * this.healthShopScaling ) * healthScaling;
                 break;
             default:
                 Debug.LogError("ERROR: Stat not found");
