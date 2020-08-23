@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
 
         GameManager.Instance.gameStorage.timeSinceLastSave += Time.deltaTime;
         if (GameManager.Instance.gameStorage.timeSinceLastSave >= GameManager.Instance.gameStorage.autoSaveTime) {
-            GameManager.Instance.gameStorage.SaveGame();
+            GameManager.Instance.gameStorage.SaveGame(false);
         }
 
     }

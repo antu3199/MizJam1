@@ -24,7 +24,7 @@ MonoBehaviour:
   - Please don't kill me!
   - I'm actually a human. Don't fight me!
   - Target acquired. Initializing target elimination process.
-  - I am the bone of my sword tbh
+  - I am the bone of my sword. Unlimited Waterloo Works!
   - I am the real hero. You are just a fake!
   - you don't even have a green hat lol some hero
   - URRAAHHHHHHHHHH
@@ -33,6 +33,27 @@ MonoBehaviour:
   - Oh? You're approaching me?
   - He's just standing there... Menacingly...
   - You should eat your vegetables or DIE!
+  - 'Leggo my eggo '
+  - Only fools believe in the notion of peace...
+  - The scariest kind of monster is yourself
+  - Hey... I saw you kill those villagers...
+  - FIGHT FIGHT FIGHT FIGHT
+  - I am the true final boss of the universe! Die, insect!
+  - Boo! Did I scare you?
+  - You face Reinhart, the rank 4 demon lord general
+  - I have 4 fingers and 3 thumbs. How many do you have?
+  - Time to die, sully hero.
+  - I'm not a gnelf. I'm not a gnoblin. I'm a gnome! And you just got gnomed!
+  - ':Insert witty remark:'
+  - My brain is missing. Did you find it? Give it back!
+  - Hideous creature!
+  - I can tell that you are a demon.
+  - I'm not evil I'm just misguided.
+  - This is just one of 40+ possible quotes.
+  - YOU have the incorrect political opinion!
+  - Please go easy on me...
+  - Press Z at the right time to kill me.
+  - Hey. I found your nose. It was in my business!
   possibleCombatObj:
   - gameSprite: {fileID: -2435038647587531741, guid: 87c71c4bcaf52bf43be88648abdc66b4,
       type: 3}

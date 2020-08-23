@@ -16,7 +16,11 @@ public class GameStorage : PersistableObject {
         GameManager.Instance.AfterLoad();
     }
 
-    public void SaveGame() {
+    public void SaveGame(bool force = true) {
+        if (!force && this.timeSinceLastSave <= autoSaveTime / 2 ) {
+            return;
+        }
+
         this.timeSinceLastSave = 0;
         storage.Save(this);
     }

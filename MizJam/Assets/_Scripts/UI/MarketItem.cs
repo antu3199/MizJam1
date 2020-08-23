@@ -83,7 +83,7 @@ public class MarketItem : MonoBehaviour
             item.SetOwned(item.owned + 1);
             GameManager.Instance.gameState.AddGold(-item.cost);
             //this.UpdateAll();
-            GameManager.Instance.gameStorage.SaveGame();
+            GameManager.Instance.gameStorage.SaveGame(false);
         }
     }
 }

@@ -12,7 +12,6 @@ public class PlayerMoveableObject : MoveableObject
 
 
 
-
     public void Initialize(float maxHorizontalMoveSpeed) {
         this.maxHorizontalMoveSpeed = maxHorizontalMoveSpeed;
     }
@@ -21,6 +20,9 @@ public class PlayerMoveableObject : MoveableObject
     // Update is called once per frame
     void Update()
     {
+        if (controller.enabled == false) {
+            return;
+        }
 
         if (!controller.isGrounded) {
             moveDirection.y -= gravity * Time.deltaTime;
