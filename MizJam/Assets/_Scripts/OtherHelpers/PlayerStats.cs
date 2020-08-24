@@ -52,11 +52,14 @@ public class PlayerStats : MonoBehaviour
         this.hp = GetScaledStat(Stat.MAX_HEALTH, 0);
     }
 
-    public void UpdateMaxHealth(double reference) {
+    public void UpdateMaxHealth(double reference, double oldHealth) {
         double newHealth = this.GetScaledStat(Stat.MAX_HEALTH, reference);
-        double delta = newHealth - this.hp;
-        this.hp += delta;
-        this.hp = System.Math.Min(this.hp, newHealth);
+        double delta = newHealth - oldHealth;
+        if (delta > 0) {
+            this.hp += delta;
+        } else {
+            this.hp = newHealth;
+        }
     }
 
     public virtual double GetScaledStat(Stat stat, double reference) {

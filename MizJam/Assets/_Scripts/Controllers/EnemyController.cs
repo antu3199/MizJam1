@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         onDeath += moveableObject.LockHorizontalMovement;
         onDeath += RemoveDamageHitbox;
         hittableObject.Initialize(onDeath, reference);
-        this.playerStats.UpdateMaxHealth(reference);
+        this.playerStats.UpdateMaxHealth(reference, 0);
         this.playerStats.SetValues(combatResObj.baseAttack, combatResObj.attackScaling, combatResObj.baseDefence, combatResObj.defenceScaling, combatResObj.baseMaxHealth, combatResObj.healthScaling);
         this.damageInteractable.Initialize(this);
     }
@@ -42,10 +42,11 @@ public class EnemyController : MonoBehaviour
         PlayerStat attackStat = playerStats.GetRawStat(Stat.ATTACK);
         attackStat.value *= 2;
 
+        double oldHealth = playerStats.GetScaledStat(Stat.MAX_HEALTH, this.reference);
         PlayerStat healthStat = playerStats.GetRawStat(Stat.MAX_HEALTH);
         healthStat.value *= 100;
 
-        this.playerStats.UpdateMaxHealth(this.reference);
+        this.playerStats.UpdateMaxHealth(this.reference, oldHealth);
 
         foreach (Reward reward in this.hittableObject.killRewards) {
             reward.value *= 100;

@@ -10,7 +10,7 @@ public class GameState : PersistableObject
 
     public void Initialize() {
         playerStats.Initialize();
-        playerStats.UpdateMaxHealth(this.GPS);
+        playerStats.UpdateMaxHealth(this.GPS, 0);
     }
 
     public void AfterLoad() {
@@ -32,7 +32,9 @@ public class GameState : PersistableObject
             Messenger.Broadcast<ResourceUpdate>(Messages.OnGPSUpdate, new ResourceUpdate(Resource.GPS, GPS, this.GPS));
         }
 
-        playerStats.UpdateMaxHealth(this.GPS);
+
+        double oldHealth = playerStats.GetScaledStat(Stat.MAX_HEALTH, oldGPS);
+        playerStats.UpdateMaxHealth(this.GPS, oldHealth);
 
         this.UpdatePlayerStats();
     }
