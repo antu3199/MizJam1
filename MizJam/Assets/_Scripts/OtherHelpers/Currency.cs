@@ -75,6 +75,6 @@ public class Currency
     }
 
     public static double GetNumAscendPoints(double goldValue) {
-        return Math.Sqrt( goldValue / Math.Pow(10, 11));
+        return Math.Sqrt( goldValue / Math.Pow(10, 10));
     }
 }
